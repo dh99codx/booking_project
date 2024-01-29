@@ -1,0 +1,50 @@
+Given Name
+
+Family Name
+
+DOB
+
+Address
+
+Mobile Number
+
+Email Address
+
+Password
+
+Confirm Password
+
+News letter Subscription - Check box
+
+Privacy policy and terms of Condition - Check box
+
+
+----------------------------------------------------
+
+
+
+name
+
+family_name
+
+dob
+
+address
+
+mobile_number
+
+email_address
+
+password
+
+confirm_password
+
+news_letter_subscription - Check box
+
+privacy_policy_and_terms_of_condition - Check box
+
+------------------------------------------------
+
+
+
+
