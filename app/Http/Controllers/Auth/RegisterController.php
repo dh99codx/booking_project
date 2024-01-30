@@ -49,10 +49,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255','min:3'],
+            'given_name' => ['required', 'string', 'max:255','min:3'],
+            'middle_name' => ['required', 'string', 'max:255','min:3'],
+            'family_name' => ['required', 'string', 'max:255','min:3'],
             'email' => ['required', 'string', 'email:rfc,dns', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'family_name' => ['required', 'max:255','min:3','string'],
             'dob' => ['required', 'date'],
             'address' => ['required', 'max:255', 'string','min:3'],
             'mobile_number' => ['required', 'digits:10'],
@@ -72,9 +73,10 @@ class RegisterController extends Controller
 
         if ($news_letter_subscription && $privacy_policy_and_terms_of_condition){
             return User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
+                'given_name' => $data['given_name'],
+                'middle_name' => $data['middle_name'],
                 'family_name' => $data['family_name'],
+                'email' => $data['email'],
                 'dob' => ($data['dob']),
                 'address' => $data['address'],
                 'mobile_number' => $data['mobile_number'],
@@ -85,9 +87,10 @@ class RegisterController extends Controller
         } elseif ($news_letter_subscription)
         {
             return User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
+                'given_name' => $data['given_name'],
+                'middle_name' => $data['middle_name'],
                 'family_name' => $data['family_name'],
+                'email' => $data['email'],
                 'dob' => ($data['dob']),
                 'address' => $data['address'],
                 'mobile_number' => $data['mobile_number'],
@@ -97,9 +100,10 @@ class RegisterController extends Controller
         } elseif ($privacy_policy_and_terms_of_condition)
         {
             return User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
+                'given_name' => $data['given_name'],
+                'middle_name' => $data['middle_name'],
                 'family_name' => $data['family_name'],
+                'email' => $data['email'],
                 'dob' => ($data['dob']),
                 'address' => $data['address'],
                 'mobile_number' => $data['mobile_number'],
@@ -109,9 +113,10 @@ class RegisterController extends Controller
 
         } else {
             return User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
+                'given_name' => $data['given_name'],
+                'middle_name' => $data['middle_name'],
                 'family_name' => $data['family_name'],
+                'email' => $data['email'],
                 'dob' => ($data['dob']),
                 'address' => $data['address'],
                 'mobile_number' => $data['mobile_number'],
