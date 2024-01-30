@@ -3,11 +3,22 @@
 <div class="row">
     <x-inputs.group class="col-sm-12">
         <x-inputs.text
-            name="name"
-            label="Name"
-            :value="old('name', ($editing ? $user->name : ''))"
+            name="given_name"
+            label="Given Name"
+            :value="old('given_name', ($editing ? $user->given_name : ''))"
             maxlength="255"
-            placeholder="Name"
+            placeholder="Given Name"
+            required
+        ></x-inputs.text>
+    </x-inputs.group>
+
+    <x-inputs.group class="col-sm-12">
+        <x-inputs.text
+            name="middle_name"
+            label="Middle Name"
+            :value="old('middle_name', ($editing ? $user->middle_name : ''))"
+            maxlength="255"
+            placeholder="Middle Name"
             required
         ></x-inputs.text>
     </x-inputs.group>

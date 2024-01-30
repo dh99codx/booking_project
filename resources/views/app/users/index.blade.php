@@ -45,7 +45,10 @@
                     <thead>
                         <tr>
                             <th class="text-left">
-                                @lang('crud.users.inputs.name')
+                                @lang('crud.users.inputs.given_name')
+                            </th>
+                            <th class="text-left">
+                                @lang('crud.users.inputs.middle_name')
                             </th>
                             <th class="text-left">
                                 @lang('crud.users.inputs.family_name')
@@ -76,7 +79,8 @@
                     <tbody>
                         @forelse($users as $user)
                         <tr>
-                            <td>{{ $user->name ?? '-' }}</td>
+                            <td>{{ $user->given_name ?? '-' }}</td>
+                            <td>{{ $user->middle_name ?? '-' }}</td>
                             <td>{{ $user->family_name ?? '-' }}</td>
                             <td>{{ $user->dob ?? '-' }}</td>
                             <td>{{ $user->address ?? '-' }}</td>
@@ -133,7 +137,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="9">
+                            <td colspan="10">
                                 @lang('crud.common.no_items_found')
                             </td>
                         </tr>
@@ -141,7 +145,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="9">{!! $users->render() !!}</td>
+                            <td colspan="10">{!! $users->render() !!}</td>
                         </tr>
                     </tfoot>
                 </table>

@@ -37,7 +37,7 @@ class UserTest extends TestCase
 
         $response = $this->getJson(route('api.users.index'));
 
-        $response->assertOk()->assertSee($users[0]->name);
+        $response->assertOk()->assertSee($users[0]->given_name);
     }
 
     /**
@@ -68,7 +68,8 @@ class UserTest extends TestCase
         $user = User::factory()->create();
 
         $data = [
-            'name' => $this->faker->name(),
+            'given_name' => $this->faker->name(),
+            'middle_name' => $this->faker->text(255),
             'family_name' => $this->faker->text(255),
             'dob' => $this->faker->date(),
             'address' => $this->faker->address(),

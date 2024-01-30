@@ -30,7 +30,8 @@ return [
         'edit_title' => 'Edit User',
         'show_title' => 'Show User',
         'inputs' => [
-            'name' => 'Name',
+            'given_name' => 'Given Name',
+            'middle_name' => 'Middle Name',
             'family_name' => 'Family Name',
             'dob' => 'Dob',
             'address' => 'Address',

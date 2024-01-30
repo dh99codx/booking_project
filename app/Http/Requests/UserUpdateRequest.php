@@ -21,8 +21,9 @@ class UserUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'max:255','min:3', 'string'],
-            'family_name' => ['required', 'max:255','min:3', 'string'],
+            'given_name' => ['required', 'max:255','min:3', 'string'],
+            'middle_name' => ['required', 'max:255','min:3', 'string'],
+            'family_name' => ['required', 'max:255','min:3','string'],
             'dob' => ['required', 'date'],
             'address' => ['required', 'max:255', 'string','min:3'],
             'mobile_number' => ['required', 'digits:10'],
