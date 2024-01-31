@@ -113,6 +113,7 @@ class SubscriberControllerTest extends TestCase
         $subscriberType = SubscriberType::factory()->create();
 
         $data = [
+            'status' => $this->faker->boolean(),
             'email' => $this->faker->email(),
             'subscriber_type_id' => $subscriberType->id,
         ];

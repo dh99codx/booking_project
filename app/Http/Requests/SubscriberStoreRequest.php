@@ -20,6 +20,7 @@ class SubscriberStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'status' => ['required', 'boolean'],
             'email' => ['required', 'email:rfc,dns','unique:subscribers,email'],
             'subscriber_type_id' => ['required', 'exists:subscriber_types,id'],
         ];

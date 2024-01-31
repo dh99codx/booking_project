@@ -50,6 +50,9 @@
                     <thead>
                         <tr>
                             <th class="text-left">
+                                @lang('crud.subscribers.inputs.status')
+                            </th>
+                            <th class="text-left">
                                 @lang('crud.subscribers.inputs.email')
                             </th>
                             <th class="text-left">
@@ -63,6 +66,7 @@
                     <tbody>
                         @forelse($subscribers as $subscriber)
                         <tr>
+                            <td>{{ $subscriber->status ?? '-' }}</td>
                             <td>{{ $subscriber->email ?? '-' }}</td>
                             <td>
                                 {{ optional($subscriber->subscriberType)->name
@@ -116,7 +120,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="3">
+                            <td colspan="4">
                                 @lang('crud.common.no_items_found')
                             </td>
                         </tr>
@@ -124,7 +128,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="3">{!! $subscribers->render() !!}</td>
+                            <td colspan="4">{!! $subscribers->render() !!}</td>
                         </tr>
                     </tfoot>
                 </table>

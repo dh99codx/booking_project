@@ -63,6 +63,6 @@ Route::prefix('/')
             'destroy',
         ])->name('all-family-details.destroy');
 
-        Route::resource('subscriber-types', SubscriberTypeController::class);
         Route::resource('subscribers', SubscriberController::class);
+        Route::resource('subscriber-types', SubscriberTypeController::class);
     })->middleware('verified');

@@ -43,6 +43,8 @@ Route::name('api.')
             FamilyDetailsController::class
         );
 
+        Route::apiResource('subscribers', SubscriberController::class);
+
         Route::apiResource('subscriber-types', SubscriberTypeController::class);
 
         // SubscriberType Subscribers
@@ -54,6 +56,4 @@ Route::name('api.')
             SubscriberTypeSubscribersController::class,
             'store',
         ])->name('subscriber-types.subscribers.store');
-
-        Route::apiResource('subscribers', SubscriberController::class);
     });

@@ -34,6 +34,7 @@ class SubscriberTypeSubscribersController extends Controller
         $this->authorize('create', Subscriber::class);
 
         $validated = $request->validate([
+            'status' => ['required', 'boolean'],
             'email' => ['required', 'email'],
         ]);
 

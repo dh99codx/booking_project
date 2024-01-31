@@ -2,6 +2,14 @@
 
 <div class="row">
     <x-inputs.group class="col-sm-12">
+        <x-inputs.checkbox
+            name="status"
+            label="Status"
+            :checked="old('status', ($editing ? $subscriber->status : 0))"
+        ></x-inputs.checkbox>
+    </x-inputs.group>
+
+    <x-inputs.group class="col-sm-12">
         <x-inputs.email
             name="email"
             label="Email"

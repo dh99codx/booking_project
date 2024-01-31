@@ -11,9 +11,13 @@ class Subscriber extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['email', 'subscriber_type_id'];
+    protected $fillable = ['status', 'email', 'subscriber_type_id'];
 
     protected $searchableFields = ['*'];
+
+    protected $casts = [
+        'status' => 'boolean',
+    ];
 
     public function subscriberType()
     {

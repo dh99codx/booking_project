@@ -23,6 +23,7 @@ class SubscriberFactory extends Factory
     public function definition(): array
     {
         return [
+            'status' => $this->faker->boolean(),
             'email' => $this->faker->email(),
             'subscriber_type_id' => \App\Models\SubscriberType::factory(),
         ];

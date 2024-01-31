@@ -65,6 +65,20 @@ return [
         ],
     ],
 
+    'subscribers' => [
+        'name' => 'Subscribers',
+        'index_title' => 'Subscribers List',
+        'new_title' => 'New Subscriber',
+        'create_title' => 'Create Subscriber',
+        'edit_title' => 'Edit Subscriber',
+        'show_title' => 'Show Subscriber',
+        'inputs' => [
+            'status' => 'Status',
+            'email' => 'Email',
+            'subscriber_type_id' => 'Subscriber Type',
+        ],
+    ],
+
     'subscriber_types' => [
         'name' => 'Subscriber Types',
         'index_title' => 'SubscriberTypes List',
@@ -74,19 +88,6 @@ return [
         'show_title' => 'Show SubscriberType',
         'inputs' => [
             'name' => 'Name',
-        ],
-    ],
-
-    'subscribers' => [
-        'name' => 'Subscribers',
-        'index_title' => 'Subscribers List',
-        'new_title' => 'New Subscriber',
-        'create_title' => 'Create Subscriber',
-        'edit_title' => 'Edit Subscriber',
-        'show_title' => 'Show Subscriber',
-        'inputs' => [
-            'email' => 'Email',
-            'subscriber_type_id' => 'Subscriber Type',
         ],
     ],
 
