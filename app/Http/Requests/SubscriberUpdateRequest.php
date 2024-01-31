@@ -21,7 +21,7 @@ class SubscriberUpdateRequest extends FormRequest
     {
         return [
             'status' => ['required', 'boolean'],
-            'email' => ['required', 'email:rfc,dns','unique:subscribers,email'],
+            'email' => ['required', 'email:rfc,dns'],
             'subscriber_type_id' => ['required', 'exists:subscriber_types,id'],
             'frequency_id' => ['required', 'exists:frequencies,id'],
         ];

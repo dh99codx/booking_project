@@ -69,7 +69,7 @@
                     <tbody>
                         @forelse($subscribers as $subscriber)
                         <tr>
-                            <td>{{ $subscriber->status ?? '-' }}</td>
+                            <td>{{ $subscriber->status ?? '-' }} {{$subscriber->status ? '' : 0}}</td>
                             <td>{{ $subscriber->email ?? '-' }}</td>
                             <td>
                                 {{ optional($subscriber->subscriberType)->name
