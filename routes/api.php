@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\PermissionController;
+use App\Http\Controllers\Api\FamilyDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,9 @@ Route::name('api.')
         Route::apiResource('permissions', PermissionController::class);
 
         Route::apiResource('users', UserController::class);
+
+        Route::apiResource(
+            'all-family-details',
+            FamilyDetailsController::class
+        );
     });

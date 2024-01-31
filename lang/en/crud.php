@@ -44,6 +44,27 @@ return [
         ],
     ],
 
+    'all_family_details' => [
+        'name' => 'All Family Details',
+        'index_title' => 'AllFamilyDetails List',
+        'new_title' => 'New Family details',
+        'create_title' => 'Create FamilyDetails',
+        'edit_title' => 'Edit FamilyDetails',
+        'show_title' => 'Show FamilyDetails',
+        'inputs' => [
+            'given_name' => 'Given Name',
+            'middle_name' => 'Middle Name',
+            'family_name' => 'Family Name',
+            'email_address' => 'Email Address',
+            'contact_number' => 'Contact Number',
+            'dob' => 'Dob',
+            'relationship' => 'Relationship',
+            'gothram' => 'Gothram',
+            'rashi' => 'Rashi',
+            'natchatram' => 'Natchatram',
+        ],
+    ],
+
     'roles' => [
         'name' => 'Roles',
         'index_title' => 'Roles List',

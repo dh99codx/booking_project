@@ -15,6 +15,11 @@ class PermissionsSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Create default permissions
+        Permission::create(['name' => 'list allfamilydetails']);
+        Permission::create(['name' => 'view allfamilydetails']);
+        Permission::create(['name' => 'create allfamilydetails']);
+        Permission::create(['name' => 'update allfamilydetails']);
+        Permission::create(['name' => 'delete allfamilydetails']);
 
         // Create user role and assign existing permissions
         $currentPermissions = Permission::all();

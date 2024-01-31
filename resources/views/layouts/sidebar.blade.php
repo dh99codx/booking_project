@@ -40,6 +40,14 @@
                                 </a>
                             </li>
                             @endcan
+                            @can('view-any', App\Models\FamilyDetails::class)
+                            <li class="nav-item">
+                                <a href="{{ route('all-family-details.index') }}" class="nav-link">
+                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                    <p>All Family Details</p>
+                                </a>
+                            </li>
+                            @endcan
                     </ul>
                 </li>
 
