@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;
+use App\Models\Frequency;
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
 use App\Models\SubscriberType;
@@ -37,8 +38,12 @@ class SubscriberController extends Controller
         $this->authorize('create', Subscriber::class);
 
         $subscriberTypes = SubscriberType::pluck('name', 'id');
+        $frequencies = Frequency::pluck('name', 'id');
 
-        return view('app.subscribers.create', compact('subscriberTypes'));
+        return view(
+            'app.subscribers.create',
+            compact('subscriberTypes', 'frequencies')
+        );
     }
 
     /**
@@ -75,10 +80,11 @@ class SubscriberController extends Controller
         $this->authorize('update', $subscriber);
 
         $subscriberTypes = SubscriberType::pluck('name', 'id');
+        $frequencies = Frequency::pluck('name', 'id');
 
         return view(
             'app.subscribers.edit',
-            compact('subscriber', 'subscriberTypes')
+            compact('subscriber', 'subscriberTypes', 'frequencies')
         );
     }
 

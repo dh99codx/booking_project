@@ -5,6 +5,7 @@ namespace Tests\Feature\Controllers;
 use App\Models\User;
 use App\Models\Subscriber;
 
+use App\Models\Frequency;
 use App\Models\SubscriberType;
 
 use Tests\TestCase;
@@ -111,11 +112,13 @@ class SubscriberControllerTest extends TestCase
         $subscriber = Subscriber::factory()->create();
 
         $subscriberType = SubscriberType::factory()->create();
+        $frequency = Frequency::factory()->create();
 
         $data = [
             'status' => $this->faker->boolean(),
             'email' => $this->faker->email(),
             'subscriber_type_id' => $subscriberType->id,
+            'frequency_id' => $frequency->id,
         ];
 
         $response = $this->put(route('subscribers.update', $subscriber), $data);

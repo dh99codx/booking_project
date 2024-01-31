@@ -21,6 +21,12 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update allfamilydetails']);
         Permission::create(['name' => 'delete allfamilydetails']);
 
+        Permission::create(['name' => 'list frequencies']);
+        Permission::create(['name' => 'view frequencies']);
+        Permission::create(['name' => 'create frequencies']);
+        Permission::create(['name' => 'update frequencies']);
+        Permission::create(['name' => 'delete frequencies']);
+
         Permission::create(['name' => 'list subscribers']);
         Permission::create(['name' => 'view subscribers']);
         Permission::create(['name' => 'create subscribers']);

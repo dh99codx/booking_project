@@ -48,11 +48,11 @@
                                 </a>
                             </li>
                             @endcan
-                            @can('view-any', App\Models\Subscriber::class)
+                            @can('view-any', App\Models\Frequency::class)
                             <li class="nav-item">
-                                <a href="{{ route('subscribers.index') }}" class="nav-link">
+                                <a href="{{ route('frequencies.index') }}" class="nav-link">
                                     <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                    <p>Subscribers</p>
+                                    <p>Frequencies</p>
                                 </a>
                             </li>
                             @endcan
@@ -61,6 +61,14 @@
                                 <a href="{{ route('subscriber-types.index') }}" class="nav-link">
                                     <i class="nav-icon icon ion-md-radio-button-off"></i>
                                     <p>Subscriber Types</p>
+                                </a>
+                            </li>
+                            @endcan
+                            @can('view-any', App\Models\Subscriber::class)
+                            <li class="nav-item">
+                                <a href="{{ route('subscribers.index') }}" class="nav-link">
+                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                    <p>Subscribers</p>
                                 </a>
                             </li>
                             @endcan

@@ -23,6 +23,7 @@ class SubscriberStoreRequest extends FormRequest
             'status' => ['required', 'boolean'],
             'email' => ['required', 'email:rfc,dns','unique:subscribers,email'],
             'subscriber_type_id' => ['required', 'exists:subscriber_types,id'],
+            'frequency_id' => ['required', 'exists:frequencies,id'],
         ];
     }
 }

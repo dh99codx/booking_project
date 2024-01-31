@@ -25,9 +25,9 @@
                 </form>
             </div>
             <div class="col-md-6 text-right">
-                @can('create', App\Models\Subscriber::class)
+                @can('create', App\Models\Frequency::class)
                 <a
-                    href="{{ route('subscribers.create') }}"
+                    href="{{ route('frequencies.create') }}"
                     class="btn btn-primary"
                 >
                     <i class="icon ion-md-add"></i> @lang('crud.common.create')
@@ -41,7 +41,7 @@
         <div class="card-body">
             <div style="display: flex; justify-content: space-between;">
                 <h4 class="card-title">
-                    @lang('crud.subscribers.index_title')
+                    @lang('crud.frequencies.index_title')
                 </h4>
             </div>
 
@@ -50,16 +50,10 @@
                     <thead>
                         <tr>
                             <th class="text-left">
-                                @lang('crud.subscribers.inputs.status')
+                                @lang('crud.frequencies.inputs.name')
                             </th>
-                            <th class="text-left">
-                                @lang('crud.subscribers.inputs.email')
-                            </th>
-                            <th class="text-left">
-                                @lang('crud.subscribers.inputs.subscriber_type_id')
-                            </th>
-                            <th class="text-left">
-                                @lang('crud.subscribers.inputs.frequency_id')
+                            <th class="text-right">
+                                @lang('crud.frequencies.inputs.days')
                             </th>
                             <th class="text-center">
                                 @lang('crud.common.actions')
@@ -67,27 +61,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($subscribers as $subscriber)
+                        @forelse($frequencies as $frequency)
                         <tr>
-                            <td>{{ $subscriber->status ?? '-' }}</td>
-                            <td>{{ $subscriber->email ?? '-' }}</td>
-                            <td>
-                                {{ optional($subscriber->subscriberType)->name
-                                ?? '-' }}
-                            </td>
-                            <td>
-                                {{ optional($subscriber->frequency)->name ?? '-'
-                                }}
-                            </td>
+                            <td>{{ $frequency->name ?? '-' }}</td>
+                            <td>{{ $frequency->days ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div
                                     role="group"
                                     aria-label="Row Actions"
                                     class="btn-group"
                                 >
-                                    @can('update', $subscriber)
+                                    @can('update', $frequency)
                                     <a
-                                        href="{{ route('subscribers.edit', $subscriber) }}"
+                                        href="{{ route('frequencies.edit', $frequency) }}"
                                     >
                                         <button
                                             type="button"
@@ -96,9 +82,9 @@
                                             <i class="icon ion-md-create"></i>
                                         </button>
                                     </a>
-                                    @endcan @can('view', $subscriber)
+                                    @endcan @can('view', $frequency)
                                     <a
-                                        href="{{ route('subscribers.show', $subscriber) }}"
+                                        href="{{ route('frequencies.show', $frequency) }}"
                                     >
                                         <button
                                             type="button"
@@ -107,9 +93,9 @@
                                             <i class="icon ion-md-eye"></i>
                                         </button>
                                     </a>
-                                    @endcan @can('delete', $subscriber)
+                                    @endcan @can('delete', $frequency)
                                     <form
-                                        action="{{ route('subscribers.destroy', $subscriber) }}"
+                                        action="{{ route('frequencies.destroy', $frequency) }}"
                                         method="POST"
                                         onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
                                     >
@@ -127,7 +113,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="5">
+                            <td colspan="3">
                                 @lang('crud.common.no_items_found')
                             </td>
                         </tr>
@@ -135,7 +121,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5">{!! $subscribers->render() !!}</td>
+                            <td colspan="3">{!! $frequencies->render() !!}</td>
                         </tr>
                     </tfoot>
                 </table>

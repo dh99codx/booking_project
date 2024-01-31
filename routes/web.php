@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\FrequencyController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\FamilyDetailsController;
@@ -63,6 +64,7 @@ Route::prefix('/')
             'destroy',
         ])->name('all-family-details.destroy');
 
-        Route::resource('subscribers', SubscriberController::class);
+        Route::resource('frequencies', FrequencyController::class);
         Route::resource('subscriber-types', SubscriberTypeController::class);
+        Route::resource('subscribers', SubscriberController::class);
     })->middleware('verified');

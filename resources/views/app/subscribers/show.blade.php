@@ -27,6 +27,13 @@
                         }}</span
                     >
                 </div>
+                <div class="mb-4">
+                    <h5>@lang('crud.subscribers.inputs.frequency_id')</h5>
+                    <span
+                        >{{ optional($subscriber->frequency)->name ?? '-'
+                        }}</span
+                    >
+                </div>
             </div>
 
             <div class="mt-4">

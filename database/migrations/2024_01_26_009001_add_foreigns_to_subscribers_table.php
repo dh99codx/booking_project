@@ -17,6 +17,13 @@ return new class extends Migration {
                 ->on('subscriber_types')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
+
+            $table
+                ->foreign('frequency_id')
+                ->references('id')
+                ->on('frequencies')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
         });
     }
 
@@ -27,6 +34,7 @@ return new class extends Migration {
     {
         Schema::table('subscribers', function (Blueprint $table) {
             $table->dropForeign(['subscriber_type_id']);
+            $table->dropForeign(['frequency_id']);
         });
     }
 };

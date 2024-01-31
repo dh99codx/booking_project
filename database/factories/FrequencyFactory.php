@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Subscriber;
+use App\Models\Frequency;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SubscriberFactory extends Factory
+class FrequencyFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Subscriber::class;
+    protected $model = Frequency::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,8 @@ class SubscriberFactory extends Factory
     public function definition(): array
     {
         return [
-            'status' => $this->faker->boolean(),
-            'email' => $this->faker->email(),
-            'subscriber_type_id' => \App\Models\SubscriberType::factory(),
-            'frequency_id' => \App\Models\Frequency::factory(),
+            'name' => $this->faker->text(255),
+            'days' => $this->faker->randomNumber(0),
         ];
     }
 }

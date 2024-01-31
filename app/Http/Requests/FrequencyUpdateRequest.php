@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SubscriberUpdateRequest extends FormRequest
+class FrequencyUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,10 +20,8 @@ class SubscriberUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'status' => ['required', 'boolean'],
-            'email' => ['required', 'email:rfc,dns','unique:subscribers,email'],
-            'subscriber_type_id' => ['required', 'exists:subscriber_types,id'],
-            'frequency_id' => ['required', 'exists:frequencies,id'],
+            'name' => ['required', 'max:255', 'string'],
+            'days' => ['required', 'numeric'],
         ];
     }
 }

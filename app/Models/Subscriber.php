@@ -11,7 +11,12 @@ class Subscriber extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['status', 'email', 'subscriber_type_id'];
+    protected $fillable = [
+        'status',
+        'email',
+        'subscriber_type_id',
+        'frequency_id',
+    ];
 
     protected $searchableFields = ['*'];
 
@@ -22,5 +27,10 @@ class Subscriber extends Model
     public function subscriberType()
     {
         return $this->belongsTo(SubscriberType::class);
+    }
+
+    public function frequency()
+    {
+        return $this->belongsTo(Frequency::class);
     }
 }

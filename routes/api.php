@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\FrequencyController;
 use App\Http\Controllers\Api\SubscriberController;
 use App\Http\Controllers\Api\PermissionController;
 use App\Http\Controllers\Api\FamilyDetailsController;
 use App\Http\Controllers\Api\SubscriberTypeController;
+use App\Http\Controllers\Api\FrequencySubscribersController;
 use App\Http\Controllers\Api\SubscriberTypeSubscribersController;
 
 /*
@@ -43,7 +45,17 @@ Route::name('api.')
             FamilyDetailsController::class
         );
 
-        Route::apiResource('subscribers', SubscriberController::class);
+        Route::apiResource('frequencies', FrequencyController::class);
+
+        // Frequency Subscribers
+        Route::get('/frequencies/{frequency}/subscribers', [
+            FrequencySubscribersController::class,
+            'index',
+        ])->name('frequencies.subscribers.index');
+        Route::post('/frequencies/{frequency}/subscribers', [
+            FrequencySubscribersController::class,
+            'store',
+        ])->name('frequencies.subscribers.store');
 
         Route::apiResource('subscriber-types', SubscriberTypeController::class);
 
@@ -56,4 +68,6 @@ Route::name('api.')
             SubscriberTypeSubscribersController::class,
             'store',
         ])->name('subscriber-types.subscribers.store');
+
+        Route::apiResource('subscribers', SubscriberController::class);
     });
