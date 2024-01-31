@@ -20,16 +20,16 @@ class FamilyDetailsStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'given_name' => ['required', 'max:255', 'string'],
-            'middle_name' => ['required', 'max:255', 'string'],
-            'family_name' => ['required', 'max:255', 'string'],
-            'email_address' => ['required', 'max:255', 'string'],
-            'contact_number' => ['required', 'max:255', 'string'],
+            'given_name' => ['required', 'max:255','min:3','string'],
+            'middle_name' => ['required', 'max:255','min:3','string'],
+            'family_name' => ['required', 'max:255','min:3','string'],
+            'email_address' => ['required', 'unique:users,email', 'email:rfc,dns'],
+            'contact_number' => ['required', 'digits:10'],
             'dob' => ['required', 'date'],
-            'relationship' => ['required', 'max:255', 'string'],
-            'gothram' => ['required', 'max:255', 'string'],
-            'rashi' => ['required', 'max:255', 'string'],
-            'natchatram' => ['required', 'max:255', 'string'],
+            'relationship' => ['required', 'max:255','min:3','string'],
+            'gothram' => ['required', 'max:255', 'string','min:3'],
+            'rashi' => ['required', 'max:255', 'string','min:3'],
+            'natchatram' => ['required', 'max:255', 'string','min:3'],
         ];
     }
 }
