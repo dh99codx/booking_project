@@ -21,6 +21,18 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update allfamilydetails']);
         Permission::create(['name' => 'delete allfamilydetails']);
 
+        Permission::create(['name' => 'list subscribers']);
+        Permission::create(['name' => 'view subscribers']);
+        Permission::create(['name' => 'create subscribers']);
+        Permission::create(['name' => 'update subscribers']);
+        Permission::create(['name' => 'delete subscribers']);
+
+        Permission::create(['name' => 'list subscribertypes']);
+        Permission::create(['name' => 'view subscribertypes']);
+        Permission::create(['name' => 'create subscribertypes']);
+        Permission::create(['name' => 'update subscribertypes']);
+        Permission::create(['name' => 'delete subscribertypes']);
+
         // Create user role and assign existing permissions
         $currentPermissions = Permission::all();
         $userRole = Role::create(['name' => 'user']);

@@ -5,8 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\SubscriberController;
 use App\Http\Controllers\Api\PermissionController;
 use App\Http\Controllers\Api\FamilyDetailsController;
+use App\Http\Controllers\Api\SubscriberTypeController;
+use App\Http\Controllers\Api\SubscriberTypeSubscribersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +42,18 @@ Route::name('api.')
             'all-family-details',
             FamilyDetailsController::class
         );
+
+        Route::apiResource('subscriber-types', SubscriberTypeController::class);
+
+        // SubscriberType Subscribers
+        Route::get('/subscriber-types/{subscriberType}/subscribers', [
+            SubscriberTypeSubscribersController::class,
+            'index',
+        ])->name('subscriber-types.subscribers.index');
+        Route::post('/subscriber-types/{subscriberType}/subscribers', [
+            SubscriberTypeSubscribersController::class,
+            'store',
+        ])->name('subscriber-types.subscribers.store');
+
+        Route::apiResource('subscribers', SubscriberController::class);
     });
