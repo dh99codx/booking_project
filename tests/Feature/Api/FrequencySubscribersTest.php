@@ -44,7 +44,7 @@ class FrequencySubscribersTest extends TestCase
             route('api.frequencies.subscribers.index', $frequency)
         );
 
-        $response->assertOk()->assertSee($subscribers[0]->email);
+        $response->assertOk()->assertSee($subscribers[0]->token);
     }
 
     /**

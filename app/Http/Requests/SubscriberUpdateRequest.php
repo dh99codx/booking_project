@@ -20,6 +20,7 @@ class SubscriberUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'token' => ['required', 'max:255', 'string'],
             'status' => ['required', 'boolean'],
             'email' => ['required', 'email:rfc,dns'],
             'subscriber_type_id' => ['required', 'exists:subscriber_types,id'],

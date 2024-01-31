@@ -98,6 +98,7 @@ return [
         'edit_title' => 'Edit Subscriber',
         'show_title' => 'Show Subscriber',
         'inputs' => [
+            'token' => 'Token',
             'status' => 'Status',
             'email' => 'Email',
             'subscriber_type_id' => 'Subscriber Type',

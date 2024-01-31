@@ -41,7 +41,7 @@ class SubscriberTest extends TestCase
 
         $response = $this->getJson(route('api.subscribers.index'));
 
-        $response->assertOk()->assertSee($subscribers[0]->email);
+        $response->assertOk()->assertSee($subscribers[0]->token);
     }
 
     /**
@@ -71,6 +71,7 @@ class SubscriberTest extends TestCase
         $frequency = Frequency::factory()->create();
 
         $data = [
+            'token' => $this->faker->text(),
             'status' => $this->faker->boolean(),
             'email' => $this->faker->email(),
             'subscriber_type_id' => $subscriberType->id,

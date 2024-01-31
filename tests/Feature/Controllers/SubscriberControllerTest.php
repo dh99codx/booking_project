@@ -115,6 +115,7 @@ class SubscriberControllerTest extends TestCase
         $frequency = Frequency::factory()->create();
 
         $data = [
+            'token' => $this->faker->text(),
             'status' => $this->faker->boolean(),
             'email' => $this->faker->email(),
             'subscriber_type_id' => $subscriberType->id,

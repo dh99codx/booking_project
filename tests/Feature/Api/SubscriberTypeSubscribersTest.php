@@ -44,7 +44,7 @@ class SubscriberTypeSubscribersTest extends TestCase
             route('api.subscriber-types.subscribers.index', $subscriberType)
         );
 
-        $response->assertOk()->assertSee($subscribers[0]->email);
+        $response->assertOk()->assertSee($subscribers[0]->token);
     }
 
     /**

@@ -34,6 +34,7 @@ class FrequencySubscribersController extends Controller
         $this->authorize('create', Subscriber::class);
 
         $validated = $request->validate([
+            'token' => ['required', 'max:255', 'string'],
             'status' => ['required', 'boolean'],
             'email' => ['required', 'email'],
             'subscriber_type_id' => ['required', 'exists:subscriber_types,id'],

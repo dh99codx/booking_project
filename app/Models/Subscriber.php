@@ -12,6 +12,7 @@ class Subscriber extends Model
     use Searchable;
 
     protected $fillable = [
+        'token',
         'status',
         'email',
         'subscriber_type_id',

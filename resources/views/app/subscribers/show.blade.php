@@ -13,6 +13,10 @@
 
             <div class="mt-4">
                 <div class="mb-4">
+                    <h5>@lang('crud.subscribers.inputs.token')</h5>
+                    <span>{{ $subscriber->token ?? '-' }}</span>
+                </div>
+                <div class="mb-4">
                     <h5>@lang('crud.subscribers.inputs.status')</h5>
                     <span>{{ $subscriber->status ?? '-' }}</span>
                 </div>
