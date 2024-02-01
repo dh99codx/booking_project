@@ -9,7 +9,7 @@
 
 
 <a href="{{url('verify/'. $data['token'] . '/' . $data['email'])}}">
-    Activate Your Account
+    Activate Your newsletter subscription
 </a>
 
 </body>

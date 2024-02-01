@@ -12,12 +12,6 @@
             </h4>
 
 
-            @if($message=Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{$message}}</p>
-                </div>
-            @endif
-
             <x-form
                 method="POST"
                 action="{{ route('customer_subscriber_store') }}"
@@ -26,13 +20,6 @@
                 @include('app.customer_subscribe.form-inputs')
 
                 <div class="mt-4">
-                    <a
-                        href="{{ route('subscribers.index') }}"
-                        class="btn btn-light"
-                    >
-                        <i class="icon ion-md-return-left text-primary"></i>
-                        @lang('crud.common.back')
-                    </a>
 
                     <button type="submit" class="btn btn-primary float-right">
                         <i class="icon ion-md-save"></i>

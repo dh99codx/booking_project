@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->boolean('status')->nullable();
             $table->string('email');
             $table->unsignedBigInteger('subscriber_type_id');
-            $table->unsignedBigInteger('frequency_id');
+            $table->unsignedBigInteger('frequency_id')->nullable();
 
             $table->timestamps();
         });

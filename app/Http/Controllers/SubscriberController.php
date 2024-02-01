@@ -182,26 +182,38 @@ class SubscriberController extends Controller
 
         $request->validate([
             'subscriber_type_id'=>'required',
-            'frequency_id'=>'required'
         ]);
 
         $form_data=array(
             'token'=>$token,
             'email'=>$email,
             'subscriber_type_id'=>$request->subscriber_type_id,
-            'frequency_id'=>$request->frequency_id,
         );
 
+        $subscribers = DB::table('subscribers')->where([
+            ['subscriber_type_id', '=', $request->subscriber_type_id],
+            ['email', '=', $email],
+        ])->first();
 
-        Subscriber::create($form_data);
 
 
-        $data = array(
-            'token'=>$token,
-            'email'=>$email,
-        );
+        if ($subscribers)
+        {
+            return redirect()->back()->with('success','You already subscribed');
+        }
+        else
+        {
+            Subscriber::create($form_data);
 
-        Mail::to('john@testing.net')->send(new SendSubscribeEmail($data));
+
+            $data = array(
+                'token'=>$token,
+                'email'=>$email,
+            );
+
+            Mail::to('john@testing.net')->send(new SendSubscribeEmail($data));
+            return redirect()->back()->with('success','Check your email box');
+        }
 
 
     }
