@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('subscribers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('token');
-            $table->boolean('status');
+            $table->boolean('status')->nullable();
             $table->string('email');
             $table->unsignedBigInteger('subscriber_type_id');
             $table->unsignedBigInteger('frequency_id');

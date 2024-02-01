@@ -9,26 +9,24 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SendMailable extends Mailable
+class SendSubscribeEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
+     *
+     * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-
+        $this->data = $data;
     }
 
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
-        return $this->from('john@test.info')->subject('Your Account Now Activated')->view('dynamic_email_template');
+        return $this->from('john@test.info')->subject('Verify as subscriber')->view('emails.verify_as_subscriber')->with('data', $this->data);
     }
+
 }

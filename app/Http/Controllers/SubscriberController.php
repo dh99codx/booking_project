@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendSubscribeEmail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 use App\Models\Frequency;
 use App\Models\Subscriber;
@@ -40,9 +44,12 @@ class SubscriberController extends Controller
         $subscriberTypes = SubscriberType::pluck('name', 'id');
         $frequencies = Frequency::pluck('name', 'id');
 
+        $token = hash('sha256', time());
+
+
         return view(
             'app.subscribers.create',
-            compact('subscriberTypes', 'frequencies')
+            compact('subscriberTypes', 'frequencies','token')
         );
     }
 
@@ -121,4 +128,105 @@ class SubscriberController extends Controller
             ->route('subscribers.index')
             ->withSuccess(__('crud.common.removed'));
     }
+
+
+//    public function test_subscriber(Request $request)
+//    {
+//
+//        $token = hash('sha256', time());
+//
+//        $subscriber = new Subscriber();
+//
+//        $subscriber->token = $token;
+//        $subscriber->status = 1;
+//        $subscriber->email = 'sokfofo@gmail.com';
+//        $subscriber->subscriber_type_id = 3;
+//        $subscriber->frequency_id = 2;
+//
+//        $subscriber->save();
+//
+//
+//        dd('success fully updated');
+//
+//    }
+//
+//    public function test_subscriber_form(Request $request)
+//    {
+//        return view('app.test_form.test_form');
+//    }
+
+
+
+    public function customer_subscriber(Request $request)
+    {
+
+        $subscriberTypes = SubscriberType::pluck('name', 'id');
+        $frequencies = Frequency::pluck('name', 'id');
+
+        $token = hash('sha256', time());
+
+
+        return view(
+            'app.customer_subscribe.create',
+            compact('subscriberTypes', 'frequencies','token')
+        );
+
+    }
+
+    public function customer_subscriber_store(Request $request)
+    {
+
+        $email = Auth::user()->email;
+
+        $token = hash('sha256', time());
+
+        $request->validate([
+            'subscriber_type_id'=>'required',
+            'frequency_id'=>'required'
+        ]);
+
+        $form_data=array(
+            'token'=>$token,
+            'email'=>$email,
+            'subscriber_type_id'=>$request->subscriber_type_id,
+            'frequency_id'=>$request->frequency_id,
+        );
+
+
+        Subscriber::create($form_data);
+
+
+        $data = array(
+            'token'=>$token,
+            'email'=>$email,
+        );
+
+        Mail::to('john@testing.net')->send(new SendSubscribeEmail($data));
+
+
+    }
+
+    public function verify_token(Request $request)
+    {
+
+       $token = request()->segment(2);
+       $email = request()->segment(3);
+
+
+       $subscribers = DB::table('subscribers')->where([
+           ['token', '=', $token],
+           ['email', '=', $email],
+       ])->first();
+
+       $form_data = array(
+           'status'=>1,
+       );
+
+       Subscriber::whereId($subscribers->id)->update($form_data);
+
+       return redirect()->route('customer_subscriber')->with('success','Subscribe success');
+
+    }
+
+
 }

@@ -29,6 +29,10 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
 
+
+Route::post('/test-form',[SubscriberController::class,'test_subscriber'])->name('test_subscriber');
+Route::get('/test-form',[SubscriberController::class,'test_subscriber_form'])->name('test_subscriber_form');
+
 Route::prefix('/')
     ->middleware('auth')
     ->group(function () {
@@ -68,3 +72,13 @@ Route::prefix('/')
         Route::resource('subscriber-types', SubscriberTypeController::class);
         Route::resource('subscribers', SubscriberController::class);
     })->middleware('verified');
+
+
+
+
+Route::get('/customer-subscriber', [SubscriberController::class,'customer_subscriber'])->name('customer_subscriber');
+Route::post('/customer-subscriber-store', [SubscriberController::class,'customer_subscriber_store'])->name('customer_subscriber_store');
+
+/*verify link*/
+Route::get('/verify/{token}/{email}',[SubscriberController::class,'verify_token'])->name('verify-token');
+
