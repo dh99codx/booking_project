@@ -30,4 +30,38 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">
+                <a href="{{ route('subscribers.index') }}" class="mr-4"
+                ><i class="icon ion-md-arrow-back"></i
+                    ></a>
+                Unsubscribe Newsletters
+            </h4>
+            <br>
+            @foreach($subscribers as $data)
+                <form
+                    action="{{ route('subscribers.destroy', $data) }}"
+                    method="POST"
+                    onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
+                >
+                    <br>
+                    @csrf @method('DELETE')
+                    <button
+                        type="submit"
+                        class="btn btn-light text-danger d-inline-block"
+                    >
+                        {{$data->subscriberType->name}}
+                        <i class="icon ion-md-trash"></i>
+                    </button>
+                </form>
+            @endforeach
+        </div>
+    </div>
+</div>
+
+
+
 @endsection

@@ -120,12 +120,11 @@ class SubscriberController extends Controller
         Request $request,
         Subscriber $subscriber
     ): RedirectResponse {
-        $this->authorize('delete', $subscriber);
 
         $subscriber->delete();
 
         return redirect()
-            ->route('subscribers.index')
+            ->back()
             ->withSuccess(__('crud.common.removed'));
     }
 
@@ -165,10 +164,13 @@ class SubscriberController extends Controller
 
         $token = hash('sha256', time());
 
+        $subscribers = Subscriber::with('subscriberType')->where('email', '=', Auth::User()->email)->get();
+
+
 
         return view(
             'app.customer_subscribe.create',
-            compact('subscriberTypes', 'frequencies','token')
+            compact('subscriberTypes', 'frequencies','token','subscribers')
         );
 
     }
