@@ -71,15 +71,22 @@
                                     <p>Subscribers</p>
                                 </a>
                             </li>
-                                @else
+                           @else
+                                    <li class="nav-item">
+                                        <a href="{{ route('customer_subscriber') }}" class="nav-link">
+                                            <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                            <p>Subscribers</p>
+                                        </a>
+                                    </li>
+                            @endcan
+                            @can('view-any', App\Models\UserProfile::class)
                             <li class="nav-item">
-                                <a href="{{ route('customer_subscriber') }}" class="nav-link">
+                                <a href="{{ route('user-profiles.index') }}" class="nav-link">
                                     <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                    <p>Subscribers</p>
+                                    <p>User Profiles</p>
                                 </a>
                             </li>
                             @endcan
-
                     </ul>
                 </li>
 

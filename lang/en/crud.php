@@ -106,6 +106,22 @@ return [
         ],
     ],
 
+    'user_profiles' => [
+        'name' => 'User Profiles',
+        'index_title' => 'UserProfiles List',
+        'new_title' => 'New User profile',
+        'create_title' => 'Create UserProfile',
+        'edit_title' => 'Edit UserProfile',
+        'show_title' => 'Show UserProfile',
+        'inputs' => [
+            'contact_number_landline' => 'Contact Number Landline',
+            'gothram' => 'Gothram',
+            'rashi' => 'Rashi',
+            'natchatram' => 'Natchatram',
+            'profile_picture' => 'Profile Picture',
+        ],
+    ],
+
     'roles' => [
         'name' => 'Roles',
         'index_title' => 'Roles List',
@@ -115,10 +131,6 @@ return [
         'inputs' => [
             'name' => 'Name',
         ],
-    ],
-
-    'manage' => [
-        'name' => 'Manage Account',
     ],
 
     'permissions' => [

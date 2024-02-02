@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\FrequencyController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\FamilyDetailsController;
 use App\Http\Controllers\SubscriberTypeController;
 
@@ -71,6 +72,7 @@ Route::prefix('/')
         Route::resource('frequencies', FrequencyController::class);
         Route::resource('subscriber-types', SubscriberTypeController::class);
         Route::resource('subscribers', SubscriberController::class);
+        Route::resource('user-profiles', UserProfileController::class);
 
         /*role management controller */
 

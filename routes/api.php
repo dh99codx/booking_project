@@ -8,8 +8,10 @@ use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\FrequencyController;
 use App\Http\Controllers\Api\SubscriberController;
 use App\Http\Controllers\Api\PermissionController;
+use App\Http\Controllers\Api\UserProfileController;
 use App\Http\Controllers\Api\FamilyDetailsController;
 use App\Http\Controllers\Api\SubscriberTypeController;
+use App\Http\Controllers\Api\UserUserProfilesController;
 use App\Http\Controllers\Api\FrequencySubscribersController;
 use App\Http\Controllers\Api\SubscriberTypeSubscribersController;
 
@@ -39,6 +41,16 @@ Route::name('api.')
         Route::apiResource('permissions', PermissionController::class);
 
         Route::apiResource('users', UserController::class);
+
+        // User User Profiles
+        Route::get('/users/{user}/user-profiles', [
+            UserUserProfilesController::class,
+            'index',
+        ])->name('users.user-profiles.index');
+        Route::post('/users/{user}/user-profiles', [
+            UserUserProfilesController::class,
+            'store',
+        ])->name('users.user-profiles.store');
 
         Route::apiResource(
             'all-family-details',
@@ -70,4 +82,6 @@ Route::name('api.')
         ])->name('subscriber-types.subscribers.store');
 
         Route::apiResource('subscribers', SubscriberController::class);
+
+        Route::apiResource('user-profiles', UserProfileController::class);
     });

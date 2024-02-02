@@ -10,7 +10,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use HasRoles;
     use Notifiable;
@@ -41,6 +41,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'news_letter_subscription' => 'boolean',
         'privacy_policy_and_terms_of_condition' => 'boolean',
     ];
+
+    public function userProfiles()
+    {
+        return $this->hasMany(UserProfile::class);
+    }
 
     public function isSuperAdmin(): bool
     {
