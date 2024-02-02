@@ -15,6 +15,7 @@
                             value="{{ $search ?? '' }}"
                             class="form-control"
                             autocomplete="off"
+                            required
                         />
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-primary">
@@ -26,12 +27,12 @@
             </div>
             <div class="col-md-6 text-right">
                 @can('create', App\Models\Subscriber::class)
-                <a
-                    href="{{ route('subscribers.create') }}"
-                    class="btn btn-primary"
-                >
-                    <i class="icon ion-md-add"></i> @lang('crud.common.create')
-                </a>
+{{--                <a--}}
+{{--                    href="{{ route('subscribers.create') }}"--}}
+{{--                    class="btn btn-primary"--}}
+{{--                >--}}
+{{--                    <i class="icon ion-md-add"></i> @lang('crud.common.create')--}}
+{{--                </a>--}}
                 @endcan
             </div>
         </div>
@@ -61,9 +62,9 @@
                             <th class="text-left">
                                 @lang('crud.subscribers.inputs.subscriber_type_id')
                             </th>
-                            <th class="text-left">
-                                @lang('crud.subscribers.inputs.frequency_id')
-                            </th>
+{{--                            <th class="text-left">--}}
+{{--                                @lang('crud.subscribers.inputs.frequency_id')--}}
+{{--                            </th>--}}
                             <th class="text-center">
                                 @lang('crud.common.actions')
                             </th>
@@ -79,10 +80,10 @@
                                 {{ optional($subscriber->subscriberType)->name
                                 ?? '-' }}
                             </td>
-                            <td>
-                                {{ optional($subscriber->frequency)->name ?? '-'
-                                }}
-                            </td>
+{{--                            <td>--}}
+{{--                                {{ optional($subscriber->frequency)->name ?? '-'--}}
+{{--                                }}--}}
+{{--                            </td>--}}
                             <td class="text-center" style="width: 134px;">
                                 <div
                                     role="group"

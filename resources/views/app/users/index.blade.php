@@ -87,11 +87,11 @@
                             <td>{{ $user->mobile_number ?? '-' }}</td>
                             <td>{{ $user->email ?? '-' }}</td>
                             <td>
-                                {{ $user->news_letter_subscription ?? '-' }}
+                                {{ $user->news_letter_subscription ?? '-' }} {{ $user->news_letter_subscription ? '' : 0 }}
                             </td>
                             <td>
                                 {{ $user->privacy_policy_and_terms_of_condition
-                                ?? '-' }}
+                                ?? '-' }} {{ $user->privacy_policy_and_terms_of_condition ? '' : 0 }}
                             </td>
                             <td class="text-center" style="width: 134px;">
                                 <div

@@ -1,12 +1,6 @@
 @php $editing = isset($subscriber) @endphp
 
 <div class="row">
-    <x-inputs.group class="col-sm-12">
-        <x-inputs.textarea name="token" label="Token" maxlength="255" required
-            >{{ old('token', ($editing ? $subscriber->token : ''))
-            }}</x-inputs.textarea
-        >
-    </x-inputs.group>
 
     <x-inputs.group class="col-sm-12">
         <x-inputs.checkbox

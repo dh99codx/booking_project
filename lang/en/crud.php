@@ -117,6 +117,10 @@ return [
         ],
     ],
 
+    'manage' => [
+        'name' => 'Manage Account',
+    ],
+
     'permissions' => [
         'name' => 'Permissions',
         'index_title' => 'Permissions List',
