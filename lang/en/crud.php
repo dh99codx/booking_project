@@ -122,6 +122,10 @@ return [
         ],
     ],
 
+    'manage' => [
+        'name' => 'Manage Account',
+    ],
+
     'roles' => [
         'name' => 'Roles',
         'index_title' => 'Roles List',
