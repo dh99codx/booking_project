@@ -135,7 +135,9 @@
 
                 @auth
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a class="nav-link"
+                       href="{{ route('logout') }}"
+                       onclick="event.preventDefault(); if (confirm('Are you sure want to log out?')){document.getElementById('logout-form').submit();}">
                         <i class="nav-icon icon ion-md-exit"></i>
                         <p>{{ __('Logout') }}</p>
                     </a>
