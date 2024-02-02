@@ -45,6 +45,67 @@ privacy_policy_and_terms_of_condition - Check box
 
 ------------------------------------------------
 
+FamilyDetails
+
+given_name
+middle_name
+family_name
+email_address
+contact_number
+dob
+relationship
+gothram
+rashi
+natchatram
+
+------------------------------------------------
+
+AuthorisedPerson
+
+given_name
+family_name
+email_address
+contact_number
+dob
+
+
+---------------------------------------------------
+
+
+Subscriber
+SubscriberType
+
+php artisan make:migration add_sub_to_subscribers_table --table=subscribers
+
+
+php artisan make:model NewsletterSubscriber
+
+
+------------------------------------------
+
+php artisan make:mail SendSubscribeEmail
+
+
+--------------------------------------------------------------------
+
+UserProfile
+
+profile_picture
+contact_number_landline
+gothram
+rashi
+natchatram
+
+
+
+
+
+
+
+
+
+
+
 
 
 
