@@ -71,6 +71,19 @@ Route::prefix('/')
         Route::resource('frequencies', FrequencyController::class);
         Route::resource('subscriber-types', SubscriberTypeController::class);
         Route::resource('subscribers', SubscriberController::class);
+
+        /*role management controller */
+
+        Route::get('/manage-account',[\App\Http\Controllers\ManagementsController::class,'index'])->name('managements');
+        Route::get('/manage-account-create',[\App\Http\Controllers\ManagementsController::class,'create'])->name('manage-account-create');
+        Route::post('/manage-account-store',[\App\Http\Controllers\ManagementsController::class,'store'])->name('manage-account-store');
+
+        /*delete record*/
+
+        Route::delete('/manage-account-delete',[\App\Http\Controllers\ManagementsController::class,'destroy'])->name('manage-account-delete');
+
+
+
     })->middleware('verified');
 
 
