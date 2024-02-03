@@ -74,7 +74,7 @@ Route::prefix('/')
         Route::resource('subscribers', SubscriberController::class);
         Route::resource('user-profiles', UserProfileController::class);
 
-        Route::put('/user-profile-update',[UserProfileController::class,'update_profile'])->name('user_profile_update');
+        Route::put('/user-profile-update/{id}',[UserProfileController::class,'update_profile'])->name('user_profile_update');
 
 
         /*role management controller */

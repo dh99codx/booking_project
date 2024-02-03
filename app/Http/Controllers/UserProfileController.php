@@ -138,9 +138,10 @@ class UserProfileController extends Controller
     /*update profile*/
 
     public function update_profile(
-        UserProfileUpdateRequest $request,
-        UserProfile $userProfile
+        UserProfileUpdateRequest $request, $id
     ): RedirectResponse {
+
+        $userProfile = UserProfile::find($id);
 
         $this->authorize('update', $userProfile);
 
@@ -158,7 +159,7 @@ class UserProfileController extends Controller
         $userProfile->update($validated);
 
         return redirect()
-            ->route('user-profiles.edit', $userProfile)
+            ->route('home', $userProfile)
             ->withSuccess(__('crud.common.saved'));
 
     }

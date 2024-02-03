@@ -8,7 +8,7 @@
 
             <x-form
                 method="PUT"
-                action="{{ route('user_profile_update', $userProfile) }}"
+                action="{{ route('user_profile_update', $userProfile->id) }}"
                 has-files
                 class="mt-4"
             >

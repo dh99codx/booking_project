@@ -6,6 +6,7 @@ use App\Mail\SendMailable;
 use App\Models\User;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -39,7 +40,7 @@ class HomeController extends Controller
         }
         $users = User::pluck('given_name', 'id');
         $user = User::find(auth()->user()->id);
-        $userProfile = UserProfile::find(auth()->user()->id);
+        $userProfile = UserProfile::where('user_id',auth()->user()->id)->first();
         return view('home',compact('userProfile', 'users','user'));
     }
 }
