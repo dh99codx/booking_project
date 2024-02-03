@@ -15,9 +15,9 @@ class UserProfile extends Model
         'profile_picture',
         'contact_number_landline',
         'gothram',
+        'user_id',
         'rashi',
         'natchatram',
-        'user_id',
     ];
 
     protected $searchableFields = ['*'];

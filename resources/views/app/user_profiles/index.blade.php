@@ -53,16 +53,19 @@
                                 @lang('crud.user_profiles.inputs.contact_number_landline')
                             </th>
                             <th class="text-left">
+                                @lang('crud.user_profiles.inputs.profile_picture')
+                            </th>
+                            <th class="text-left">
                                 @lang('crud.user_profiles.inputs.gothram')
+                            </th>
+                            <th class="text-left">
+                                @lang('crud.user_profiles.inputs.user_id')
                             </th>
                             <th class="text-left">
                                 @lang('crud.user_profiles.inputs.rashi')
                             </th>
                             <th class="text-left">
                                 @lang('crud.user_profiles.inputs.natchatram')
-                            </th>
-                            <th class="text-left">
-                                @lang('crud.user_profiles.inputs.profile_picture')
                             </th>
                             <th class="text-center">
                                 @lang('crud.common.actions')
@@ -76,14 +79,18 @@
                                 {{ $userProfile->contact_number_landline ?? '-'
                                 }}
                             </td>
-                            <td>{{ $userProfile->gothram ?? '-' }}</td>
-                            <td>{{ $userProfile->rashi ?? '-' }}</td>
-                            <td>{{ $userProfile->natchatram ?? '-' }}</td>
                             <td>
                                 <x-partials.thumbnail
                                     src="{{ $userProfile->profile_picture ? \Storage::url($userProfile->profile_picture) : '' }}"
                                 />
                             </td>
+                            <td>{{ $userProfile->gothram ?? '-' }}</td>
+                            <td>
+                                {{ optional($userProfile->user)->given_name ??
+                                '-' }}
+                            </td>
+                            <td>{{ $userProfile->rashi ?? '-' }}</td>
+                            <td>{{ $userProfile->natchatram ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div
                                     role="group"
@@ -132,7 +139,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="6">
+                            <td colspan="7">
                                 @lang('crud.common.no_items_found')
                             </td>
                         </tr>
@@ -140,7 +147,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="6">{!! $userProfiles->render() !!}</td>
+                            <td colspan="7">{!! $userProfiles->render() !!}</td>
                         </tr>
                     </tfoot>
                 </table>

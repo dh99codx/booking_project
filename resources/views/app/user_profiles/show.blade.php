@@ -22,8 +22,22 @@
                     >
                 </div>
                 <div class="mb-4">
+                    <h5>@lang('crud.user_profiles.inputs.profile_picture')</h5>
+                    <x-partials.thumbnail
+                        src="{{ $userProfile->profile_picture ? \Storage::url($userProfile->profile_picture) : '' }}"
+                        size="150"
+                    />
+                </div>
+                <div class="mb-4">
                     <h5>@lang('crud.user_profiles.inputs.gothram')</h5>
                     <span>{{ $userProfile->gothram ?? '-' }}</span>
+                </div>
+                <div class="mb-4">
+                    <h5>@lang('crud.user_profiles.inputs.user_id')</h5>
+                    <span
+                        >{{ optional($userProfile->user)->given_name ?? '-'
+                        }}</span
+                    >
                 </div>
                 <div class="mb-4">
                     <h5>@lang('crud.user_profiles.inputs.rashi')</h5>
@@ -32,13 +46,6 @@
                 <div class="mb-4">
                     <h5>@lang('crud.user_profiles.inputs.natchatram')</h5>
                     <span>{{ $userProfile->natchatram ?? '-' }}</span>
-                </div>
-                <div class="mb-4">
-                    <h5>@lang('crud.user_profiles.inputs.profile_picture')</h5>
-                    <x-partials.thumbnail
-                        src="{{ $userProfile->profile_picture ? \Storage::url($userProfile->profile_picture) : '' }}"
-                        size="150"
-                    />
                 </div>
             </div>
 
