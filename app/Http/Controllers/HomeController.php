@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\SendMailable;
 use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -36,6 +37,8 @@ class HomeController extends Controller
                 Mail::to('web-tutorial@programmer.net')->send(new SendMailable());
             }
         }
-        return view('home');
+        $users = User::pluck('given_name', 'id');
+        $userProfile = UserProfile::find(auth()->user()->id);
+        return view('home',compact('userProfile', 'users'));
     }
 }

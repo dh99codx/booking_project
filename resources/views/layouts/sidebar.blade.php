@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzYecmvpnNeDHPG0bzQ6KctcLWVT35IZcJPQ&usqp=CAU" alt="Vemto Logo" class="brand-image bg-white img-circle">
+        <img src="{{asset('image/profile_image_admin.jpg')}}" class="brand-image bg-white img-circle">
         <span class="brand-text font-weight-light">Temple-Booking-Management-System</span>
     </a>
 
