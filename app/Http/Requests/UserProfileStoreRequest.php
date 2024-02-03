@@ -21,10 +21,11 @@ class UserProfileStoreRequest extends FormRequest
     {
         return [
             'contact_number_landline' => ['required', 'max:255', 'string'],
+            'profile_picture' => ['image', 'max:1024', 'nullable'],
             'gothram' => ['required', 'max:255', 'string'],
+            'user_id' => ['required', 'exists:users,id'],
             'rashi' => ['required', 'max:255', 'string'],
             'natchatram' => ['required', 'max:255', 'string'],
-            'profile_picture' => ['image', 'max:1024', 'nullable'],
         ];
     }
 }

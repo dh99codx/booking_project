@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\View\View;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -39,7 +40,9 @@ class UserProfileController extends Controller
     {
         $this->authorize('create', UserProfile::class);
 
-        return view('app.user_profiles.create');
+        $users = User::pluck('given_name', 'id');
+
+        return view('app.user_profiles.create', compact('users'));
     }
 
     /**
@@ -80,7 +83,9 @@ class UserProfileController extends Controller
     {
         $this->authorize('update', $userProfile);
 
-        return view('app.user_profiles.edit', compact('userProfile'));
+        $users = User::pluck('given_name', 'id');
+
+        return view('app.user_profiles.edit', compact('userProfile', 'users'));
     }
 
     /**

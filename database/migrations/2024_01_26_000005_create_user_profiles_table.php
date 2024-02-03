@@ -15,9 +15,9 @@ return new class extends Migration {
             $table->string('profile_picture')->nullable();
             $table->string('contact_number_landline');
             $table->string('gothram');
+            $table->unsignedBigInteger('user_id');
             $table->string('rashi');
             $table->string('natchatram');
-            $table->unsignedBigInteger('user_id');
 
             $table->timestamps();
         });

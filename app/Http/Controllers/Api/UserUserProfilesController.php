@@ -31,10 +31,10 @@ class UserUserProfilesController extends Controller
 
         $validated = $request->validate([
             'contact_number_landline' => ['required', 'max:255', 'string'],
+            'profile_picture' => ['image', 'max:1024', 'nullable'],
             'gothram' => ['required', 'max:255', 'string'],
             'rashi' => ['required', 'max:255', 'string'],
             'natchatram' => ['required', 'max:255', 'string'],
-            'profile_picture' => ['image', 'max:1024', 'nullable'],
         ]);
 
         if ($request->hasFile('profile_picture')) {
