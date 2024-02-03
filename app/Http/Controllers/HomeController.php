@@ -38,7 +38,8 @@ class HomeController extends Controller
             }
         }
         $users = User::pluck('given_name', 'id');
+        $user = User::find(auth()->user()->id);
         $userProfile = UserProfile::find(auth()->user()->id);
-        return view('home',compact('userProfile', 'users'));
+        return view('home',compact('userProfile', 'users','user'));
     }
 }

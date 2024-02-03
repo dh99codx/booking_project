@@ -134,4 +134,34 @@ class UserProfileController extends Controller
             ->route('user-profiles.index')
             ->withSuccess(__('crud.common.removed'));
     }
+
+    /*update profile*/
+
+    public function update_profile(
+        UserProfileUpdateRequest $request,
+        UserProfile $userProfile
+    ): RedirectResponse {
+
+        $this->authorize('update', $userProfile);
+
+        $validated = $request->validated();
+        if ($request->hasFile('profile_picture')) {
+            if ($userProfile->profile_picture) {
+                Storage::delete($userProfile->profile_picture);
+            }
+
+            $validated['profile_picture'] = $request
+                ->file('profile_picture')
+                ->store('public');
+        }
+
+        $userProfile->update($validated);
+
+        return redirect()
+            ->route('user-profiles.edit', $userProfile)
+            ->withSuccess(__('crud.common.saved'));
+
+    }
+
+
 }
