@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserProfileUpdateDashboardRequest;
 use App\Models\User;
 use Illuminate\View\View;
 use App\Models\UserProfile;
@@ -138,7 +139,7 @@ class UserProfileController extends Controller
     /*update profile*/
 
     public function update_profile(
-        UserProfileUpdateRequest $request, $id
+        UserProfileUpdateDashboardRequest $request, $id
     ): RedirectResponse {
 
         $userProfile = UserProfile::find($id);
@@ -158,8 +159,21 @@ class UserProfileController extends Controller
 
         $userProfile->update($validated);
 
+
+        $form_data= array(
+            'given_name'=>$request->given_name,
+            'middle_name'=>$request->middle_name,
+            'family_name'=>$request->family_name,
+            'address'=>$request->address,
+            'dob'=>$request->dob,
+            'mobile_number'=>$request->mobile_number,
+        );
+
+        User::whereId($userProfile->user_id)->update($form_data);
+
+
         return redirect()
-            ->route('home', $userProfile)
+            ->back()
             ->withSuccess(__('crud.common.saved'));
 
     }
