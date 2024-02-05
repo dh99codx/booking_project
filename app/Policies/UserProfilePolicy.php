@@ -15,7 +15,7 @@ class UserProfilePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasPermissionTo('list userprofiles');
+        return $user->hasPermissionTo('manage userprofiles');
     }
 
     /**
@@ -23,7 +23,7 @@ class UserProfilePolicy
      */
     public function view(User $user, UserProfile $model): bool
     {
-        return $user->hasPermissionTo('view userprofiles');
+        return $user->hasPermissionTo('manage userprofiles');
     }
 
     /**
@@ -31,7 +31,7 @@ class UserProfilePolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasPermissionTo('create userprofiles');
+        return $user->hasPermissionTo('manage userprofiles');
     }
 
     /**
@@ -39,7 +39,7 @@ class UserProfilePolicy
      */
     public function update(User $user, UserProfile $model): bool
     {
-        return $user->hasPermissionTo('update userprofiles');
+        return $user->hasPermissionTo('manage userprofiles');
     }
 
     /**
@@ -47,7 +47,7 @@ class UserProfilePolicy
      */
     public function delete(User $user, UserProfile $model): bool
     {
-        return $user->hasPermissionTo('delete userprofiles');
+        return $user->hasPermissionTo('manage userprofiles');
     }
 
     /**
@@ -55,7 +55,7 @@ class UserProfilePolicy
      */
     public function deleteAny(User $user): bool
     {
-        return $user->hasPermissionTo('delete userprofiles');
+        return $user->hasPermissionTo('manage userprofiles');
     }
 
     /**

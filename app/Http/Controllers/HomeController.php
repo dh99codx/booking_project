@@ -41,6 +41,13 @@ class HomeController extends Controller
         $users = User::pluck('given_name', 'id');
         $user = User::find(auth()->user()->id);
         $userProfile = UserProfile::where('user_id',auth()->user()->id)->first();
-        return view('home',compact('userProfile', 'users','user'));
+
+        if ($userProfile)
+        {
+            return view('app.user_home_page.home_page_update',compact('userProfile', 'users','user'));
+        }else {
+            return view('app.user_home_page.home_page_store',compact('users','user'));
+        }
+
     }
 }

@@ -15,7 +15,7 @@ class FamilyDetailsPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasPermissionTo('list allfamilydetails');
+        return $user->hasPermissionTo('manage allfamilydetails');
     }
 
     /**
@@ -23,7 +23,7 @@ class FamilyDetailsPolicy
      */
     public function view(User $user, FamilyDetails $model): bool
     {
-        return $user->hasPermissionTo('view allfamilydetails');
+        return $user->hasPermissionTo('manage allfamilydetails');
     }
 
     /**
@@ -31,7 +31,7 @@ class FamilyDetailsPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasPermissionTo('create allfamilydetails');
+        return $user->hasPermissionTo('manage allfamilydetails');
     }
 
     /**
@@ -39,7 +39,7 @@ class FamilyDetailsPolicy
      */
     public function update(User $user, FamilyDetails $model): bool
     {
-        return $user->hasPermissionTo('update allfamilydetails');
+        return $user->hasPermissionTo('manage allfamilydetails');
     }
 
     /**
@@ -47,7 +47,7 @@ class FamilyDetailsPolicy
      */
     public function delete(User $user, FamilyDetails $model): bool
     {
-        return $user->hasPermissionTo('delete allfamilydetails');
+        return $user->hasPermissionTo('manage allfamilydetails');
     }
 
     /**
@@ -55,7 +55,7 @@ class FamilyDetailsPolicy
      */
     public function deleteAny(User $user): bool
     {
-        return $user->hasPermissionTo('delete allfamilydetails');
+        return $user->hasPermissionTo('manage allfamilydetails');
     }
 
     /**

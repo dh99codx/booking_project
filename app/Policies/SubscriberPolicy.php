@@ -15,7 +15,7 @@ class SubscriberPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasPermissionTo('list subscribers');
+        return $user->hasPermissionTo('manage subscribers');
     }
 
     /**
@@ -23,7 +23,7 @@ class SubscriberPolicy
      */
     public function view(User $user, Subscriber $model): bool
     {
-        return $user->hasPermissionTo('view subscribers');
+        return $user->hasPermissionTo('manage subscribers');
     }
 
     /**
@@ -31,7 +31,7 @@ class SubscriberPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasPermissionTo('create subscribers');
+        return $user->hasPermissionTo('manage subscribers');
     }
 
     /**
@@ -39,7 +39,7 @@ class SubscriberPolicy
      */
     public function update(User $user, Subscriber $model): bool
     {
-        return $user->hasPermissionTo('update subscribers');
+        return $user->hasPermissionTo('manage subscribers');
     }
 
     /**
@@ -47,7 +47,7 @@ class SubscriberPolicy
      */
     public function delete(User $user, Subscriber $model): bool
     {
-        return $user->hasPermissionTo('delete subscribers');
+        return $user->hasPermissionTo('manage subscribers');
     }
 
     /**
@@ -55,7 +55,7 @@ class SubscriberPolicy
      */
     public function deleteAny(User $user): bool
     {
-        return $user->hasPermissionTo('delete subscribers');
+        return $user->hasPermissionTo('manage subscribers');
     }
 
     /**

@@ -15,7 +15,7 @@ class FrequencyPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasPermissionTo('list frequencies');
+        return $user->hasPermissionTo('manage frequencies');
     }
 
     /**
@@ -23,7 +23,7 @@ class FrequencyPolicy
      */
     public function view(User $user, Frequency $model): bool
     {
-        return $user->hasPermissionTo('view frequencies');
+        return $user->hasPermissionTo('manage frequencies');
     }
 
     /**
@@ -31,7 +31,7 @@ class FrequencyPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasPermissionTo('create frequencies');
+        return $user->hasPermissionTo('manage frequencies');
     }
 
     /**
@@ -39,7 +39,7 @@ class FrequencyPolicy
      */
     public function update(User $user, Frequency $model): bool
     {
-        return $user->hasPermissionTo('update frequencies');
+        return $user->hasPermissionTo('manage frequencies');
     }
 
     /**
@@ -47,7 +47,7 @@ class FrequencyPolicy
      */
     public function delete(User $user, Frequency $model): bool
     {
-        return $user->hasPermissionTo('delete frequencies');
+        return $user->hasPermissionTo('manage frequencies');
     }
 
     /**
@@ -55,7 +55,7 @@ class FrequencyPolicy
      */
     public function deleteAny(User $user): bool
     {
-        return $user->hasPermissionTo('delete frequencies');
+        return $user->hasPermissionTo('manage frequencies');
     }
 
     /**

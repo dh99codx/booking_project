@@ -69,16 +69,16 @@
                                     class="btn-group"
                                 >
                                     @can('update', $permission)
-                                    <a
-                                        href="{{ route('permissions.edit', $permission) }}"
-                                    >
-                                        <button
-                                            type="button"
-                                            class="btn btn-light"
-                                        >
-                                            <i class="icon ion-md-create"></i>
-                                        </button>
-                                    </a>
+{{--                                    <a--}}
+{{--                                        href="{{ route('permissions.edit', $permission) }}"--}}
+{{--                                    >--}}
+{{--                                        <button--}}
+{{--                                            type="button"--}}
+{{--                                            class="btn btn-light"--}}
+{{--                                        >--}}
+{{--                                            <i class="icon ion-md-create"></i>--}}
+{{--                                        </button>--}}
+{{--                                    </a>--}}
                                     @endcan @can('view', $permission)
                                     <a
                                         href="{{ route('permissions.show', $permission) }}"
@@ -91,19 +91,19 @@
                                         </button>
                                     </a>
                                     @endcan @can('delete', $permission)
-                                    <form
-                                        action="{{ route('permissions.destroy', $permission) }}"
-                                        method="POST"
-                                        onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
-                                    >
-                                        @csrf @method('DELETE')
-                                        <button
-                                            type="submit"
-                                            class="btn btn-light text-danger"
-                                        >
-                                            <i class="icon ion-md-trash"></i>
-                                        </button>
-                                    </form>
+{{--                                    <form--}}
+{{--                                        action="{{ route('permissions.destroy', $permission) }}"--}}
+{{--                                        method="POST"--}}
+{{--                                        onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"--}}
+{{--                                    >--}}
+{{--                                        @csrf @method('DELETE')--}}
+{{--                                        <button--}}
+{{--                                            type="submit"--}}
+{{--                                            class="btn btn-light text-danger"--}}
+{{--                                        >--}}
+{{--                                            <i class="icon ion-md-trash"></i>--}}
+{{--                                        </button>--}}
+{{--                                    </form>--}}
                                     @endcan
                                 </div>
                             </td>

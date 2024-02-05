@@ -15,7 +15,7 @@ class SubscriberTypePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasPermissionTo('list subscribertypes');
+        return $user->hasPermissionTo('manage subscribertypes');
     }
 
     /**
@@ -23,7 +23,7 @@ class SubscriberTypePolicy
      */
     public function view(User $user, SubscriberType $model): bool
     {
-        return $user->hasPermissionTo('view subscribertypes');
+        return $user->hasPermissionTo('manage subscribertypes');
     }
 
     /**
@@ -31,7 +31,7 @@ class SubscriberTypePolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasPermissionTo('create subscribertypes');
+        return $user->hasPermissionTo('manage subscribertypes');
     }
 
     /**
@@ -39,7 +39,7 @@ class SubscriberTypePolicy
      */
     public function update(User $user, SubscriberType $model): bool
     {
-        return $user->hasPermissionTo('update subscribertypes');
+        return $user->hasPermissionTo('manage subscribertypes');
     }
 
     /**
@@ -47,7 +47,7 @@ class SubscriberTypePolicy
      */
     public function delete(User $user, SubscriberType $model): bool
     {
-        return $user->hasPermissionTo('delete subscribertypes');
+        return $user->hasPermissionTo('manage subscribertypes');
     }
 
     /**
@@ -55,7 +55,7 @@ class SubscriberTypePolicy
      */
     public function deleteAny(User $user): bool
     {
-        return $user->hasPermissionTo('delete subscribertypes');
+        return $user->hasPermissionTo('manage subscribertypes');
     }
 
     /**

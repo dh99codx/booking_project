@@ -18,7 +18,7 @@
                 </div>
                 <div class="mb-4">
                     <h5>@lang('crud.subscribers.inputs.status')</h5>
-                    <span>{{ $subscriber->status ?? '-' }}</span>
+                    <span>{{ $subscriber->status ?? '' }}{{$subscriber->status ? '' : 0}}</span>
                 </div>
                 <div class="mb-4">
                     <h5>@lang('crud.subscribers.inputs.email')</h5>
@@ -48,15 +48,6 @@
                     <i class="icon ion-md-return-left"></i>
                     @lang('crud.common.back')
                 </a>
-
-                @can('create', App\Models\Subscriber::class)
-                <a
-                    href="{{ route('subscribers.create') }}"
-                    class="btn btn-light"
-                >
-                    <i class="icon ion-md-add"></i> @lang('crud.common.create')
-                </a>
-                @endcan
             </div>
         </div>
     </div>
