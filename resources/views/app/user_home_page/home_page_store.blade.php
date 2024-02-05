@@ -6,6 +6,8 @@
         <div class="card">
             <div class="card-body">
 
+                <h3>Account Setting</h3>
+
                 <x-form
                     method="POST"
                     action="{{route('user_profile_store',$user->id)}}"
