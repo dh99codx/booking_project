@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserProfileStoreDashboardRequest;
 use App\Http\Requests\UserProfileUpdateDashboardRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -226,4 +227,25 @@ class UserProfileController extends Controller
     }
 
 
+    public function activate_deactivate(Request $request,$status)
+    {
+        if ($status==1)
+        {
+            $form_data= array(
+                'status'=>0,
+            );
+            User::whereId(Auth::user()->id)->update($form_data);
+        }
+        else
+        {
+            $form_data= array(
+                'status'=>1,
+            );
+            User::whereId(Auth::user()->id)->update($form_data);
+        }
+
+        return redirect()
+            ->back()
+            ->withSuccess(__('success fully update account'));
+    }
 }

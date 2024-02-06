@@ -8,6 +8,24 @@
 
                 <h3>Account Setting</h3>
 
+                <hr>
+
+                @if($user->status == 1)
+                    <form action="{{route('account_activate_deactivate',$user->status)}}" enctype="multipart/form-data" method="post">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="btn btn-danger">Deactivate Account</button>
+                    </form>
+                @else
+                    <form action="{{route('account_activate_deactivate',$user->status)}}" enctype="multipart/form-data" method="post">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="btn btn-success">Activate Account</button>
+                    </form>
+                @endif
+
+                <hr>
+
                 <x-form
                     method="PUT"
                     action="{{route('user_profile_update',$userProfile->id)}}"
