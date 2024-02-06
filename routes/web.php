@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SMSController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -102,3 +103,8 @@ Route::post('/customer-subscriber-store', [SubscriberController::class,'customer
 /*verify link*/
 Route::get('/verify/{token}/{email}',[SubscriberController::class,'verify_token'])->name('verify-token');
 
+Route::post('/send-sms', [SMSController::class, 'sendSMS']);
+
+Route::get('/sms-form', function () {
+    return view('sms_form');
+});

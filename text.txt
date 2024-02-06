@@ -96,6 +96,31 @@ gothram
 rashi
 natchatram
 
+----------
+
+given_name
+middle_name
+family_name
+address
+dob
+mobile_number
+email_address
+
+
+php artisan db:seed --class=PermissionsSeeder
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

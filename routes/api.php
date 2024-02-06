@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SMSController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
@@ -27,6 +28,8 @@ use App\Http\Controllers\Api\SubscriberTypeSubscribersController;
 */
 
 Route::post('/login', [AuthController::class, 'login'])->name('api.login');
+
+Route::post('/send-sms', [SMSController::class, 'sendSMS']);
 
 Route::middleware('auth:sanctum')
     ->get('/user', function (Request $request) {
