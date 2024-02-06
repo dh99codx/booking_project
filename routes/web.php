@@ -89,7 +89,7 @@ Route::prefix('/')
         Route::delete('/manage-account-delete',[\App\Http\Controllers\ManagementsController::class,'destroy'])->name('manage-account-delete');
 
         /*Account Activate &  Deactivate*/
-        Route::put('/user-activate-deactivate/{status}',[UserProfileController::class,'activate_deactivate'])->name('account_activate_deactivate');
+        Route::delete('/user-activate-deactivate/{status}',[UserProfileController::class,'activate_deactivate'])->name('account_activate_deactivate');
 
     })->middleware('verified');
 

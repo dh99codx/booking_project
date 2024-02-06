@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Scopes\Searchable;
 use Spatie\Permission\Traits\HasRoles;
@@ -17,6 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasFactory;
     use Searchable;
     use HasApiTokens;
+    use SoftDeletes;
 
     protected $fillable = [
         'given_name',

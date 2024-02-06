@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
         <img src="{{asset('image/profile_image_admin.jpg')}}" class="brand-image bg-white img-circle">
-        <span class="brand-text font-weight-light">Temple-Booking-Management-System</span>
+        <span class="brand-text font-weight-light">Booking System</span>
     </a>
 
     <!-- Sidebar -->

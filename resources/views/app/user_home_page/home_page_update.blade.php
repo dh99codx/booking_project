@@ -10,19 +10,14 @@
 
                 <hr>
 
-                @if($user->status == 1)
-                    <form action="{{route('account_activate_deactivate',$user->status)}}" enctype="multipart/form-data" method="post">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-danger">Deactivate Account</button>
-                    </form>
-                @else
-                    <form action="{{route('account_activate_deactivate',$user->status)}}" enctype="multipart/form-data" method="post">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-success">Activate Account</button>
-                    </form>
-                @endif
+                <form action="{{route('account_activate_deactivate', $user)}}"
+                      enctype="multipart/form-data"
+                      method="POST"
+                      onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Deactivate Account</button>
+                </form>
 
                 <hr>
 

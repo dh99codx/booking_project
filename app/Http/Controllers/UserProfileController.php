@@ -227,25 +227,17 @@ class UserProfileController extends Controller
     }
 
 
-    public function activate_deactivate(Request $request,$status)
+    public function activate_deactivate(Request $request, User $user): RedirectResponse
     {
-        if ($status==1)
-        {
-            $form_data= array(
-                'status'=>0,
-            );
-            User::whereId(Auth::user()->id)->update($form_data);
-        }
-        else
-        {
-            $form_data= array(
-                'status'=>1,
-            );
-            User::whereId(Auth::user()->id)->update($form_data);
-        }
+        $user = User::find(Auth::user()->id);
 
-        return redirect()
-            ->back()
-            ->withSuccess(__('success fully update account'));
+        Auth::logout();
+
+        if ($user->delete()) {
+
+            return redirect()
+                ->back()
+                ->withSuccess(__('crud.common.saved'));
+        }
     }
 }
