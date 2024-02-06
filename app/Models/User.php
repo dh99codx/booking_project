@@ -10,6 +10,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Exception;
+use Twilio\Rest\Client;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -53,4 +55,38 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasRole('super-admin');
     }
+
+
+    public function generateCode()
+    {
+        $code = rand(1000, 9999);
+
+        UserCode::updateOrCreate(
+            [ 'user_id' => auth()->user()->id ],
+            [ 'code' => $code ]
+        );
+
+        $receiverNumber = auth()->user()->mobile_number;
+        $message = "2FA login code is ". $code;
+
+        try {
+
+            $account_sid = getenv("TWILIO_SID");
+            $auth_token = getenv("TWILIO_AUTH_TOKEN");
+            $twilio_number = getenv("TWILIO_PHONE_NUMBER");
+
+            $client = new Client($account_sid, $auth_token);
+            $client->messages->create($receiverNumber, [
+                'from' => $twilio_number,
+                'body' => $message]);
+
+           // dd($twilio_number,$message);
+
+        } catch (Exception $e) {
+            info("Error: ". $e->getMessage());
+        }
+    }
+
+
+
 }
