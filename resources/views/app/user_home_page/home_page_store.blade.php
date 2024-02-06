@@ -10,14 +10,48 @@
 
                 <hr>
 
-                <form action="{{route('account_activate_deactivate', $user)}}"
-                      enctype="multipart/form-data"
-                      method="POST"
-                      onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Deactivate Account</button>
+                <form>
+                    <a
+                        class="btn btn-light text-danger"
+                        data-target="#deleteModal_{{$user->id}}"
+                        data-toggle="modal"
+                    >
+                        <i class="ion ion-md-alert"></i> Deactivate Account
+                    </a>
                 </form>
+
+                <div class="modal fade" id="deleteModal_{{$user->id}}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p> Are you sure you want to deactivate account? </p>
+                                 <p>
+                                     Data Backup: Before deleting your account, consider backing up any important data or information associated with your account that you may want to retain.
+                                 </p>
+                                 <p>
+                                     Irreversible Action: Deleting your account is typically irreversible. Ensure that you are certain about your decision before proceeding.
+                                 </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close-modal">No</button>
+                                <form
+                                    action="{{ route('account_activate_deactivate', $user->id) }}"
+                                    method="POST"
+                                >
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Deactivate Account</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <hr>
 
