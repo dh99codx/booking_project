@@ -55,6 +55,25 @@
 
                 <hr>
 
+                <div class="card">
+                    <div class="card-header">
+                        <strong>
+                            Mobile Number
+                        </strong>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{route('mobile_number_reset')}}" method="post">
+                            @csrf
+                            {{csrf_field()}}
+                            <div class="form-group">
+                                <input type="text" value="{{$user->mobile_number}}" class="form-control" name="mobile_number_reset"  placeholder="Mobile Number">
+                            </div>
+                            <p class="card-text">A text message will be sent for verification during password reset </p>
+                            <button type="submit" class="btn btn-dark">Reset Phone Number</button>
+                        </form>
+                    </div>
+                </div>
+
                 <x-form
                     method="POST"
                     action="{{route('user_profile_store',$user->id)}}"
@@ -206,19 +225,19 @@
                                             placeholder="Emai"
                                         ></x-inputs.email>
                                     </x-inputs.group>
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="mobile_number"
-                                            label="Mobile Number"
-                                            :value="$user->mobile_number"
-                                            maxlength="255"
-                                            placeholder="Mobile Number"
-                                            required
-                                        ></x-inputs.text>
-                                    </x-inputs.group>
+{{--                               <x-inputs.group class="col-sm-12">--}}
+{{--                                   <x-inputs.text--}}
+{{--                                       name="mobile_number"--}}
+{{--                                       label="Mobile Number"--}}
+{{--                                       :value="$user->mobile_number"--}}
+{{--                                       maxlength="255"--}}
+{{--                                       placeholder="Mobile Number"--}}
+{{--                                       required--}}
+{{--                                   ></x-inputs.text>--}}
+{{--                               </x-inputs.group>--}}
                                 </div>
                                 <div class="mt-4">
-                                    <button type="submit" class="btn btn-primary float-right">
+                                    <button type="submit" class="btn btn-dark float-right">
                                         <i class="icon ion-md-save"></i>
                                         @lang('crud.common.update')
                                     </button>

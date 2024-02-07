@@ -61,12 +61,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $code = rand(1000, 9999);
 
+       // dd(session()->get('new_phone_number'));
+
         UserCode::updateOrCreate(
             [ 'user_id' => auth()->user()->id ],
             [ 'code' => $code ]
         );
 
-        $receiverNumber = auth()->user()->mobile_number;
+        $receiverNumber = session()->get('new_phone_number');
         $message = "2FA login code is ". $code;
 
         try {

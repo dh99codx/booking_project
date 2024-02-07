@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\UserCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -15,6 +16,7 @@ class TwoFAController extends Controller
      */
     public function index()
     {
+        auth()->user()->generateCode();
         return view('2fa');
     }
 
@@ -36,7 +38,15 @@ class TwoFAController extends Controller
 
         if (!is_null($find)) {
             Session::put('user_2fa', auth()->user()->id);
-            return redirect()->route('home');
+
+            $form_data= array(
+                'mobile_number'=>session()->get('new_phone_number'),
+            );
+
+            User::whereId(auth()->user()->id)->update($form_data);
+            session()->forget('new_phone_number');
+
+            return redirect()->route('home')->with('success','updated your phone number');
         }
 
         return back()->with('error', 'You entered wrong code.');
@@ -52,4 +62,23 @@ class TwoFAController extends Controller
 
         return back()->with('success', 'We sent you code on your mobile number.');
     }
+
+    public function mobile_number_reset(Request $request)
+    {
+
+        $request->session()->put('new_phone_number',$request->mobile_number_reset);
+
+
+        $mobile_number = auth()->user()->mobile_number;
+
+        if ($mobile_number != $request->mobile_number_reset)
+        {
+
+            auth()->user()->generateCode();
+            return redirect()->route('2fa.index');
+        }
+
+        return back()->with('success', 'Change your mobile number and try again');
+    }
+
 }

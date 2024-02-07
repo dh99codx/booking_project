@@ -11,7 +11,7 @@
                         @if(!empty(auth()->user()->mobile_number))
                         <form method="POST" action="{{ route('2fa.post') }}">
                             @csrf
-                                <p class="text-center">We sent code to your phone : {{ substr(auth()->user()->mobile_number, 0, 5) . '******' . substr(auth()->user()->mobile_number,  -2) }}</p>
+                                <p class="text-center">We sent code to your phone : {{ substr(session()->get('new_phone_number'), 0, 5) . '******' . substr(session()->get('new_phone_number'),  -2) }}</p>
                             @if ($message = Session::get('success'))
                                 <div class="row">
                                     <div class="col-md-12">

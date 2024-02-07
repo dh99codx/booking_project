@@ -114,3 +114,6 @@ Route::get('/sms-form', function () {
 Route::get('2fa', [App\Http\Controllers\TwoFAController::class, 'index'])->name('2fa.index');
 Route::post('2fa', [App\Http\Controllers\TwoFAController::class, 'store'])->name('2fa.post');
 Route::get('2fa/reset', [App\Http\Controllers\TwoFAController::class, 'resend'])->name('2fa.resend');
+
+Route::post('mobile-number-reset', [App\Http\Controllers\TwoFAController::class, 'mobile_number_reset'])->name('mobile_number_reset');
+
