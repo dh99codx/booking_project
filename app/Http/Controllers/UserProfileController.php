@@ -180,9 +180,9 @@ class UserProfileController extends Controller
 
     public function update_profile_store(Request $request,$id)
     {
+        $usr = User::find($id);
 
         $request->validate([
-            'mobile_number'=>'required|digits:10',
             'given_name'=>'required|max:255|min:3|string',
             'middle_name'=>'required|max:255|min:3|string',
             'family_name'=>'required|max:255|min:3|string',
@@ -192,7 +192,7 @@ class UserProfileController extends Controller
         ]);
 
         $form_data=array(
-            'mobile_number'=>$request->mobile_number,
+            'mobile_number'=>$usr->mobile_number,
             'given_name'=>$request->given_name,
             'middle_name'=>$request->middle_name,
             'family_name'=>$request->family_name,

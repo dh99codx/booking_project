@@ -225,16 +225,6 @@
                                             placeholder="Emai"
                                         ></x-inputs.email>
                                     </x-inputs.group>
-{{--                               <x-inputs.group class="col-sm-12">--}}
-{{--                                   <x-inputs.text--}}
-{{--                                       name="mobile_number"--}}
-{{--                                       label="Mobile Number"--}}
-{{--                                       :value="$user->mobile_number"--}}
-{{--                                       maxlength="255"--}}
-{{--                                       placeholder="Mobile Number"--}}
-{{--                                       required--}}
-{{--                                   ></x-inputs.text>--}}
-{{--                               </x-inputs.group>--}}
                                 </div>
                                 <div class="mt-4">
                                     <button type="submit" class="btn btn-dark float-right">
