@@ -118,27 +118,10 @@
                             </a>
                         </li>
                         @endcan
-
-                       @can('view-any', Spatie\Permission\Models\Permission::class)
-                           <li class="nav-item">
-                               <a href="{{ route('managements') }}" class="nav-link">
-                                   <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                   <p>Manage Account</p>
-                               </a>
-                           </li>
-                       @endcan
-
                     </ul>
                 </li>
                 @endif
                 @endauth
-
-{{--                <li class="nav-item">--}}
-{{--                    <a href="https://adminlte.io/docs/3.1//index.html" target="_blank" class="nav-link">--}}
-{{--                        <i class="nav-icon icon ion-md-help-circle-outline"></i>--}}
-{{--                        <p>Docs</p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
 
                 @auth
                 <li class="nav-item">

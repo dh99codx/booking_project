@@ -84,6 +84,19 @@
 
 
                                 <div class="row">
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="given_name"
+                                            label="Given Name"
+                                            :value="$user->given_name"
+                                            maxlength="255"
+                                            placeholder="Given Name"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+
                                     <x-inputs.group class="col-sm-12">
                                         <x-inputs.text
                                             name="contact_number_landline"
@@ -95,9 +108,7 @@
                                     </x-inputs.group>
 
                                     <x-inputs.group class="col-sm-12">
-                                        <div
-                                            x-data="imageViewer('')"
-                                        >
+                                        <div x-data="imageViewer('')">
                                             <x-inputs.partials.label
                                                 name="profile_picture"
                                                 label="Profile Picture"
@@ -165,18 +176,6 @@
                                         ></x-inputs.text>
                                     </x-inputs.group>
 
-
-                                    {{--given name--}}
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="given_name"
-                                            label="Given Name"
-                                            :value="$user->given_name"
-                                            maxlength="255"
-                                            placeholder="Given Name"
-                                            required
-                                        ></x-inputs.text>
-                                    </x-inputs.group>
                                     <x-inputs.group class="col-sm-12">
                                         <x-inputs.text
                                             name="middle_name"

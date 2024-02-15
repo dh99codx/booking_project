@@ -29,7 +29,7 @@
                             <label for="middle_name" class="col-md-4 col-form-label text-md-end">{{ __('Middle Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="middle_name" type="text" class="form-control @error('middle_name') is-invalid @enderror" name="middle_name" value="{{ old('middle_name') }}" required autocomplete="middle_name" autofocus>
+                                <input id="middle_name" type="text" class="form-control @error('middle_name') is-invalid @enderror" name="middle_name" value="{{ old('middle_name') }}" autocomplete="middle_name" autofocus>
 
                                 @error('middle_name')
                                 <span class="invalid-feedback" role="alert">
@@ -140,8 +140,15 @@
 
                         <div class="row mb-3">
                         <div class="form-check">
-                            <input type="checkbox"  name="privacy_policy_and_terms_of_condition" class="form-check-input" id="privacy_policy_and_terms_of_condition">
+                            <input type="checkbox"  name="privacy_policy_and_terms_of_condition" class="form-check-input" id="privacy_policy_and_terms_of_condition" required>
                             <label class="form-check-label" for="exampleCheck1">Privacy Policy and term of condition</label>
+
+                            @error('privacy_policy_and_terms_of_condition')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+
                         </div>
                         </div>
 

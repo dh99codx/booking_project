@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->bigIncrements('id');
             $table->boolean('success_msg')->default(0)->nullable();
             $table->string('given_name');
-            $table->string('middle_name');
+            $table->string('middle_name')->nullable();
             $table->string('family_name');
             $table->date('dob');
             $table->string('address');

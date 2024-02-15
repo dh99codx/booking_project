@@ -16,26 +16,84 @@
                 @php $editing = isset($userProfile) @endphp
 
                 <div class="row">
-                    <x-inputs.group class="col-sm-12">
-                        <x-inputs.text
-                            name="contact_number_landline"
-                            label="Contact Number Landline"
-                            :value="old('contact_number_landline', ($editing ? $userProfile->contact_number_landline : ''))"
-                            maxlength="255"
-                            placeholder="Contact Number Landline"
-                            required
-                        ></x-inputs.text>
-                    </x-inputs.group>
+
 
                     <x-inputs.group class="col-sm-12">
-                        <div
-                            x-data="imageViewer('{{ $editing && $userProfile->profile_picture ? \Storage::url($userProfile->profile_picture) : '' }}')"
-                        >
+
+                        {{--given name--}}
+                        <x-inputs.group class="col-sm-12">
+                            <x-inputs.text
+                                name="given_name"
+                                label="Given Name"
+                                :value="$user->given_name"
+                                maxlength="255"
+                                placeholder="Given Name"
+                                required
+                            ></x-inputs.text>
+                        </x-inputs.group>
+
+                        <x-inputs.group class="col-sm-12">
+                            <x-inputs.text
+                                name="middle_name"
+                                label="Middle Name"
+                                :value="$user->middle_name"
+                                maxlength="255"
+                                placeholder="Middle Name"
+                                required
+                            ></x-inputs.text>
+                        </x-inputs.group>
+
+                        <x-inputs.group class="col-sm-12">
+                            <x-inputs.text
+                                name="family_name"
+                                label="Family Name"
+                                :value="$user->family_name"
+                                maxlength="255"
+                                placeholder="Family Name"
+                                required
+                            ></x-inputs.text>
+                        </x-inputs.group>
+
+                        <x-inputs.group class="col-sm-12">
+                            <x-inputs.text
+                                name="address"
+                                label="Address"
+                                :value="$user->address"
+                                maxlength="255"
+                                placeholder="Address"
+                                required
+                            ></x-inputs.text>
+                        </x-inputs.group>
+
+                        <x-inputs.group class="col-sm-12">
+                            <x-inputs.text
+                                name="mobile_number"
+                                label="Mobile Number"
+                                :value="$user->mobile_number"
+                                maxlength="255"
+                                placeholder="Mobile Number"
+                                required
+                            ></x-inputs.text>
+                        </x-inputs.group>
+
+                        <x-inputs.group class="col-sm-12">
+                            <x-inputs.text
+                                name="contact_number_landline"
+                                label="Contact Number Landline"
+                                :value="old('contact_number_landline', ($editing ? $userProfile->contact_number_landline : ''))"
+                                maxlength="255"
+                                placeholder="Contact Number Landline"
+                                required
+                            ></x-inputs.text>
+                        </x-inputs.group>
+
+
+
+                        <div x-data="imageViewer('{{ $editing && $userProfile->profile_picture ? \Storage::url($userProfile->profile_picture) : '' }}')">
                             <x-inputs.partials.label
                                 name="profile_picture"
-                                label="Profile Picture"
-                            ></x-inputs.partials.label
-                            ><br />
+                                label="Profile Picture">
+                            </x-inputs.partials.label><br />
 
                             <!-- Show the image -->
                             <template x-if="imageUrl">
@@ -101,48 +159,6 @@
                         ></x-inputs.text>
                     </x-inputs.group>
 
-
-                    {{--given name--}}
-                    <x-inputs.group class="col-sm-12">
-                        <x-inputs.text
-                            name="given_name"
-                            label="Given Name"
-                            :value="$user->given_name"
-                            maxlength="255"
-                            placeholder="Given Name"
-                            required
-                        ></x-inputs.text>
-                    </x-inputs.group>
-                    <x-inputs.group class="col-sm-12">
-                        <x-inputs.text
-                            name="middle_name"
-                            label="Middle Name"
-                            :value="$user->middle_name"
-                            maxlength="255"
-                            placeholder="Middle Name"
-                            required
-                        ></x-inputs.text>
-                    </x-inputs.group>
-                    <x-inputs.group class="col-sm-12">
-                        <x-inputs.text
-                            name="family_name"
-                            label="Family Name"
-                            :value="$user->family_name"
-                            maxlength="255"
-                            placeholder="Family Name"
-                            required
-                        ></x-inputs.text>
-                    </x-inputs.group>
-                    <x-inputs.group class="col-sm-12">
-                        <x-inputs.text
-                            name="address"
-                            label="Address"
-                            :value="$user->address"
-                            maxlength="255"
-                            placeholder="Address"
-                            required
-                        ></x-inputs.text>
-                    </x-inputs.group>
                     <x-inputs.group class="col-sm-12">
                         <x-inputs.date
                             name="dob"

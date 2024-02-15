@@ -66,6 +66,70 @@
                                 @php $editing = isset($userProfile) @endphp
 
                                 <div class="row">
+
+
+                                    {{--given name--}}
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="given_name"
+                                            label="Given Name"
+                                            :value="$user->given_name"
+                                            maxlength="255"
+                                            placeholder="Given Name"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="middle_name"
+                                            label="Middle Name"
+                                            :value="$user->middle_name"
+                                            maxlength="255"
+                                            placeholder="Middle Name"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="family_name"
+                                            label="Family Name"
+                                            :value="$user->family_name"
+                                            maxlength="255"
+                                            placeholder="Family Name"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="address"
+                                            label="Address"
+                                            :value="$user->address"
+                                            maxlength="255"
+                                            placeholder="Address"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="mobile_number"
+                                            label="Mobile Number"
+                                            :value="$user->mobile_number"
+                                            maxlength="255"
+                                            placeholder="Mobile Number"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+
+
                                     <x-inputs.group class="col-sm-12">
                                         <x-inputs.text
                                             name="contact_number_landline"
@@ -77,46 +141,18 @@
                                         ></x-inputs.text>
                                     </x-inputs.group>
 
+
                                     <x-inputs.group class="col-sm-12">
-                                        <div
-                                            x-data="imageViewer('{{ $editing && $userProfile->profile_picture ? \Storage::url($userProfile->profile_picture) : '' }}')"
-                                        >
-                                            <x-inputs.partials.label
-                                                name="profile_picture"
-                                                label="Profile Picture"
-                                            ></x-inputs.partials.label
-                                            ><br />
-
-                                            <!-- Show the image -->
-                                            <template x-if="imageUrl">
-                                                <img
-                                                    :src="imageUrl"
-                                                    class="object-cover rounded border border-gray-200"
-                                                    style="width: 100px; height: 100px;"
-                                                />
-                                            </template>
-
-                                            <!-- Show the gray box when image is not available -->
-                                            <template x-if="!imageUrl">
-                                                <div
-                                                    class="border rounded border-gray-200 bg-gray-100"
-                                                    style="width: 100px; height: 100px;"
-                                                ></div>
-                                            </template>
-
-                                            <div class="mt-2">
-                                                <input
-                                                    type="file"
-                                                    name="profile_picture"
-                                                    id="profile_picture"
-                                                    @change="fileChosen"
-                                                />
-                                            </div>
-
-                                            @error('profile_picture')
-                                            @include('components.inputs.partials.error') @enderror
-                                        </div>
+                                        <x-inputs.date
+                                            name="dob"
+                                            label="Dob"
+                                            :value="optional($user->dob)->format('Y-m-d')"
+                                            max="255"
+                                            required
+                                        ></x-inputs.date>
                                     </x-inputs.group>
+
+
 
                                     <x-inputs.group class="col-sm-12">
                                         <x-inputs.text
@@ -151,67 +187,55 @@
                                         ></x-inputs.text>
                                     </x-inputs.group>
 
+                                    <x-inputs.group class="col-sm-12">
+                                        <div
+                                            x-data="imageViewer('{{ $editing && $userProfile->profile_picture ? \Storage::url($userProfile->profile_picture) : '' }}')"
+                                        >
+                                            <div class="row">
+                                                <div class="mt-5 mr-3">
+                                                    <x-inputs.partials.label
+                                                        name="profile_picture"
+                                                        label="Profile Picture"
+                                                    ></x-inputs.partials.label
+                                                    ><br />
+                                                </div>
+                                                <div>
 
-                                    {{--given name--}}
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="given_name"
-                                            label="Given Name"
-                                            :value="$user->given_name"
-                                            maxlength="255"
-                                            placeholder="Given Name"
-                                            required
-                                        ></x-inputs.text>
+                                                    <!-- Show the image -->
+                                                    <template x-if="imageUrl">
+                                                        <img
+                                                            :src="imageUrl"
+                                                            class="object-cover rounded border border-gray-200"
+                                                            style="width: 100px; height: 100px;"
+                                                        />
+                                                    </template>
+
+                                                    <!-- Show the gray box when image is not available -->
+                                                    <template x-if="!imageUrl">
+                                                        <div
+                                                            class="border rounded border-gray-200 bg-gray-100"
+                                                            style="width: 100px; height: 100px;"
+                                                        ></div>
+                                                    </template>
+
+                                                    <div class="mt-2">
+                                                        <input
+                                                            type="file"
+                                                            name="profile_picture"
+                                                            id="profile_picture"
+                                                            @change="fileChosen"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            @error('profile_picture')
+                                            @include('components.inputs.partials.error') @enderror
+                                        </div>
                                     </x-inputs.group>
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="middle_name"
-                                            label="Middle Name"
-                                            :value="$user->middle_name"
-                                            maxlength="255"
-                                            placeholder="Middle Name"
-                                            required
-                                        ></x-inputs.text>
-                                    </x-inputs.group>
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="family_name"
-                                            label="Family Name"
-                                            :value="$user->family_name"
-                                            maxlength="255"
-                                            placeholder="Family Name"
-                                            required
-                                        ></x-inputs.text>
-                                    </x-inputs.group>
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="address"
-                                            label="Address"
-                                            :value="$user->address"
-                                            maxlength="255"
-                                            placeholder="Address"
-                                            required
-                                        ></x-inputs.text>
-                                    </x-inputs.group>
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.date
-                                            name="dob"
-                                            label="Dob"
-                                            :value="optional($user->dob)->format('Y-m-d')"
-                                            max="255"
-                                            required
-                                        ></x-inputs.date>
-                                    </x-inputs.group>
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="mobile_number"
-                                            label="Mobile Number"
-                                            :value="$user->mobile_number"
-                                            maxlength="255"
-                                            placeholder="Mobile Number"
-                                            required
-                                        ></x-inputs.text>
-                                    </x-inputs.group>
+
+
                                 </div>
                                 <div class="mt-4">
                                     <button type="submit" class="btn btn-primary float-right">
