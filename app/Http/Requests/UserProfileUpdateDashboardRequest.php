@@ -19,9 +19,9 @@ class UserProfileUpdateDashboardRequest extends FormRequest
         return [
             'contact_number_landline' => ['required'],
             'profile_picture' => ['image', 'max:1024', 'nullable'],
-            'gothram' => ['required', 'max:255', 'string'],
-            'rashi' => ['required', 'max:255', 'string'],
-            'natchatram' => ['required', 'max:255', 'string'],
+            'gothram' => ['nullable', 'max:255', 'string'],
+            'rashi' => ['nullable', 'max:255', 'string'],
+            'natchatram' => ['nullable', 'max:255', 'string'],
             'given_name' => ['required', 'max:255','min:3','string'],
             'middle_name' => ['required', 'max:255','min:3','string'],
             'family_name' => ['required', 'max:255','min:3','string'],

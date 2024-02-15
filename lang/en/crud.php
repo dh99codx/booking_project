@@ -20,6 +20,7 @@ return [
         'created' => 'Successfully created',
         'saved' => 'Saved successfully',
         'removed' => 'Successfully removed',
+        'are_you_sure_update' => 'Are you sure? You need update ?',
     ],
 
     'users' => [

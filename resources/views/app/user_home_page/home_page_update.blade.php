@@ -57,6 +57,7 @@
                 <hr>
 
                 <x-form
+                    onsubmit="return confirm('{{ __('crud.common.are_you_sure_update') }}')"
                     method="PUT"
                     action="{{route('user_profile_update',$userProfile->id)}}"
                     has-files
@@ -171,9 +172,8 @@
                                             label="Gothram"
                                             :value="old('gothram', ($editing ? $userProfile->gothram : ''))"
                                             maxlength="255"
-                                            placeholder="Gothram"
-                                            required
-                                        ></x-inputs.text>
+                                            placeholder="Gothram">
+                                        </x-inputs.text>
                                     </x-inputs.group>
 
                                     <x-inputs.group class="col-sm-12">
@@ -182,9 +182,8 @@
                                             label="Rashi"
                                             :value="old('rashi', ($editing ? $userProfile->rashi : ''))"
                                             maxlength="255"
-                                            placeholder="Rashi"
-                                            required
-                                        ></x-inputs.text>
+                                            placeholder="Rashi">
+                                        </x-inputs.text>
                                     </x-inputs.group>
 
                                     <x-inputs.group class="col-sm-12">
@@ -193,9 +192,8 @@
                                             label="Natchatram"
                                             :value="old('natchatram', ($editing ? $userProfile->natchatram : ''))"
                                             maxlength="255"
-                                            placeholder="Natchatram"
-                                            required
-                                        ></x-inputs.text>
+                                            placeholder="Natchatram">
+                                        </x-inputs.text>
                                     </x-inputs.group>
 
                                     <x-inputs.group class="col-sm-12">
