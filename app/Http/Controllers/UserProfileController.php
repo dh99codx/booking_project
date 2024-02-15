@@ -144,6 +144,8 @@ class UserProfileController extends Controller
         UserProfileUpdateDashboardRequest $request, $id
     ): RedirectResponse {
 
+       // dd($request);
+
         $userProfile = UserProfile::find($id);
 
         $validated = $request->validated();
@@ -167,6 +169,7 @@ class UserProfileController extends Controller
             'address'=>$request->address,
             'dob'=>$request->dob,
             'mobile_number'=>$request->mobile_number,
+            'email'=>$request->email,
         );
 
         User::whereId($userProfile->user_id)->update($form_data);

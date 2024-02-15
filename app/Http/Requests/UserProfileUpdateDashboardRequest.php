@@ -17,7 +17,7 @@ class UserProfileUpdateDashboardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'contact_number_landline' => ['required', 'digits:10'],
+            'contact_number_landline' => ['required'],
             'profile_picture' => ['image', 'max:1024', 'nullable'],
             'gothram' => ['required', 'max:255', 'string'],
             'rashi' => ['required', 'max:255', 'string'],
@@ -27,7 +27,7 @@ class UserProfileUpdateDashboardRequest extends FormRequest
             'family_name' => ['required', 'max:255','min:3','string'],
             'address' => ['required', 'max:255', 'string','min:3'],
             'dob' => ['required', 'date'],
-            'mobile_number' => ['required', 'digits:10'],
+            'mobile_number' => ['required'],
         ];
     }
 }

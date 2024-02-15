@@ -60,8 +60,7 @@
                     method="PUT"
                     action="{{route('user_profile_update',$userProfile->id)}}"
                     has-files
-                    class="mt-4"
-                >
+                    class="mt-4">
 
                                 @php $editing = isset($userProfile) @endphp
 
@@ -137,6 +136,18 @@
                                             :value="old('contact_number_landline', ($editing ? $userProfile->contact_number_landline : ''))"
                                             maxlength="255"
                                             placeholder="Contact Number Landline"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="email"
+                                            label="Email"
+                                            :value="old('email', ($editing ? $user->email : ''))"
+                                            maxlength="255"
+                                            placeholder="Email"
                                             required
                                         ></x-inputs.text>
                                     </x-inputs.group>
