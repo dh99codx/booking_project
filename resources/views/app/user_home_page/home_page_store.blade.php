@@ -90,6 +90,7 @@
                                             name="given_name"
                                             label="Given Name"
                                             maxlength="255"
+                                            :value="$user->given_name"
                                             placeholder="Given Name"
                                             required
                                         ></x-inputs.text>
@@ -100,6 +101,7 @@
                                         <x-inputs.text
                                             name="middle_name"
                                             label="Middle Name"
+                                            :value="$user->middle_name"
                                             maxlength="255"
                                             placeholder="Middle Name"
                                             required
@@ -111,6 +113,7 @@
                                         <x-inputs.text
                                             name="family_name"
                                             label="Family Name"
+                                            :value="$user->family_name"
                                             maxlength="255"
                                             placeholder="Family Name"
                                             required
@@ -122,6 +125,7 @@
                                         <x-inputs.text
                                             name="address"
                                             label="Address"
+                                            :value="$user->address"
                                             maxlength="255"
                                             placeholder="Address"
                                             required
@@ -135,6 +139,7 @@
                                         <x-inputs.text
                                             name="mobile_number"
                                             label="Mobile Number"
+                                            :value="$user->mobile_number"
                                             maxlength="255"
                                             placeholder="Mobile Number"
                                             required
@@ -158,6 +163,7 @@
                                         <x-inputs.text
                                             name="email"
                                             label="Email"
+                                            :value="$user->email"
                                             maxlength="255"
                                             placeholder="Email"
                                             required
@@ -168,6 +174,7 @@
                                         <x-inputs.date
                                             name="dob"
                                             label="DOB"
+                                            :value="optional($user->dob)->format('Y-m-d')"
                                             max="255"
                                             required
                                         ></x-inputs.date>
