@@ -21,7 +21,7 @@ class UserProfileStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'contact_number_landline'=>['nullable', new PhoneNumberRule],
+            'contact_number_landline'=>['nullable','numeric'],
             'profile_picture' => ['image', 'max:1024', 'nullable'],
             'gothram' => ['required', 'max:255', 'string'],
             'user_id' => ['required', 'exists:users,id'],

@@ -219,7 +219,7 @@ class UserProfileController extends Controller
             'rashi'=>$request->rashi,
             'natchatram'=>$request->natchatram,
             'user_id'=>$id,
-            'profile_picture'=> $request->file('profile_picture')->store('public')
+            'profile_picture'=> $request->hasFile('profile_picture') ? $request->hasFile('profile_picture') : null
         );
 
 
