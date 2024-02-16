@@ -45,6 +45,9 @@
             import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo';
         </script>
 
+
+        @yield('css_links')
+
         @livewireStyles
     </head>
 
@@ -113,5 +116,12 @@
                 })
             })
         </script>
+
+
+
+        @yield('js_script')
+
+
+
     </body>
 </html>

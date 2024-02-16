@@ -110,9 +110,32 @@ email_address
 php artisan db:seed --class=PermissionsSeeder
 
 
+--------------------------------------------------------------------------
 
 
+Given Name
 
+Middle Name
+
+Family Name
+
+Address
+
+Contact Number (Mobile)
+
+Contact Number (Landline)
+
+Email
+
+DOB
+
+Gothram
+
+Rashi
+
+Natchatram
+
+Profile Picture on the right side of Names
 
 
 
