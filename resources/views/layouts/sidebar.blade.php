@@ -14,14 +14,6 @@
             <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu">
 
                 @auth
-                <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link">
-                        <i class="nav-icon icon ion-md-pulse"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -161,14 +153,6 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                            @can('view-any', App\Models\User::class)
-                            <li class="nav-item">
-                                <a href="{{ route('users.index') }}" class="nav-link">
-                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                    <p>Users</p>
-                                </a>
-                            </li>
-                            @endcan
                             @can('view-any', App\Models\FamilyDetails::class)
                             <li class="nav-item">
                                 <a href="{{ route('all-family-details.index') }}" class="nav-link">
@@ -251,9 +235,59 @@
                             </a>
                         </li>
                         @endcan
+                       @can('view-any', App\Models\User::class)
+                           <li class="nav-item">
+                               <a href="{{ route('users.index') }}" class="nav-link">
+                                   <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                   <p>Users</p>
+                               </a>
+                           </li>
+                       @endcan
                     </ul>
                 </li>
             @endif
+
+
+
+
+           @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) ||
+               Auth::user()->can('view-any', Spatie\Permission\Models\Permission::class))
+               <li class="nav-item">
+
+                  <li class="nav-item">
+                      <a href="{{ route('home') }}" class="nav-link">
+                          <i class="nav-icon icon ion-md-pulse"></i>
+                          <p>
+                              FAQ
+                          </p>
+                      </a>
+                  </li>
+                 <li class="nav-item">
+                     <a href="{{ route('home') }}" class="nav-link">
+                         <i class="nav-icon icon ion-md-podium"></i>
+                         <p>
+                             Privacy Policy
+                         </p>
+                     </a>
+                 </li>
+
+                 <li class="nav-item">
+                     <a href="{{ route('home') }}" class="nav-link">
+                         <i class="nav-icon icon ion-md-sync"></i>
+                         <p>
+                             Contact Us
+                         </p>
+                     </a>
+                 </li>
+
+
+               </li>
+           @endif
+
+
+
+
+
 
 
 
