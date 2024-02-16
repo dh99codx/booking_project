@@ -28,6 +28,12 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+        return view('home');
+    }
+
+    public function profile_page(Request $request)
+    {
+
         if ($request->user()->markEmailAsVerified()) {
             if (auth()->user()->success_msg == 0)
             {
@@ -50,4 +56,5 @@ class HomeController extends Controller
         }
 
     }
+
 }
