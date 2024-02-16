@@ -30,7 +30,6 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
-Route::get('/profile-page', [HomeController::class, 'profile_page'])->name('profile_page')->middleware('verified');
 
 
 Route::post('/test-form',[SubscriberController::class,'test_subscriber'])->name('test_subscriber');
@@ -92,6 +91,9 @@ Route::prefix('/')
 
         /*Account Activate &  Deactivate*/
         Route::delete('/user-activate-deactivate/{status}',[UserProfileController::class,'activate_deactivate'])->name('account_activate_deactivate');
+
+        Route::get('/profile-page', [HomeController::class, 'profile_page'])->name('profile_page')->middleware('verified');
+
 
     })->middleware('verified');
 

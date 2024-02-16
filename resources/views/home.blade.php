@@ -33,7 +33,7 @@
                         <i class="nav-icon icon ion-md-backspace display-3" ></i>
                         <h3>
                             <strong>
-                                Pooja Booking
+                                Hall Booking
                             </strong>
                         </h3>
                         <p>
@@ -51,7 +51,7 @@
                         <i class="nav-icon icon ion-md-basket display-3" ></i>
                         <h3>
                             <strong>
-                                Pooja Booking
+                                Make a Payment
                             </strong>
                         </h3>
                         <p>
@@ -69,7 +69,7 @@
                         <i class="nav-icon icon ion-md-basketball display-3" ></i>
                         <h3>
                             <strong>
-                                Pooja Booking
+                                Update Profile
                             </strong>
                         </h3>
                         <p>

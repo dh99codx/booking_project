@@ -26,7 +26,7 @@
                     <ul class="nav nav-treeview">
                         @can('view-any', App\Models\User::class)
                             <li class="nav-item">
-                                <a href="{{ route('users.index') }}" class="nav-link">
+                                <a href="{{ route('profile_page') }}" class="nav-link">
                                     <i class="nav-icon icon ion-md-radio-button-off"></i>
                                     <p>View Profile</p>
                                 </a>
@@ -42,7 +42,7 @@
                         @endcan
                         @can('view-any', App\Models\Frequency::class)
                             <li class="nav-item">
-                                <a href="{{ route('frequencies.index') }}" class="nav-link">
+                                <a href="{{ route('customer_subscriber') }}" class="nav-link">
                                     <i class="nav-icon icon ion-md-radio-button-off"></i>
                                     <p>My subscriptions</p>
                                 </a>
