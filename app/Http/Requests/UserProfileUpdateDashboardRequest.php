@@ -17,7 +17,7 @@ class UserProfileUpdateDashboardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'contact_number_landline' => ['required'],
+            'contact_number_landline' => ['nullable'],
             'profile_picture' => ['image', 'max:1024', 'nullable'],
             'gothram' => ['nullable', 'max:255', 'string'],
             'rashi' => ['nullable', 'max:255', 'string'],

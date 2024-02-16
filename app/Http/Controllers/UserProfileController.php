@@ -13,6 +13,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UserProfileStoreRequest;
 use App\Http\Requests\UserProfileUpdateRequest;
+use App\Rules\PhoneNumberRule;
 
 class UserProfileController extends Controller
 {
@@ -192,7 +193,7 @@ class UserProfileController extends Controller
             'address'=>'required|max:255|min:3|string',
             'dob'=>'required|date',
             'profile_picture'=>'image|max:1024|nullable',
-            'contact_number_landline'=>'nullable'
+            'contact_number_landline'=>['nullable', new PhoneNumberRule],
         ]);
 
         $form_data=array(

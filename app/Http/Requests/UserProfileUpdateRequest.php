@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\PhoneNumberRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserProfileUpdateRequest extends FormRequest
@@ -20,7 +21,7 @@ class UserProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'contact_number_landline' => ['required', 'max:255', 'string'],
+            'contact_number_landline'=>['nullable', new PhoneNumberRule],
             'profile_picture' => ['image', 'max:1024', 'nullable'],
             'gothram' => ['required', 'max:255', 'string'],
             'user_id' => ['required', 'exists:users,id'],

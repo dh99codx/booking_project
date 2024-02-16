@@ -137,7 +137,6 @@
                                             :value="old('contact_number_landline', ($editing ? $userProfile->contact_number_landline : ''))"
                                             maxlength="255"
                                             placeholder="Contact Number Landline"
-                                            required
                                         ></x-inputs.text>
                                     </x-inputs.group>
 
