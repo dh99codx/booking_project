@@ -24,30 +24,24 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        @can('view-any', App\Models\User::class)
                             <li class="nav-item">
                                 <a href="{{ route('profile_page') }}" class="nav-link">
                                     <i class="nav-icon icon ion-md-radio-button-off"></i>
                                     <p>View Profile</p>
                                 </a>
                             </li>
-                        @endcan
-                        @can('view-any', App\Models\FamilyDetails::class)
                             <li class="nav-item">
-                                <a href="{{ route('all-family-details.index') }}" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="nav-icon icon ion-md-radio-button-off"></i>
                                     <p>Family Members</p>
                                 </a>
                             </li>
-                        @endcan
-                        @can('view-any', App\Models\Frequency::class)
                             <li class="nav-item">
                                 <a href="{{ route('customer_subscriber') }}" class="nav-link">
                                     <i class="nav-icon icon ion-md-radio-button-off"></i>
                                     <p>My subscriptions</p>
                                 </a>
                             </li>
-                        @endcan
                     </ul>
                 </li>
 
@@ -61,30 +55,24 @@
                        </p>
                    </a>
                    <ul class="nav nav-treeview">
-                       @can('view-any', App\Models\User::class)
                            <li class="nav-item">
-                               <a href="{{ route('users.index') }}" class="nav-link">
+                               <a href="#" class="nav-link">
                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
                                    <p>Make a Booking</p>
                                </a>
                            </li>
-                       @endcan
-                       @can('view-any', App\Models\FamilyDetails::class)
                            <li class="nav-item">
-                               <a href="{{ route('all-family-details.index') }}" class="nav-link">
+                               <a href="#" class="nav-link">
                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
                                    <p>View/Edit Booking</p>
                                </a>
                            </li>
-                       @endcan
-                       @can('view-any', App\Models\Frequency::class)
                            <li class="nav-item">
-                               <a href="{{ route('frequencies.index') }}" class="nav-link">
+                               <a href="#" class="nav-link">
                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
                                    <p>View Catering Menu</p>
                                </a>
                            </li>
-                       @endcan
                    </ul>
                </li>
 
@@ -98,25 +86,20 @@
                        </p>
                    </a>
                    <ul class="nav nav-treeview">
-                       @can('view-any', App\Models\User::class)
                            <li class="nav-item">
-                               <a href="{{ route('users.index') }}" class="nav-link">
+                               <a href="#" class="nav-link">
                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
                                    <p>Make a Booking</p>
                                </a>
                            </li>
-                       @endcan
-                       @can('view-any', App\Models\FamilyDetails::class)
                            <li class="nav-item">
-                               <a href="{{ route('all-family-details.index') }}" class="nav-link">
+                               <a href="#" class="nav-link">
                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
                                    <p>View/Edit Booking</p>
                                </a>
                            </li>
-                       @endcan
                    </ul>
                </li>
-
 
 
               <li class="nav-item">
@@ -128,14 +111,12 @@
                       </p>
                   </a>
                   <ul class="nav nav-treeview">
-                      @can('view-any', App\Models\User::class)
                           <li class="nav-item">
-                              <a href="{{ route('users.index') }}" class="nav-link">
+                              <a href="#" class="nav-link">
                                   <i class="nav-icon icon ion-md-radio-button-off"></i>
                                   <p>Make a Payment</p>
                               </a>
                           </li>
-                      @endcan
                   </ul>
               </li>
 
