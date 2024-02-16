@@ -4,46 +4,77 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-                <div class="card card-outline card-primary">
+                <div style="background-image: linear-gradient(to right top, rgba(46,121,229,0.82), rgba(1,116,181,0.8), rgba(0,135,147,0.84), rgba(0,191,114,0.82), #a8eb12);" class="card card-outline card-primary">
                     <div class="card-header">
                         <h3 class="card-title">Pooja Booking</h3>
                     </div>
                     <div class="card-body">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dolorem dolores eaque eligendi eos error esse harum, ipsum itaque laboriosam laborum, nam quam,
-                        rem suscipit voluptates! Autem cumque eveniet excepturi.
+
+                        <i class="nav-icon icon ion-md-apps display-3" ></i>
+
+                        <h3>
+                          <strong>
+                              Pooja Booking
+                          </strong>
+                        </h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </p>
+
                     </div>
                 </div>
             </div>
             <div class="col-sm-3">
-                <div class="card card-outline card-secondary">
+                <div style="background-image: linear-gradient(to right top, rgba(46,121,229,0.82), rgba(1,116,181,0.8), rgba(0,135,147,0.84), rgba(0,191,114,0.82), #a8eb12);" class="card card-outline card-secondary">
                     <div class="card-header">
                         <h3 class="card-title">Hall Booking</h3>
                     </div>
                     <div class="card-body">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dolorem dolores eaque eligendi eos error esse harum, ipsum itaque laboriosam laborum, nam quam,
-                        rem suscipit voluptates! Autem cumque eveniet excepturi.
+                        <i class="nav-icon icon ion-md-backspace display-3" ></i>
+                        <h3>
+                            <strong>
+                                Pooja Booking
+                            </strong>
+                        </h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-3">
-                <div class="card card-outline card-success">
+                <div style="background-image: linear-gradient(to right top, rgba(46,121,229,0.82), rgba(1,116,181,0.8), rgba(0,135,147,0.84), rgba(0,191,114,0.82), #a8eb12);" class="card card-outline card-success">
                     <div class="card-header">
                         <h3 class="card-title">Make a Payment</h3>
                     </div>
                     <div class="card-body">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dolorem dolores eaque eligendi eos error esse harum, ipsum itaque laboriosam laborum, nam quam,
-                        rem suscipit voluptates! Autem cumque eveniet excepturi.
+                        <i class="nav-icon icon ion-md-basket display-3" ></i>
+                        <h3>
+                            <strong>
+                                Pooja Booking
+                            </strong>
+                        </h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-3">
-                <div class="card card-outline card-info">
+                <div style="background-image: linear-gradient(to right top, rgba(46,121,229,0.82), rgba(1,116,181,0.8), rgba(0,135,147,0.84), rgba(0,191,114,0.82), #a8eb12);" class="card card-outline card-info">
                     <div class="card-header">
                         <h3 class="card-title">Update Profile</h3>
                     </div>
                     <div class="card-body">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dolorem dolores eaque eligendi eos error esse harum, ipsum itaque laboriosam laborum, nam quam,
-                        rem suscipit voluptates! Autem cumque eveniet excepturi.
+                        <i class="nav-icon icon ion-md-basketball display-3" ></i>
+                        <h3>
+                            <strong>
+                                Pooja Booking
+                            </strong>
+                        </h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </p>
                     </div>
                 </div>
             </div>
