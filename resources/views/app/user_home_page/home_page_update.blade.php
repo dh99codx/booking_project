@@ -201,6 +201,8 @@
                                             x-data="imageViewer('{{ $editing && $userProfile->profile_picture ? \Storage::url($userProfile->profile_picture) : '' }}')"
                                         >
                                             <div class="row">
+
+
                                                 <div class="mt-5 mr-3">
                                                     <x-inputs.partials.label
                                                         name="profile_picture"
@@ -208,8 +210,11 @@
                                                     ></x-inputs.partials.label
                                                     ><br />
                                                 </div>
-                                                <div>
 
+
+
+
+                                                <div>
                                                     <!-- Show the image -->
                                                     <template x-if="imageUrl">
                                                         <img
@@ -236,6 +241,9 @@
                                                         />
                                                     </div>
                                                 </div>
+
+
+
                                             </div>
 
 

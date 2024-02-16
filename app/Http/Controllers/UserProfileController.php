@@ -192,6 +192,7 @@ class UserProfileController extends Controller
             'address'=>'required|max:255|min:3|string',
             'dob'=>'required|date',
             'profile_picture'=>'image|max:1024|nullable',
+            'contact_number_landline'=>'nullable'
         ]);
 
         $form_data=array(
