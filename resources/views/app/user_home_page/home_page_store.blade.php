@@ -55,24 +55,24 @@
 
                 <hr>
 
-                <div class="card">
-                    <div class="card-header">
-                        <strong>
-                            Mobile Number
-                        </strong>
-                    </div>
-                    <div class="card-body">
-                        <form action="{{route('mobile_number_reset')}}" method="post">
-                            @csrf
-                            {{csrf_field()}}
-                            <div class="form-group">
-                                <input type="text" value="{{$user->mobile_number}}" class="form-control" name="mobile_number_reset"  placeholder="Mobile Number">
-                            </div>
-                            <p class="card-text">A text message will be sent for verification during password reset </p>
-                            <button type="submit" class="btn btn-dark">Reset Phone Number</button>
-                        </form>
-                    </div>
-                </div>
+{{--                <div class="card">--}}
+{{--                    <div class="card-header">--}}
+{{--                        <strong>--}}
+{{--                            Mobile Number--}}
+{{--                        </strong>--}}
+{{--                    </div>--}}
+{{--                    <div class="card-body">--}}
+{{--                        <form action="{{route('mobile_number_reset')}}" method="post">--}}
+{{--                            @csrf--}}
+{{--                            {{csrf_field()}}--}}
+{{--                            <div class="form-group">--}}
+{{--                                <input type="text" value="{{$user->mobile_number}}" class="form-control" name="mobile_number_reset"  placeholder="Mobile Number">--}}
+{{--                            </div>--}}
+{{--                            <p class="card-text">A text message will be sent for verification during password reset </p>--}}
+{{--                            <button type="submit" class="btn btn-dark">Reset Phone Number</button>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
                 <x-form
                     method="POST"
@@ -89,12 +89,58 @@
                                         <x-inputs.text
                                             name="given_name"
                                             label="Given Name"
-                                            :value="$user->given_name"
                                             maxlength="255"
                                             placeholder="Given Name"
                                             required
                                         ></x-inputs.text>
                                     </x-inputs.group>
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="middle_name"
+                                            label="Middle Name"
+                                            maxlength="255"
+                                            placeholder="Middle Name"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="family_name"
+                                            label="Family Name"
+                                            maxlength="255"
+                                            placeholder="Family Name"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="address"
+                                            label="Address"
+                                            maxlength="255"
+                                            placeholder="Address"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="mobile_number"
+                                            label="Mobile Number"
+                                            maxlength="255"
+                                            placeholder="Mobile Number"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
 
 
                                     <x-inputs.group class="col-sm-12">
@@ -106,6 +152,62 @@
                                             required
                                         ></x-inputs.text>
                                     </x-inputs.group>
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="email"
+                                            label="Email"
+                                            maxlength="255"
+                                            placeholder="Email"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.date
+                                            name="dob"
+                                            label="DOB"
+                                            max="255"
+                                            required
+                                        ></x-inputs.date>
+                                    </x-inputs.group>
+
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="gothram"
+                                            label="Gothram"
+                                            maxlength="255"
+                                            placeholder="Gothram"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="rashi"
+                                            label="Rashi"
+                                            maxlength="255"
+                                            placeholder="Rashi"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
+
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.text
+                                            name="natchatram"
+                                            label="Natchatram"
+                                            maxlength="255"
+                                            placeholder="Natchatram"
+                                            required
+                                        ></x-inputs.text>
+                                    </x-inputs.group>
+
 
                                     <x-inputs.group class="col-sm-12">
                                         <div x-data="imageViewer('')">
@@ -146,85 +248,13 @@
                                         </div>
                                     </x-inputs.group>
 
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="gothram"
-                                            label="Gothram"
-                                            maxlength="255"
-                                            placeholder="Gothram"
-                                            required
-                                        ></x-inputs.text>
-                                    </x-inputs.group>
 
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="rashi"
-                                            label="Rashi"
-                                            maxlength="255"
-                                            placeholder="Rashi"
-                                            required
-                                        ></x-inputs.text>
-                                    </x-inputs.group>
 
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="natchatram"
-                                            label="Natchatram"
-                                            maxlength="255"
-                                            placeholder="Natchatram"
-                                            required
-                                        ></x-inputs.text>
-                                    </x-inputs.group>
 
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="middle_name"
-                                            label="Middle Name"
-                                            :value="$user->middle_name"
-                                            maxlength="255"
-                                            placeholder="Middle Name"
-                                            required
-                                        ></x-inputs.text>
-                                    </x-inputs.group>
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="family_name"
-                                            label="Family Name"
-                                            :value="$user->family_name"
-                                            maxlength="255"
-                                            placeholder="Family Name"
-                                            required
-                                        ></x-inputs.text>
-                                    </x-inputs.group>
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.text
-                                            name="address"
-                                            label="Address"
-                                            :value="$user->address"
-                                            maxlength="255"
-                                            placeholder="Address"
-                                            required
-                                        ></x-inputs.text>
-                                    </x-inputs.group>
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.date
-                                            name="dob"
-                                            label="Dob"
-                                            :value="optional($user->dob)->format('Y-m-d')"
-                                            max="255"
-                                            required
-                                        ></x-inputs.date>
-                                    </x-inputs.group>
-                                    <x-inputs.group class="col-sm-12">
-                                        <x-inputs.email disabled
-                                            name="email"
-                                            label="Email"
-                                            :value="$user->email"
-                                            maxlength="255"
-                                            placeholder="Emai"
-                                        ></x-inputs.email>
-                                    </x-inputs.group>
+
                                 </div>
+
+
                                 <div class="mt-4">
                                     <button type="submit" class="btn btn-dark float-right">
                                         <i class="icon ion-md-save"></i>

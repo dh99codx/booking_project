@@ -157,7 +157,7 @@
                                     <x-inputs.group class="col-sm-12">
                                         <x-inputs.date
                                             name="dob"
-                                            label="Dob"
+                                            label="DOB"
                                             :value="optional($user->dob)->format('Y-m-d')"
                                             max="255"
                                             required
