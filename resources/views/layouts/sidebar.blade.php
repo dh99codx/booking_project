@@ -34,7 +34,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('family_details_customer')}}" class="nav-link">
+                                    <a href="{{route('create_family_details_index')}}" class="nav-link">
                                         <i class="nav-icon icon ion-md-radio-button-off"></i>
                                         <p>Family Members</p>
                                     </a>

@@ -113,22 +113,28 @@ class FamilyDetailsController extends Controller
     }
 
 
+
+    public function delete(
+        Request $request,
+        FamilyDetails $familyDetails
+    ): RedirectResponse {
+
+        $familyDetails->delete();
+
+        return redirect()
+            ->route('create_family_details_index')
+            ->withSuccess(__('crud.common.removed'));
+    }
+
+
+
+
+    /*---------------------------------------------------*/
+
     public function create_family_details(Request $request)
     {
         $user = Auth::user()->id;
-        $familyDetails = FamilyDetails::where('user_id',$user)->exists();
-
-         if ($familyDetails)
-         {
-             $familyDetails = FamilyDetails::where('user_id',$user)->first();
-             return view('app.family_details_customer.edit', compact('user','familyDetails'));
-
-         }else
-         {
-             return view('app.family_details_customer.create', compact('user'));
-         }
-
-
+        return view('app.family_details_customer.create', compact('user'));
     }
 
     public function create_family_details_store(Request $request)
@@ -139,7 +145,7 @@ class FamilyDetailsController extends Controller
             'given_name'=>['required', 'max:255','min:3','string'],
             'middle_name' =>['required', 'max:255','min:3','string'],
             'family_name' => ['required', 'max:255','min:3','string'],
-            'email_address' =>['required', 'unique:users,email', 'email:rfc,dns'],
+            'email_address' =>['required', 'email:rfc,dns'],
             'contact_number' =>['required','numeric'],
             'dob' =>['required', 'date'],
             'relationship' =>['nullable', 'max:255','min:3','string'],
@@ -167,7 +173,7 @@ class FamilyDetailsController extends Controller
         FamilyDetails::create($form_data);
 
         return redirect()
-            ->route('family_details_customer')
+            ->route('create_family_details_index')
             ->withSuccess(__('crud.common.created'));
     }
 
@@ -209,6 +215,24 @@ class FamilyDetailsController extends Controller
             ->route('family_details_customer')
             ->withSuccess(('Successfully Updated'));
 
+    }
+
+    public function index_frontend(Request $request): View
+    {
+        $user = Auth::user()->id;
+
+        $search = $request->get('search', '');
+
+        $allFamilyDetails = FamilyDetails::search($search)
+            ->where('user_id',$user)
+            ->latest()
+            ->paginate(5)
+            ->withQueryString();
+
+        return view(
+            'app.family_details_customer.index',
+            compact('allFamilyDetails', 'search')
+        );
     }
 
 

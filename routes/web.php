@@ -116,6 +116,19 @@ Route::prefix('/')
 
 
 
+        Route::get('/family-details-customer', [
+            FamilyDetailsController::class,
+            'index_frontend',
+        ])->name('create_family_details_index');
+
+        /*family details delete*/
+        Route::get('/family-details-customer-delete', [
+            FamilyDetailsController::class,
+            'delete',
+        ])->name('create_family_details_delete');
+
+
+
 
     })->middleware('verified');
 

@@ -47,7 +47,7 @@ return [
 
     'all_family_details' => [
         'name' => 'All Family Details',
-        'index_title' => 'AllFamilyDetails List',
+        'index_title' => 'All Family Details List',
         'new_title' => 'New Family details',
         'create_title' => 'Create Family Details',
         'edit_title' => 'Edit Family Details',
