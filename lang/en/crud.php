@@ -49,9 +49,9 @@ return [
         'name' => 'All Family Details',
         'index_title' => 'AllFamilyDetails List',
         'new_title' => 'New Family details',
-        'create_title' => 'Create FamilyDetails',
-        'edit_title' => 'Edit FamilyDetails',
-        'show_title' => 'Show FamilyDetails',
+        'create_title' => 'Create Family Details',
+        'edit_title' => 'Edit Family Details',
+        'show_title' => 'Show Family Details',
         'inputs' => [
             'given_name' => 'Given Name',
             'middle_name' => 'Middle Name',

@@ -79,7 +79,6 @@
             :value="old('relationship', ($editing ? $familyDetails->relationship : ''))"
             maxlength="255"
             placeholder="Relationship"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 
@@ -90,7 +89,6 @@
             :value="old('gothram', ($editing ? $familyDetails->gothram : ''))"
             maxlength="255"
             placeholder="Gothram"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 
@@ -101,7 +99,6 @@
             :value="old('rashi', ($editing ? $familyDetails->rashi : ''))"
             maxlength="255"
             placeholder="Rashi"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 
@@ -112,7 +109,6 @@
             :value="old('natchatram', ($editing ? $familyDetails->natchatram : ''))"
             maxlength="255"
             placeholder="Natchatram"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 </div>

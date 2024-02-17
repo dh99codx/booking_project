@@ -107,6 +107,13 @@ Route::prefix('/')
             'create_family_details_store',
         ])->name('create_family_details_store');
 
+        /*family details customer*/
+
+        Route::put('/family-details-update-customer/{id}', [
+            FamilyDetailsController::class,
+            'create_family_details_update',
+        ])->name('create_family_details_update');
+
 
 
 

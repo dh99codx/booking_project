@@ -13,10 +13,9 @@
 
             <x-form
                 method="PUT"
-                action="{{ route('all-family-details.update', $familyDetails) }}"
-                class="mt-4"
-            >
-                @include('app.family_details_customer.edit')
+                action="{{ route('create_family_details_update', $familyDetails->id) }}"
+                class="mt-4">
+                @include('app.family_details_customer.form-inputs')
 
                 <div class="mt-4">
                     <a
