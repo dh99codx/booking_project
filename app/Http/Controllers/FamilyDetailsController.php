@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\FamilyDetails;
@@ -110,4 +111,65 @@ class FamilyDetailsController extends Controller
             ->route('all-family-details.index')
             ->withSuccess(__('crud.common.removed'));
     }
+
+
+    public function create_family_details(Request $request)
+    {
+        $user = Auth::user()->id;
+        $familyDetails = FamilyDetails::where('user_id',$user)->exists();
+
+         if ($familyDetails)
+         {
+             $familyDetails = FamilyDetails::where('user_id',$user)->first();
+
+             return view('app.family_details_customer.edit', compact('user','familyDetails'));
+
+         }else
+         {
+             return view('app.family_details_customer.create', compact('user'));
+         }
+
+
+    }
+
+    public function create_family_details_store(Request $request)
+    {
+
+        $request->validate([
+            'user_id'=>'required',
+            'given_name'=>['required', 'max:255','min:3','string'],
+            'middle_name' =>['required', 'max:255','min:3','string'],
+            'family_name' => ['required', 'max:255','min:3','string'],
+            'email_address' =>['required', 'unique:users,email', 'email:rfc,dns'],
+            'contact_number' =>['required'],
+            'dob' =>['required', 'date'],
+            'relationship' =>['nullable', 'max:255','min:3','string'],
+            'gothram' =>['nullable', 'max:255', 'string','min:3'],
+            'rashi' =>['nullable', 'max:255', 'string','min:3'],
+            'natchatram' =>['nullable', 'max:255', 'string','min:3'],
+        ]);
+
+
+        $form_data= array(
+            'user_id'=>$request->user_id,
+            'given_name'=>$request->given_name,
+            'middle_name'  =>$request->middle_name,
+            'family_name'  =>$request->family_name,
+            'email_address'  =>$request->email_address,
+            'contact_number'  =>$request->contact_number,
+            'dob'  =>$request->dob,
+            'relationship'  =>$request->relationship,
+            'gothram'  =>$request->gothram,
+            'rashi'  =>$request->rashi,
+            'natchatram'  =>$request->natchatram,
+        );
+
+
+        FamilyDetails::create($form_data);
+
+        return redirect()
+            ->route('family_details_customer')
+            ->withSuccess(__('crud.common.created'));
+    }
+
 }

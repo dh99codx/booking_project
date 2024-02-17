@@ -94,6 +94,21 @@ Route::prefix('/')
 
         Route::get('/profile-page', [HomeController::class, 'profile_page'])->name('profile_page')->middleware('verified');
 
+        /*family details customer*/
+        Route::get('/family-details-create-customer', [
+            FamilyDetailsController::class,
+            'create_family_details',
+        ])->name('family_details_customer');
+
+        /*family details customer*/
+
+        Route::post('/family-details-store-customer', [
+            FamilyDetailsController::class,
+            'create_family_details_store',
+        ])->name('create_family_details_store');
+
+
+
 
     })->middleware('verified');
 

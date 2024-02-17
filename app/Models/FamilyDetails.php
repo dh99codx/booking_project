@@ -12,6 +12,7 @@ class FamilyDetails extends Model
     use Searchable;
 
     protected $fillable = [
+        'user_id',
         'given_name',
         'middle_name',
         'family_name',

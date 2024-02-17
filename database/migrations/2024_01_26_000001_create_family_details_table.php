@@ -18,10 +18,10 @@ return new class extends Migration {
             $table->string('email_address');
             $table->string('contact_number');
             $table->date('dob');
-            $table->string('relationship');
-            $table->string('gothram');
-            $table->string('rashi');
-            $table->string('natchatram');
+            $table->string('relationship')->nullable();;
+            $table->string('gothram')->nullable();;
+            $table->string('rashi')->nullable();;
+            $table->string('natchatram')->nullable();;
             $table->timestamps();
         });
     }
