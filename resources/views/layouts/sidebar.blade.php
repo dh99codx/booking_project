@@ -15,110 +15,115 @@
 
                 @auth
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon icon ion-md-apps"></i>
-                        <p>
-                            My Profile
-                            <i class="nav-icon right icon ion-md-arrow-round-back"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('profile_page') }}" class="nav-link">
-                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                    <p>View Profile</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                    <p>Family Members</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('customer_subscriber') }}" class="nav-link">
-                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                    <p>My subscriptions</p>
-                                </a>
-                            </li>
-                    </ul>
-                </li>
+                    @if (!Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) ||
+                            !Auth::user()->can('view-any', Spatie\Permission\Models\Permission::class))
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon icon ion-md-apps"></i>
+                                <p>
+                                    My Profile
+                                    <i class="nav-icon right icon ion-md-arrow-round-back"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('profile_page') }}" class="nav-link">
+                                        <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                        <p>View Profile</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                        <p>Family Members</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('customer_subscriber') }}" class="nav-link">
+                                        <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                        <p>My subscriptions</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
 
-               <li class="nav-item">
-                   <a href="#" class="nav-link">
-                       <i class="nav-icon icon ion-md-apps"></i>
-                       <p>
-                           Hall Booking
-                           <i class="nav-icon right icon ion-md-arrow-round-back"></i>
-                       </p>
-                   </a>
-                   <ul class="nav nav-treeview">
-                           <li class="nav-item">
-                               <a href="#" class="nav-link">
-                                   <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                   <p>Make a Booking</p>
-                               </a>
-                           </li>
-                           <li class="nav-item">
-                               <a href="#" class="nav-link">
-                                   <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                   <p>View/Edit Booking</p>
-                               </a>
-                           </li>
-                           <li class="nav-item">
-                               <a href="#" class="nav-link">
-                                   <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                   <p>View Catering Menu</p>
-                               </a>
-                           </li>
-                   </ul>
-               </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon icon ion-md-apps"></i>
+                                <p>
+                                    Hall Booking
+                                    <i class="nav-icon right icon ion-md-arrow-round-back"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                        <p>Make a Booking</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                        <p>View/Edit Booking</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                        <p>View Catering Menu</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
 
-               <li class="nav-item">
-                   <a href="#" class="nav-link">
-                       <i class="nav-icon icon ion-md-apps"></i>
-                       <p>
-                           Pooja Booking
-                           <i class="nav-icon right icon ion-md-arrow-round-back"></i>
-                       </p>
-                   </a>
-                   <ul class="nav nav-treeview">
-                           <li class="nav-item">
-                               <a href="#" class="nav-link">
-                                   <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                   <p>Make a Booking</p>
-                               </a>
-                           </li>
-                           <li class="nav-item">
-                               <a href="#" class="nav-link">
-                                   <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                   <p>View/Edit Booking</p>
-                               </a>
-                           </li>
-                   </ul>
-               </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon icon ion-md-apps"></i>
+                                <p>
+                                    Pooja Booking
+                                    <i class="nav-icon right icon ion-md-arrow-round-back"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                        <p>Make a Booking</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                        <p>View/Edit Booking</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
 
-              <li class="nav-item">
-                  <a href="#" class="nav-link">
-                      <i class="nav-icon icon ion-md-apps"></i>
-                      <p>
-                          Payment
-                          <i class="nav-icon right icon ion-md-arrow-round-back"></i>
-                      </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                          <li class="nav-item">
-                              <a href="#" class="nav-link">
-                                  <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                  <p>Make a Payment</p>
-                              </a>
-                          </li>
-                  </ul>
-              </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon icon ion-md-apps"></i>
+                                <p>
+                                    Payment
+                                    <i class="nav-icon right icon ion-md-arrow-round-back"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                        <p>Make a Payment</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    @endif
 
 
 
@@ -264,13 +269,6 @@
 
                </li>
            @endif
-
-
-
-
-
-
-
 
                 @endauth
 
