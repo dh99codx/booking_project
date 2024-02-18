@@ -6,6 +6,7 @@ use App\Http\Requests\UserProfileStoreDashboardRequest;
 use App\Http\Requests\UserProfileUpdateDashboardRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -145,8 +146,6 @@ class UserProfileController extends Controller
         UserProfileUpdateDashboardRequest $request, $id
     ): RedirectResponse {
 
-       // dd($request);
-
         $userProfile = UserProfile::find($id);
 
         $validated = $request->validated();
@@ -163,15 +162,30 @@ class UserProfileController extends Controller
         $userProfile->update($validated);
 
 
-        $form_data= array(
-            'given_name'=>$request->given_name,
-            'middle_name'=>$request->middle_name,
-            'family_name'=>$request->family_name,
-            'address'=>$request->address,
-            'dob'=>$request->dob,
-            'mobile_number'=>$request->mobile_number,
-            'email'=>$request->email,
-        );
+        if ($request->password)
+        {
+            $form_data= array(
+                'given_name'=>$request->given_name,
+                'middle_name'=>$request->middle_name,
+                'family_name'=>$request->family_name,
+                'address'=>$request->address,
+                'dob'=>$request->dob,
+                'mobile_number'=>$request->mobile_number,
+                'email'=>$request->email,
+                'password' =>  Hash::make($request->password),
+            );
+        }else {
+            $form_data= array(
+                'given_name'=>$request->given_name,
+                'middle_name'=>$request->middle_name,
+                'family_name'=>$request->family_name,
+                'address'=>$request->address,
+                'dob'=>$request->dob,
+                'mobile_number'=>$request->mobile_number,
+                'email'=>$request->email,
+            );
+        }
+
 
         User::whereId($userProfile->user_id)->update($form_data);
 

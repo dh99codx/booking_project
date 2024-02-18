@@ -35,111 +35,105 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 Route::post('/test-form',[SubscriberController::class,'test_subscriber'])->name('test_subscriber');
 Route::get('/test-form',[SubscriberController::class,'test_subscriber_form'])->name('test_subscriber_form');
 
-Route::prefix('/')
-    ->middleware('auth')
-    ->group(function () {
-        Route::resource('roles', RoleController::class);
-        Route::resource('permissions', PermissionController::class);
-        Route::resource('users', UserController::class);
-        Route::get('all-family-details', [
-            FamilyDetailsController::class,
-            'index',
-        ])->name('all-family-details.index');
-        Route::post('all-family-details', [
-            FamilyDetailsController::class,
-            'store',
-        ])->name('all-family-details.store');
-        Route::get('all-family-details/create', [
-            FamilyDetailsController::class,
-            'create',
-        ])->name('all-family-details.create');
-        Route::get('all-family-details/{familyDetails}', [
-            FamilyDetailsController::class,
-            'show',
-        ])->name('all-family-details.show');
-        Route::get('all-family-details/{familyDetails}/edit', [
-            FamilyDetailsController::class,
-            'edit',
-        ])->name('all-family-details.edit');
-        Route::put('all-family-details/{familyDetails}', [
-            FamilyDetailsController::class,
-            'update',
-        ])->name('all-family-details.update');
-        Route::delete('all-family-details/{familyDetails}', [
-            FamilyDetailsController::class,
-            'destroy',
-        ])->name('all-family-details.destroy');
 
-        Route::resource('frequencies', FrequencyController::class);
-        Route::resource('subscriber-types', SubscriberTypeController::class);
-        Route::resource('subscribers', SubscriberController::class);
-        Route::resource('user-profiles', UserProfileController::class);
+Route::group(['prefix' => '/', 'middleware' => ['auth', 'verified']], function() {
 
-        Route::put('/user-profile-update/{id}',[UserProfileController::class,'update_profile'])->name('user_profile_update');
-        Route::post('/user-profile-store/{id}',[UserProfileController::class,'update_profile_store'])->name('user_profile_store');
+    Route::resource('roles', RoleController::class);
+    Route::resource('permissions', PermissionController::class);
+    Route::resource('users', UserController::class);
+    Route::get('all-family-details', [
+        FamilyDetailsController::class,
+        'index',
+    ])->name('all-family-details.index');
+    Route::post('all-family-details', [
+        FamilyDetailsController::class,
+        'store',
+    ])->name('all-family-details.store');
+    Route::get('all-family-details/create', [
+        FamilyDetailsController::class,
+        'create',
+    ])->name('all-family-details.create');
+    Route::get('all-family-details/{familyDetails}', [
+        FamilyDetailsController::class,
+        'show',
+    ])->name('all-family-details.show');
+    Route::get('all-family-details/{familyDetails}/edit', [
+        FamilyDetailsController::class,
+        'edit',
+    ])->name('all-family-details.edit');
+    Route::put('all-family-details/{familyDetails}', [
+        FamilyDetailsController::class,
+        'update',
+    ])->name('all-family-details.update');
+    Route::delete('all-family-details/{familyDetails}', [
+        FamilyDetailsController::class,
+        'destroy',
+    ])->name('all-family-details.destroy');
 
+    Route::resource('frequencies', FrequencyController::class);
+    Route::resource('subscriber-types', SubscriberTypeController::class);
+    Route::resource('subscribers', SubscriberController::class);
+    Route::resource('user-profiles', UserProfileController::class);
 
-        /*role management controller */
-
-        Route::get('/manage-account',[\App\Http\Controllers\ManagementsController::class,'index'])->name('managements');
-        Route::get('/manage-account-create',[\App\Http\Controllers\ManagementsController::class,'create'])->name('manage-account-create');
-        Route::post('/manage-account-store',[\App\Http\Controllers\ManagementsController::class,'store'])->name('manage-account-store');
-
-        /*delete record*/
-
-        Route::delete('/manage-account-delete',[\App\Http\Controllers\ManagementsController::class,'destroy'])->name('manage-account-delete');
-
-        /*Account Activate &  Deactivate*/
-        Route::delete('/user-activate-deactivate/{status}',[UserProfileController::class,'activate_deactivate'])->name('account_activate_deactivate');
-
-        Route::get('/profile-page', [HomeController::class, 'profile_page'])->name('profile_page')->middleware('verified');
-
-        /*family details customer*/
-        Route::get('/family-details-create-customer', [
-            FamilyDetailsController::class,
-            'create_family_details',
-        ])->name('family_details_customer');
-
-        /*family details customer*/
-
-        Route::post('/family-details-store-customer', [
-            FamilyDetailsController::class,
-            'create_family_details_store',
-        ])->name('create_family_details_store');
-
-        /*family details customer*/
-
-        Route::put('/family-details-update-customer/{id}', [
-            FamilyDetailsController::class,
-            'create_family_details_update',
-        ])->name('create_family_details_update');
+    Route::put('/user-profile-update/{id}',[UserProfileController::class,'update_profile'])->name('user_profile_update');
+    Route::post('/user-profile-store/{id}',[UserProfileController::class,'update_profile_store'])->name('user_profile_store');
 
 
+    /*role management controller */
 
-        Route::get('/family-details-customer', [
-            FamilyDetailsController::class,
-            'index_frontend',
-        ])->name('create_family_details_index');
+    Route::get('/manage-account',[\App\Http\Controllers\ManagementsController::class,'index'])->name('managements');
+    Route::get('/manage-account-create',[\App\Http\Controllers\ManagementsController::class,'create'])->name('manage-account-create');
+    Route::post('/manage-account-store',[\App\Http\Controllers\ManagementsController::class,'store'])->name('manage-account-store');
 
-        /*family details delete*/
-        Route::get('/family-details-customer-delete', [
-            FamilyDetailsController::class,
-            'delete',
-        ])->name('create_family_details_delete');
+    /*delete record*/
 
+    Route::delete('/manage-account-delete',[\App\Http\Controllers\ManagementsController::class,'destroy'])->name('manage-account-delete');
 
-        /*reset admin password*/
-        Route::get('/reset-admin-password', [HomeController::class, 'reset_admin_password'])->name('reset_admin_password')->middleware('verified');
+    /*Account Activate &  Deactivate*/
+    Route::delete('/user-activate-deactivate/{status}',[UserProfileController::class,'activate_deactivate'])->name('account_activate_deactivate');
+
+    Route::get('/profile-page', [HomeController::class, 'profile_page'])->name('profile_page')->middleware('verified');
+
+    /*family details customer*/
+    Route::get('/family-details-create-customer', [
+        FamilyDetailsController::class,
+        'create_family_details',
+    ])->name('family_details_customer');
+
+    /*family details customer*/
+
+    Route::post('/family-details-store-customer', [
+        FamilyDetailsController::class,
+        'create_family_details_store',
+    ])->name('create_family_details_store');
+
+    /*family details customer*/
+
+    Route::put('/family-details-update-customer/{id}', [
+        FamilyDetailsController::class,
+        'create_family_details_update',
+    ])->name('create_family_details_update');
 
 
 
-    })->middleware('verified');
+    Route::get('/family-details-customer', [
+        FamilyDetailsController::class,
+        'index_frontend',
+    ])->name('create_family_details_index')->middleware('verified');
+
+    /*family details delete*/
+    Route::delete('/family-details-customer-delete/{data}', [FamilyDetailsController::class, 'delete_family_details',
+    ])->name('create_family_details_delete')->middleware('verified');
 
 
+    /*reset admin password*/
+    Route::get('/reset-admin-password', [HomeController::class, 'reset_admin_password'])->name('reset_admin_password')->middleware('verified');
 
+    Route::get('/customer-subscriber', [SubscriberController::class,'customer_subscriber'])->name('customer_subscriber');
+    Route::post('/customer-subscriber-store', [SubscriberController::class,'customer_subscriber_store'])->name('customer_subscriber_store');
 
-Route::get('/customer-subscriber', [SubscriberController::class,'customer_subscriber'])->name('customer_subscriber');
-Route::post('/customer-subscriber-store', [SubscriberController::class,'customer_subscriber_store'])->name('customer_subscriber_store');
+});
+
 
 /*verify link*/
 Route::get('/verify/{token}/{email}',[SubscriberController::class,'verify_token'])->name('verify-token');

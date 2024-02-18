@@ -152,6 +152,15 @@
                                         ></x-inputs.text>
                                     </x-inputs.group>
 
+                                    <x-inputs.group class="col-sm-12">
+                                        <x-inputs.password
+                                            name="password"
+                                            label="password"
+                                            maxlength="255"
+                                            placeholder="Password"
+                                        ></x-inputs.password>
+                                    </x-inputs.group>
+
 
                                     <x-inputs.group class="col-sm-12">
                                         <x-inputs.date

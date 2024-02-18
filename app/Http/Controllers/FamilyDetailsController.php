@@ -235,6 +235,14 @@ class FamilyDetailsController extends Controller
         );
     }
 
+    public function delete_family_details($familyDetails)
+    {
+        $data=FamilyDetails::find($familyDetails);
+        $data->delete();
+
+        return redirect()->route('create_family_details_index')
+            ->with('success','Successfully Deleted');
+    }
 
 
 }
