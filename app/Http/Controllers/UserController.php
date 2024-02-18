@@ -69,6 +69,8 @@ class UserController extends Controller
     {
         $this->authorize('view', $user);
 
+        $user = User::with('userProfiles')->find($user->id);
+
         return view('app.users.show', compact('user'));
     }
 

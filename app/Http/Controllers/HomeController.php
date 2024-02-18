@@ -8,6 +8,7 @@ use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -55,6 +56,13 @@ class HomeController extends Controller
             return view('app.user_home_page.home_page_store',compact('users','user'));
         }
 
+    }
+
+
+    public function reset_admin_password(Request $request)
+    {
+        $email = Auth::user()->email;
+        return view('reset_admin', compact('email'));
     }
 
 }

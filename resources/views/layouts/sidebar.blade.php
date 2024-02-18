@@ -178,14 +178,20 @@
                                         </a>
                                     </li>
                             @endcan
-                            @can('view-any', App\Models\UserProfile::class)
+{{--                            @can('view-any', App\Models\UserProfile::class)--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="{{ route('user-profiles.index') }}" class="nav-link">--}}
+{{--                                    <i class="nav-icon icon ion-md-radio-button-off"></i>--}}
+{{--                                    <p>User Profiles</p>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            @endcan--}}
                             <li class="nav-item">
-                                <a href="{{ route('user-profiles.index') }}" class="nav-link">
+                                <a href="{{ route('reset_admin_password') }}" class="nav-link">
                                     <i class="nav-icon icon ion-md-radio-button-off"></i>
-                                    <p>User Profiles</p>
+                                    <p>Account Settings</p>
                                 </a>
                             </li>
-                            @endcan
                     </ul>
                 </li>
               @endif

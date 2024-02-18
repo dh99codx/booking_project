@@ -128,6 +128,9 @@ Route::prefix('/')
         ])->name('create_family_details_delete');
 
 
+        /*reset admin password*/
+        Route::get('/reset-admin-password', [HomeController::class, 'reset_admin_password'])->name('reset_admin_password')->middleware('verified');
+
 
 
     })->middleware('verified');

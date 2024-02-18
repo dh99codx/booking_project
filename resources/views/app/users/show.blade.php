@@ -55,6 +55,40 @@
                 </div>
             </div>
 
+
+            <div class="mt-4">
+                <div class="mb-4">
+                    <h5>
+                        @lang('crud.user_profiles.inputs.contact_number_landline')
+                    </h5>
+                    <span>{{ $user->userProfiles[0]->contact_number_landline ?? '-'}}</span>
+                </div>
+
+                @if($user->userProfiles->count() > 0)
+                    <div class="mb-4">
+                        <h5>@lang('crud.user_profiles.inputs.profile_picture')</h5>
+                        <x-partials.thumbnail
+                            src="{{ $user->userProfiles[0]->profile_picture ? \Storage::url($user->userProfiles[0]->profile_picture) : '' }}"
+                            size="150"
+                        />
+                    </div>
+                @endif
+
+
+                <div class="mb-4">
+                    <h5>@lang('crud.user_profiles.inputs.gothram')</h5>
+                    <span>{{ $user->userProfiles[0]->gothram ?? '-' }}</span>
+                </div>
+                <div class="mb-4">
+                    <h5>@lang('crud.user_profiles.inputs.rashi')</h5>
+                    <span>{{ $user->userProfiles[0]->rashi ?? '-' }}</span>
+                </div>
+                <div class="mb-4">
+                    <h5>@lang('crud.user_profiles.inputs.natchatram')</h5>
+                    <span>{{ $user->userProfiles[0]->natchatram ?? '-' }}</span>
+                </div>
+            </div>
+
             <div class="mt-4">
                 <div class="mb-4">
                     <h5>@lang('crud.roles.name')</h5>
