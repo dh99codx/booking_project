@@ -21,7 +21,9 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <input disabled id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$email}}" autocomplete="email" autofocus>
+                                    <input disabled  class="form-control"  value="{{$email}}">
+
+                                    <input  id="email" type="hidden" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$email}}">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
