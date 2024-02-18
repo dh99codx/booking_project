@@ -27,7 +27,7 @@ class UserStoreRequest extends FormRequest
             'dob' => ['required', 'date'],
             'address' => ['required', 'max:255', 'string','min:3'],
             'mobile_number' => ['required', 'digits:10'],
-            'email' => ['required', 'unique:users,email', 'email:rfc,dns'],
+            'email' => ['required', 'unique:users,email'],
             'password' => ['required'],
             'news_letter_subscription' => ['required', 'boolean'],
             'privacy_policy_and_terms_of_condition' => ['required', 'boolean'],

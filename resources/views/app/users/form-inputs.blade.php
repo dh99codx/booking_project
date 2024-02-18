@@ -100,6 +100,7 @@
             name="privacy_policy_and_terms_of_condition"
             label="Privacy Policy And Terms Of Condition"
             :checked="old('privacy_policy_and_terms_of_condition', ($editing ? $user->privacy_policy_and_terms_of_condition : 0))"
+            required
         ></x-inputs.checkbox>
     </x-inputs.group>
 

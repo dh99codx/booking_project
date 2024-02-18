@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AccountActivationMailable;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -47,7 +50,21 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request): RedirectResponse
     {
-        $this->authorize('create', User::class);
+
+
+        $url = URL::to('/') . '/' . 'login';
+        $password = $request->password;
+        $email = $request->email;
+
+
+        $data = array(
+            'url'      => $url,
+            'password'   => $password,
+            'email' => $email,
+        );
+
+        Mail::to('web@booking.net')->send(new AccountActivationMailable($data));
+
 
         $validated = $request->validated();
 
