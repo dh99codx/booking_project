@@ -94,6 +94,14 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'verified']], function()
 
     Route::get('/profile-page', [HomeController::class, 'profile_page'])->name('profile_page')->middleware('verified');
 
+
+    /*Edit*/
+    Route::get('/family-details-edit-customer/{id}', [
+        FamilyDetailsController::class,
+        'edit_family_details',
+    ])->name('edit_family_details');
+
+
     /*family details customer*/
     Route::get('/family-details-create-customer', [
         FamilyDetailsController::class,

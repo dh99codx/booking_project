@@ -212,7 +212,7 @@ class FamilyDetailsController extends Controller
         FamilyDetails::whereId($id)->update($form_data);
 
         return redirect()
-            ->route('family_details_customer')
+            ->route('create_family_details_index')
             ->withSuccess(('Successfully Updated'));
 
     }
@@ -242,6 +242,15 @@ class FamilyDetailsController extends Controller
 
         return redirect()->route('create_family_details_index')
             ->with('success','Successfully Deleted');
+    }
+
+
+
+    public function edit_family_details($id)
+    {
+        $familyDetails = FamilyDetails::find($id);
+        $user = Auth::user()->id;
+        return view('app.family_details_customer.edit', compact('familyDetails','user'));
     }
 
 

@@ -106,7 +106,7 @@
                                 >
                                     @can('update', $familyDetails)
                                     <a
-                                        href="{{ route('all-family-details.edit', $familyDetails) }}"
+                                        href="{{ route('edit_family_details', $familyDetails) }}"
                                     >
                                         <button
                                             type="button"

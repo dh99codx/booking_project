@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">
-                <a href="{{ route('create_family_details_index') }}" class="mr-4"
+                <a href="{{ route('family_details_customer') }}" class="mr-4"
                     ><i class="icon ion-md-arrow-back"></i
                 ></a>
                 @lang('crud.all_family_details.create_title')
@@ -20,7 +20,7 @@
 
                 <div class="mt-4">
                     <a
-                        href="{{ route('all-family-details.index') }}"
+                        href="{{ route('create_family_details_index') }}"
                         class="btn btn-light"
                     >
                         <i class="icon ion-md-return-left text-primary"></i>

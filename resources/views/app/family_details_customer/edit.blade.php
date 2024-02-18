@@ -19,7 +19,7 @@
 
                 <div class="mt-4">
                     <a
-                        href="{{ route('all-family-details.index') }}"
+                        href="{{ route('create_family_details_index') }}"
                         class="btn btn-light"
                     >
                         <i class="icon ion-md-return-left text-primary"></i>
@@ -27,7 +27,7 @@
                     </a>
 
                     <a
-                        href="{{ route('all-family-details.create') }}"
+                        href="{{ route('family_details_customer') }}"
                         class="btn btn-light"
                     >
                         <i class="icon ion-md-add text-primary"></i>
