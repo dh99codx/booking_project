@@ -143,6 +143,35 @@ Profile Picture on the right side of Names
 family_details
 
 
+----------------------------------------------
+
+rm -rf .git
+rm -rf .idea
+rm -rf bootstrap
+rm -rf config
+rm -rf database
+rm -rf images
+rm -rf lang
+rm -rf node_modules
+rm -rf public
+rm -rf resources
+rm -rf routes
+rm -rf storage
+rm -rf tests
+rm -rf vendor
+
+
+login as a user
+
+email - keagan83@kautzer.biz
+password - admin
+
+login as a admin
+
+admin@admin.com
+password - admin
+
+
 
 
 
