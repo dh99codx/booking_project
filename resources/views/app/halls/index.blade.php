@@ -47,7 +47,7 @@
                             <th class="text-left">
                                 @lang('crud.halls.inputs.Name')
                             </th>
-                            <th class="text-right">
+                            <th class="text-left">
                                 @lang('crud.halls.inputs.Price')
                             </th>
                             <th class="text-center">
