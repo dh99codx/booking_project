@@ -11,11 +11,48 @@
  Target Server Version : 100432 (10.4.32-MariaDB)
  File Encoding         : 65001
 
- Date: 19/02/2024 14:32:46
+ Date: 19/02/2024 17:04:16
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for bookings
+-- ----------------------------
+DROP TABLE IF EXISTS `bookings`;
+CREATE TABLE `bookings`  (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `Check_In` datetime NOT NULL,
+  `Check_Out` datetime NOT NULL,
+  `Booking_Reference_No` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Customer_Given_Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Customer_Family_Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Customer_Contact_Number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Customer_Email_Address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Total_Payment` decimal(8, 2) NOT NULL,
+  `Deposit_Made` decimal(8, 2) NOT NULL,
+  `Balance_Amount` decimal(8, 2) NOT NULL,
+  `Balance_Amount_Due` decimal(8, 2) NOT NULL,
+  `user_id` bigint UNSIGNED NULL DEFAULT NULL,
+  `hall_id` bigint UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `bookings_user_id_foreign`(`user_id` ASC) USING BTREE,
+  INDEX `bookings_hall_id_foreign`(`hall_id` ASC) USING BTREE,
+  CONSTRAINT `bookings_hall_id_foreign` FOREIGN KEY (`hall_id`) REFERENCES `halls` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `bookings_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of bookings
+-- ----------------------------
+INSERT INTO `bookings` VALUES (1, '2013-10-04 08:46:11', '2001-07-07 23:55:22', '4545446', 'John', 'Ashen', '0715652145', 'youtuber@gmail.com', 0.00, 3.00, 0.00, 3.00, 17, 1, '2024-02-19 11:25:59', '2024-02-19 11:25:59');
+INSERT INTO `bookings` VALUES (2, '1972-06-17 22:15:08', '2023-08-21 07:30:24', '1245454', 'Rook', 'Steave', '0716541425', 'qoekdo@gmail.com', 8.00, 3.00, 0.00, 5.00, 18, 2, '2024-02-19 11:25:59', '2024-02-19 11:25:59');
+INSERT INTO `bookings` VALUES (3, '2018-08-03 22:00:21', '1980-09-05 10:07:44', '4545654', 'Quontum', 'Zore', '0715645175', 'qoekeoe@gmail.com', 4.00, 0.00, 6.00, 1.00, 19, 3, '2024-02-19 11:25:59', '2024-02-19 11:25:59');
+INSERT INTO `bookings` VALUES (4, '1977-11-25 19:13:03', '2023-02-28 14:44:56', '4646564', 'AliExpress', 'David', '0715264514', 'qzzzos@gmail.com', 5.00, 9.00, 1.00, 3.00, 20, 4, '2024-02-19 11:25:59', '2024-02-19 11:25:59');
+INSERT INTO `bookings` VALUES (5, '2015-07-10 01:05:59', '1988-10-05 07:17:09', '4546545', 'Vinode', 'Johnathan', '0715254615', 'woekei@gmail.com', 0.00, 5.00, 5.00, 1.00, 21, 5, '2024-02-19 11:25:59', '2024-02-19 11:25:59');
 
 -- ----------------------------
 -- Table structure for failed_jobs
@@ -88,6 +125,33 @@ INSERT INTO `frequencies` VALUES (1, 'Monthly', 31, '2024-01-31 05:14:15', '2024
 INSERT INTO `frequencies` VALUES (2, 'Weekly', 7, '2024-01-31 05:14:15', '2024-01-31 05:20:31');
 
 -- ----------------------------
+-- Table structure for halls
+-- ----------------------------
+DROP TABLE IF EXISTS `halls`;
+CREATE TABLE `halls`  (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Price` decimal(8, 2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of halls
+-- ----------------------------
+INSERT INTO `halls` VALUES (1, 'Mrs. Meta Nolan V', 4.00, '2024-02-19 11:25:58', '2024-02-19 11:25:58');
+INSERT INTO `halls` VALUES (2, 'Jameson Schroeder', 6.00, '2024-02-19 11:25:58', '2024-02-19 11:25:58');
+INSERT INTO `halls` VALUES (3, 'Peter Wehner III', 6.00, '2024-02-19 11:25:59', '2024-02-19 11:25:59');
+INSERT INTO `halls` VALUES (4, 'Consuelo Ernser', 1.00, '2024-02-19 11:25:59', '2024-02-19 11:25:59');
+INSERT INTO `halls` VALUES (5, 'Jocelyn Jenkins', 5.00, '2024-02-19 11:25:59', '2024-02-19 11:25:59');
+INSERT INTO `halls` VALUES (6, 'Mr. Pierce Nolan IV', 3.00, '2024-02-19 11:26:05', '2024-02-19 11:26:05');
+INSERT INTO `halls` VALUES (7, 'Dalton McKenzie', 3.00, '2024-02-19 11:26:05', '2024-02-19 11:26:05');
+INSERT INTO `halls` VALUES (8, 'Ms. Kaya Koch II', 2.00, '2024-02-19 11:26:05', '2024-02-19 11:26:05');
+INSERT INTO `halls` VALUES (9, 'Kristoffer Littel', 8.00, '2024-02-19 11:26:05', '2024-02-19 11:26:05');
+INSERT INTO `halls` VALUES (10, 'Bridgette Murray', 5.00, '2024-02-19 11:26:05', '2024-02-19 11:26:05');
+
+-- ----------------------------
 -- Table structure for migrations
 -- ----------------------------
 DROP TABLE IF EXISTS `migrations`;
@@ -96,7 +160,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -117,6 +181,9 @@ INSERT INTO `migrations` VALUES (15, '2024_02_05_163841_users', 4);
 INSERT INTO `migrations` VALUES (16, '2024_02_06_042132_add_column_soft_delete_in_users_table', 5);
 INSERT INTO `migrations` VALUES (17, '2024_02_06_074215_create_user_codes', 6);
 INSERT INTO `migrations` VALUES (19, '2024_02_17_100440_family_details', 7);
+INSERT INTO `migrations` VALUES (20, '2024_01_26_000006_create_bookings_table', 8);
+INSERT INTO `migrations` VALUES (21, '2024_01_26_000007_create_halls_table', 8);
+INSERT INTO `migrations` VALUES (22, '2024_01_26_009003_add_foreigns_to_bookings_table', 8);
 
 -- ----------------------------
 -- Table structure for model_has_permissions
@@ -384,12 +451,12 @@ CREATE TABLE `users`  (
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 1, '1', 'Stephanie', 'Molestias ', 'Istanie', '1964-01-09', '61316 Langosh Parkways Suite 449Walterburgh, AR 48642-2987', '716242011', 'admin@admin.com', '2024-02-16 11:28:58', '$2y$12$uTbdCsihPUEMb1YoRCiUI.QF.FSOp3ilakZdRISPh/0sH403tIlpC', 1, 1, 'OkTTfDBabjE67hSWRcFAdLODmdtnFVYkSQRtyHmSaGwgxKwYVe7BCI908uTb', '2024-01-31 05:14:14', '2024-02-18 06:08:17', NULL, NULL);
+INSERT INTO `users` VALUES (1, 1, '1', 'Stephanie', 'Molestias ', 'Istanie', '1964-01-09', '61316 Langosh Parkways Suite 449Walterburgh, AR 48642-2987', '716242011', 'admin@admin.com', '2024-02-16 11:28:58', '$2y$12$uTbdCsihPUEMb1YoRCiUI.QF.FSOp3ilakZdRISPh/0sH403tIlpC', 1, 1, 'sjVe5DzQtdqqBNUM5BKFPPAxBbRyFnmOA9wy6g8xOCis8J7T9z5MZgYymawo', '2024-01-31 05:14:14', '2024-02-18 06:08:17', NULL, NULL);
 INSERT INTO `users` VALUES (2, 1, '1', 'Johathan Klein', 'Et facilis et eos', 'Rerum', '2010-11-03', '898 Bruen Keys Suite 491West Ivy, CT 90078-6581', '0716252616', 'camryn48@hotmail.com', '2024-02-16 07:12:32', '$2y$12$uTbdCsihPUEMb1YoRCiUI.QF.FSOp3ilakZdRISPh/0sH403tIlpC', 1, 0, 'SNaBA6CieFzZwJfRdbJNHkjtDJ1dFL0WTi8l74DKrQJyVAOB8Z2vU8iPmRGx', '2024-01-31 05:14:16', '2024-02-16 07:12:32', NULL, NULL);
 INSERT INTO `users` VALUES (3, 1, '1', 'Velma Gaylord', 'Fugit eos fugiat dolorem dolor. ', 'Porro magni', '1988-07-06', '76193 Maymie Pines Apt. 624\nPort Estefaniamouth, DE 20744-6498', '1-303-267-8859', 'sven94@yahoo.com', '2024-02-17 02:39:33', '$2y$12$uTbdCsihPUEMb1YoRCiUI.QF.FSOp3ilakZdRISPh/0sH403tIlpC', 1, 0, '0Pv7swP1OlzL9bggzmML397mHdClHEXN5eiNyuCSDcxkpeRVB1AF4PDvSXVs', '2024-01-31 05:14:16', '2024-02-17 02:39:33', NULL, NULL);
 INSERT INTO `users` VALUES (4, 1, '1', 'Miss Olga Green', 'Quis necessitatibus', 'Qui impedit', '2001-01-04', '749 Ruth LaneHuelshaven, DC 98430-2704', '0716325145', 'virginie98@stamm.com', '2024-02-18 07:48:19', '$2y$12$uTbdCsihPUEMb1YoRCiUI.QF.FSOp3ilakZdRISPh/0sH403tIlpC', 1, 0, '1kqzCh4XNoe3fVKWJnIJzDn74caRkJVxa9h9LMdEUSivWYGicJrnBpwg0xt4', '2024-01-31 05:14:16', '2024-02-18 07:48:19', NULL, NULL);
@@ -401,5 +468,10 @@ INSERT INTO `users` VALUES (12, 0, '1', 'John', 'deo', 'green', '2012-05-16', '4
 INSERT INTO `users` VALUES (14, 0, '1', 'sdffds', 'dsfdsf', 'sdfdsfdsf', '2020-01-07', '445 colombo 03', '0716252514', 'qeue@gmail.com', NULL, '$2y$10$6KNeoamW1mGEAyhjzQG0Xe2Px.W1mB.JhgpHTv3RIqGR6PfyPWnfW', 1, 1, NULL, '2024-02-18 09:37:04', '2024-02-18 09:37:54', '2024-02-18 09:37:54', NULL);
 INSERT INTO `users` VALUES (15, 0, '1', 'asen', 'tue', 'zoom', '2006-01-18', 'yoowk@gmail.com', '0716252145', 'eowk@gmail.com', NULL, '$2y$10$NsPVxzgr9v7tTd5n/Iw8Z./Lfxh8CRmkHKIlwTPgX5sd2WAGKjdWe', 1, 1, NULL, '2024-02-18 09:40:40', '2024-02-18 09:40:40', NULL, NULL);
 INSERT INTO `users` VALUES (16, 1, '1', 'vindo', 'qeutum', 'amen', '2024-02-18', '454 colombo 03', '0716351245', 'admin845@admin.com', '2024-02-18 13:01:49', '$2y$10$xG9stuNTyEKqInkfPvmK5O7SLFhFaTmZjzHirOnrN6tr5JPQHghxS', 1, 1, NULL, '2024-02-18 11:48:28', '2024-02-18 13:01:49', NULL, NULL);
+INSERT INTO `users` VALUES (17, 0, '1', 'Felton Nolan', 'Aperiam eius repudiandae veritatis dolorem et qui aliquam. Qui totam hic rerum et non eos. Recusandae expedita voluptas consequatur id aliquid. Illo ut voluptatibus amet non voluptatem et qui.', 'Eos ad ab dolores non. Ullam pariatur in dignissimos dicta in corporis praesentium. Ullam quam occaecati qui magni at explicabo. Rerum incidunt tenetur et deserunt sit. Dolorem aut amet voluptates enim ad distinctio vel.', '1976-11-09', '14002 DuBuque Inlet\nLarsonside, AZ 65329-7947', '984-381-7978', 'bbarton@johnson.info', '2024-02-19 11:25:58', '$2y$10$AHNhcF1KXMC.8qLdCj1DKOz7K5A8GsDDcyvGpMsw4aLXZp.8BqW/S', 0, 0, '8fVuczYVYx', '2024-02-19 11:25:58', '2024-02-19 11:25:58', NULL, NULL);
+INSERT INTO `users` VALUES (18, 0, '1', 'Jakayla Stokes', 'Nesciunt ad magni sint necessitatibus neque voluptas. Et repellat esse modi sed ea odio et autem. Architecto aut laborum voluptatem est et occaecati laboriosam. Sint corrupti aspernatur modi accusamus.', 'Provident doloremque assumenda laboriosam voluptas distinctio ipsa adipisci. Dolorem natus ad voluptate voluptas. Et cum quis et quasi doloribus. Sapiente nam sunt sunt.', '2009-03-17', '39976 Rogahn Cove Suite 910\nJonathanmouth, MN 01864', '336-256-4619', 'rhoeger@gmail.com', '2024-02-19 11:25:58', '$2y$10$fcgtCiyFSLspYCvsBxS2DOCIDCP1hoTurRA0imxUuLwyGOxgI.GTK', 1, 0, 'TxdVjwIVmd', '2024-02-19 11:25:58', '2024-02-19 11:25:58', NULL, NULL);
+INSERT INTO `users` VALUES (19, 0, '1', 'Owen Ankunding', 'Enim rerum voluptatem consequuntur deserunt suscipit odio autem aut. Aut quisquam aut possimus et. Repellendus quis qui itaque ut sit molestiae.', 'Nulla aliquid necessitatibus harum. Non exercitationem quia deserunt doloremque vel.', '1995-09-08', '9064 Pablo Loop\nArnoldoburgh, WV 74867-3781', '1-310-216-8701', 'amely.bashirian@zulauf.com', '2024-02-19 11:25:58', '$2y$10$Qt3SGe6LdhYUKf01j9NcNuDbcmbPLd7SRSyYaMDzDvHvTtnQb2PQe', 0, 0, 'EXFZdNJ6nM', '2024-02-19 11:25:59', '2024-02-19 11:25:59', NULL, NULL);
+INSERT INTO `users` VALUES (20, 0, '1', 'Mara White DDS', 'Alias mollitia laborum ut voluptatem nesciunt commodi. Sint sed sed sed nemo possimus. Beatae dolor dolor numquam quis vel iure exercitationem. Quis et eum fugit est in.', 'Blanditiis et possimus est pariatur. Error necessitatibus recusandae tempore ut laborum vel. Sed et culpa ut dolores dolores labore et. Neque est dolor molestiae. Libero enim odit quidem nihil praesentium. Dolore consequatur perferendis quas deleniti.', '1971-07-25', '516 Hillard Turnpike\nMaryjanehaven, OK 71524', '470.880.3006', 'bartell.deshawn@gmail.com', '2024-02-19 11:25:59', '$2y$10$BGQ9rkR4/qqZw2yaxW1ANeDQVVrPD.LmstEqtHS5YdZisXcxV0Xuq', 1, 1, 'hOpBnpE7yK', '2024-02-19 11:25:59', '2024-02-19 11:25:59', NULL, NULL);
+INSERT INTO `users` VALUES (21, 0, '1', 'Valentine Gleichner', 'Tempore accusantium libero voluptas provident minus voluptatem aut. Expedita expedita incidunt architecto vel et. Qui non quibusdam perferendis sequi voluptas. At corporis voluptatem quisquam at ullam molestias amet.', 'Dignissimos corporis quaerat doloremque qui. Tempora facere rerum esse accusantium numquam. Quia non aut veniam vel illo quo fugiat. Ut non distinctio quibusdam placeat. Suscipit dolore adipisci in inventore quo.', '2020-03-16', '430 Schoen Fork\nHeaneyfurt, UT 66392', '1-432-735-7774', 'beatty.mireille@gmail.com', '2024-02-19 11:25:59', '$2y$10$SCdYcxU5Mcl5uFE/rqwriud8slbg.CMUNzz20cjP7ZGWpLtI.Qc62', 1, 0, 'pFRA3KYPw3', '2024-02-19 11:25:59', '2024-02-19 11:25:59', NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;

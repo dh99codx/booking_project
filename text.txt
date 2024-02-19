@@ -107,8 +107,8 @@ mobile_number
 email_address
 
 
-php artisan db:seed --class=PermissionsSeeder
-
+php artisan db:seed --class=BookingSeeder
+php artisan db:seed --class=HallSeeder
 
 --------------------------------------------------------------------------
 
