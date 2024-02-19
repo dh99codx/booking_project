@@ -116,10 +116,11 @@ return [
         'show_title' => 'Show UserProfile',
         'inputs' => [
             'contact_number_landline' => 'Contact Number Landline',
+            'profile_picture' => 'Profile Picture',
             'gothram' => 'Gothram',
+            'user_id' => 'User',
             'rashi' => 'Rashi',
             'natchatram' => 'Natchatram',
-            'profile_picture' => 'Profile Picture',
         ],
     ],
 
@@ -146,6 +147,43 @@ return [
         'show_title' => 'Show Permission',
         'inputs' => [
             'name' => 'Name',
+        ],
+    ],
+
+    'bookings' => [
+        'name' => 'Bookings',
+        'index_title' => 'Bookings List',
+        'new_title' => 'New Booking',
+        'create_title' => 'Create Booking',
+        'edit_title' => 'Edit Booking',
+        'show_title' => 'Show Booking',
+        'inputs' => [
+            'Check_In' => 'Check In',
+            'Check_Out' => 'Check Out',
+            'Booking_Reference_No' => 'Booking Reference No',
+            'Customer_Given_Name' => 'Customer Given Name',
+            'Customer_Family_Name' => 'Customer Family Name',
+            'Customer_Contact_Number' => 'Customer Contact Number',
+            'Customer_Email_Address' => 'Customer Email Address',
+            'Total_Payment' => 'Total Payment',
+            'Deposit_Made' => 'Deposit Made',
+            'Balance_Amount' => 'Balance Amount',
+            'Balance_Amount_Due' => 'Balance Amount Due',
+            'user_id' => 'User',
+            'hall_id' => 'Hall',
+        ],
+    ],
+
+    'halls' => [
+        'name' => 'Halls',
+        'index_title' => 'Halls List',
+        'new_title' => 'New Hall',
+        'create_title' => 'Create Hall',
+        'edit_title' => 'Edit Hall',
+        'show_title' => 'Show Hall',
+        'inputs' => [
+            'Name' => 'Name',
+            'Price' => 'Price',
         ],
     ],
 ];

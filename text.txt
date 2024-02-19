@@ -172,6 +172,35 @@ admin@admin.com
 password - admin
 
 
+---------------------
+
+
+Hall
+Name
+Price
+
+
+Booking
+Check_In
+Check_Out
+Booking_Reference_No
+Customer_Given_Name
+Customer_Family_Name
+Customer_Contact_Number
+Customer_Email_Address
+Total_Payment
+Deposit_Made
+Balance_Amount
+Balance_Amount_Due
+
+
+
+
+
+
+
+
+
 
 
 

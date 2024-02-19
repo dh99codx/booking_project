@@ -10,13 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('subscribers', function (Blueprint $table) {
+        Schema::create('halls', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('token');
-            $table->boolean('status');
-            $table->string('email');
-            $table->unsignedBigInteger('subscriber_type_id');
-            $table->unsignedBigInteger('frequency_id');
+            $table->string('Name');
+            $table->decimal('Price');
 
             $table->timestamps();
         });
@@ -27,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('subscribers');
+        Schema::dropIfExists('halls');
     }
 };

@@ -2,25 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Scopes\Searchable;
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Exception;
-use Twilio\Rest\Client;
+use Twilio\Base\BaseClient;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
-    use HasRoles;
     use Notifiable;
     use HasFactory;
     use Searchable;
     use HasApiTokens;
-    use SoftDeletes;
 
     protected $fillable = [
         'given_name',
@@ -51,17 +46,21 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(UserProfile::class);
     }
 
-    public function isSuperAdmin(): bool
+    public function bookings()
     {
-        return $this->hasRole('super-admin');
+        return $this->hasMany(Booking::class);
     }
 
+    public function isSuperAdmin(): bool
+    {
+        return in_array($this->email, config('auth.super_admins'));
+    }
 
     public function generateCode()
     {
         $code = rand(1000, 9999);
 
-       // dd(session()->get('new_phone_number'));
+        // dd(session()->get('new_phone_number'));
 
         UserCode::updateOrCreate(
             [ 'user_id' => auth()->user()->id ],
@@ -82,13 +81,12 @@ class User extends Authenticatable implements MustVerifyEmail
                 'from' => $twilio_number,
                 'body' => $message]);
 
-           // dd($twilio_number,$message);
+            // dd($twilio_number,$message);
 
         } catch (Exception $e) {
             info("Error: ". $e->getMessage());
         }
     }
-
 
 
 }

@@ -44,10 +44,7 @@
         <script type="module">
             import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo';
         </script>
-
-
         @yield('css_links')
-
         @livewireStyles
     </head>
 
@@ -80,7 +77,6 @@
             notyf.success('{{ session('success') }}')
         </script>
         @endif
-
         @if (session()->has('error'))
             <script>
                 var notyf = new Notyf({dismissible: true})
@@ -117,11 +113,7 @@
             })
         </script>
 
-
-
         @yield('js_script')
-
-
 
     </body>
 </html>

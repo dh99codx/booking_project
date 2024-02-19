@@ -1,13 +1,12 @@
 <?php
 
-use App\Http\Controllers\SMSController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\RoleController;
+use App\Http\Controllers\HallController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FrequencyController;
 use App\Http\Controllers\SubscriberController;
-use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\FamilyDetailsController;
 use App\Http\Controllers\SubscriberTypeController;
@@ -139,6 +138,9 @@ Route::group(['prefix' => '/', 'middleware' => ['auth', 'verified']], function()
 
     Route::get('/customer-subscriber', [SubscriberController::class,'customer_subscriber'])->name('customer_subscriber');
     Route::post('/customer-subscriber-store', [SubscriberController::class,'customer_subscriber_store'])->name('customer_subscriber_store');
+
+    Route::resource('bookings', BookingController::class);
+    Route::resource('halls', HallController::class);
 
 });
 

@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\SMSController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\HallController;
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\Api\FrequencyController;
 use App\Http\Controllers\Api\SubscriberController;
-use App\Http\Controllers\Api\PermissionController;
 use App\Http\Controllers\Api\UserProfileController;
+use App\Http\Controllers\Api\UserBookingsController;
+use App\Http\Controllers\Api\HallBookingsController;
 use App\Http\Controllers\Api\FamilyDetailsController;
 use App\Http\Controllers\Api\SubscriberTypeController;
 use App\Http\Controllers\Api\UserUserProfilesController;
@@ -29,8 +30,6 @@ use App\Http\Controllers\Api\SubscriberTypeSubscribersController;
 
 Route::post('/login', [AuthController::class, 'login'])->name('api.login');
 
-Route::post('/send-sms', [SMSController::class, 'sendSMS']);
-
 Route::middleware('auth:sanctum')
     ->get('/user', function (Request $request) {
         return $request->user();
@@ -40,9 +39,6 @@ Route::middleware('auth:sanctum')
 Route::name('api.')
     ->middleware('auth:sanctum')
     ->group(function () {
-        Route::apiResource('roles', RoleController::class);
-        Route::apiResource('permissions', PermissionController::class);
-
         Route::apiResource('users', UserController::class);
 
         // User User Profiles
@@ -54,6 +50,16 @@ Route::name('api.')
             UserUserProfilesController::class,
             'store',
         ])->name('users.user-profiles.store');
+
+        // User Bookings
+        Route::get('/users/{user}/bookings', [
+            UserBookingsController::class,
+            'index',
+        ])->name('users.bookings.index');
+        Route::post('/users/{user}/bookings', [
+            UserBookingsController::class,
+            'store',
+        ])->name('users.bookings.store');
 
         Route::apiResource(
             'all-family-details',
@@ -87,4 +93,18 @@ Route::name('api.')
         Route::apiResource('subscribers', SubscriberController::class);
 
         Route::apiResource('user-profiles', UserProfileController::class);
+
+        Route::apiResource('bookings', BookingController::class);
+
+        Route::apiResource('halls', HallController::class);
+
+        // Hall Bookings
+        Route::get('/halls/{hall}/bookings', [
+            HallBookingsController::class,
+            'index',
+        ])->name('halls.bookings.index');
+        Route::post('/halls/{hall}/bookings', [
+            HallBookingsController::class,
+            'store',
+        ])->name('halls.bookings.store');
     });
