@@ -2,20 +2,27 @@
 
 namespace App\Models;
 
+
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Scopes\Searchable;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Twilio\Base\BaseClient;
+use Exception;
+use Twilio\Rest\Client;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements MustVerifyEmail
 {
+    use HasRoles;
     use Notifiable;
     use HasFactory;
     use Searchable;
     use HasApiTokens;
+    use SoftDeletes;
 
     protected $fillable = [
         'given_name',
@@ -51,9 +58,10 @@ class User extends Authenticatable
         return $this->hasMany(Booking::class);
     }
 
+
     public function isSuperAdmin(): bool
     {
-        return in_array($this->email, config('auth.super_admins'));
+        return $this->hasRole('super-admin');
     }
 
     public function generateCode()
