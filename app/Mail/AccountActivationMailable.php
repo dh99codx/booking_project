@@ -30,6 +30,6 @@ class AccountActivationMailable extends Mailable
      */
     public function build()
     {
-        return $this->from('john@booking.info')->subject('Account Activation')->view('emails.account_activation_email_template')->with('data', $this->data);
+        return $this->from('booking@stalione.com.au')->subject('Account Activation')->view('emails.account_activation_email_template')->with('data', $this->data);
     }
 }
