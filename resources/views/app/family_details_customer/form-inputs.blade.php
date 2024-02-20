@@ -25,7 +25,6 @@
             :value="old('middle_name', ($editing ? $familyDetails->middle_name : ''))"
             maxlength="255"
             placeholder="Middle Name"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 
@@ -47,7 +46,6 @@
             :value="old('email_address', ($editing ? $familyDetails->email_address : ''))"
             maxlength="255"
             placeholder="Email Address"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 
@@ -58,7 +56,6 @@
             :value="old('contact_number', ($editing ? $familyDetails->contact_number : ''))"
             maxlength="255"
             placeholder="Contact Number"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 
@@ -79,6 +76,7 @@
             :value="old('relationship', ($editing ? $familyDetails->relationship : ''))"
             maxlength="255"
             placeholder="Relationship"
+            required
         ></x-inputs.text>
     </x-inputs.group>
 
