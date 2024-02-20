@@ -19,7 +19,6 @@
             :value="old('middle_name', ($editing ? $familyDetails->middle_name : ''))"
             maxlength="255"
             placeholder="Middle Name"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 
@@ -41,7 +40,6 @@
             :value="old('email_address', ($editing ? $familyDetails->email_address : ''))"
             maxlength="255"
             placeholder="Email Address"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 
@@ -52,7 +50,6 @@
             :value="old('contact_number', ($editing ? $familyDetails->contact_number : ''))"
             maxlength="255"
             placeholder="Contact Number"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 
@@ -84,7 +81,6 @@
             :value="old('gothram', ($editing ? $familyDetails->gothram : ''))"
             maxlength="255"
             placeholder="Gothram"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 
@@ -95,7 +91,6 @@
             :value="old('rashi', ($editing ? $familyDetails->rashi : ''))"
             maxlength="255"
             placeholder="Rashi"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 
@@ -106,7 +101,6 @@
             :value="old('natchatram', ($editing ? $familyDetails->natchatram : ''))"
             maxlength="255"
             placeholder="Natchatram"
-            required
         ></x-inputs.text>
     </x-inputs.group>
 </div>
