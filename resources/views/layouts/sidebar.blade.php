@@ -126,85 +126,83 @@
                     @endif
 
 
-
+{{--old admin dashboard sidebar--}}
                     @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) ||
                               Auth::user()->can('view-any', Spatie\Permission\Models\Permission::class))
-
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="#" class="nav-link">--}}
-{{--                                <i class="nav-icon icon ion-md-apps"></i>--}}
-{{--                                <p>--}}
-{{--                                    Admin Dashboard--}}
-{{--                                    <i class="nav-icon right icon ion-md-arrow-round-back"></i>--}}
-{{--                                </p>--}}
-{{--                            </a>--}}
-{{--                            <ul class="nav nav-treeview">--}}
-{{--                                @can('view-any', App\Models\FamilyDetails::class)--}}
-{{--                                    <li class="nav-item">--}}
-{{--                                        <a href="{{ route('all-family-details.index') }}" class="nav-link">--}}
-{{--                                            <i class="nav-icon icon ion-md-radio-button-off"></i>--}}
-{{--                                            <p>All Family Details</p>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                @endcan--}}
-{{--                                @can('view-any', App\Models\Frequency::class)--}}
-{{--                                    <li class="nav-item">--}}
-{{--                                        <a href="{{ route('frequencies.index') }}" class="nav-link">--}}
-{{--                                            <i class="nav-icon icon ion-md-radio-button-off"></i>--}}
-{{--                                            <p>Frequencies</p>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                @endcan--}}
-{{--                                @can('view-any', App\Models\SubscriberType::class)--}}
-{{--                                    <li class="nav-item">--}}
-{{--                                        <a href="{{ route('subscriber-types.index') }}" class="nav-link">--}}
-{{--                                            <i class="nav-icon icon ion-md-radio-button-off"></i>--}}
-{{--                                            <p>Subscriber Types</p>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                @endcan--}}
-{{--                                @can('view-any', App\Models\Subscriber::class)--}}
-{{--                                    <li class="nav-item">--}}
-{{--                                        <a href="{{ route('subscribers.index') }}" class="nav-link">--}}
-{{--                                            <i class="nav-icon icon ion-md-radio-button-off"></i>--}}
-{{--                                            <p>Subscribers</p>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                @else--}}
-{{--                                    <li class="nav-item">--}}
-{{--                                        <a href="{{ route('customer_subscriber') }}" class="nav-link">--}}
-{{--                                            <i class="nav-icon icon ion-md-radio-button-off"></i>--}}
-{{--                                            <p>Subscribers</p>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                @endcan--}}
-{{--                                    @can('view-any', App\Models\Booking::class)--}}
-{{--                                        <li class="nav-item">--}}
-{{--                                            <a href="{{ route('bookings.index') }}" class="nav-link">--}}
-{{--                                                <i class="nav-icon icon ion-md-radio-button-off"></i>--}}
-{{--                                                <p>Bookings</p>--}}
-{{--                                            </a>--}}
-{{--                                        </li>--}}
-{{--                                    @endcan--}}
-{{--                                    @can('view-any', App\Models\Hall::class)--}}
-{{--                                        <li class="nav-item">--}}
-{{--                                            <a href="{{ route('halls.index') }}" class="nav-link">--}}
-{{--                                                <i class="nav-icon icon ion-md-radio-button-off"></i>--}}
-{{--                                                <p>Halls</p>--}}
-{{--                                            </a>--}}
-{{--                                        </li>--}}
-{{--                                    @endcan--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a href="{{ route('reset_admin_password') }}" class="nav-link">--}}
-{{--                                        <i class="nav-icon icon ion-md-radio-button-off"></i>--}}
-{{--                                        <p>Account Settings</p>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </li>--}}
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon icon ion-md-apps"></i>
+                                <p>
+                                    Admin Dashboard
+                                    <i class="nav-icon right icon ion-md-arrow-round-back"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                @can('view-any', App\Models\FamilyDetails::class)
+                                    <li class="nav-item">
+                                        <a href="{{ route('all-family-details.index') }}" class="nav-link">
+                                            <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                            <p>All Family Details</p>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('view-any', App\Models\Frequency::class)
+                                    <li class="nav-item">
+                                        <a href="{{ route('frequencies.index') }}" class="nav-link">
+                                            <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                            <p>Frequencies</p>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('view-any', App\Models\SubscriberType::class)
+                                    <li class="nav-item">
+                                        <a href="{{ route('subscriber-types.index') }}" class="nav-link">
+                                            <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                            <p>Subscriber Types</p>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('view-any', App\Models\Subscriber::class)
+                                    <li class="nav-item">
+                                        <a href="{{ route('subscribers.index') }}" class="nav-link">
+                                            <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                            <p>Subscribers</p>
+                                        </a>
+                                    </li>
+                                @else
+                                    <li class="nav-item">
+                                        <a href="{{ route('customer_subscriber') }}" class="nav-link">
+                                            <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                            <p>Subscribers</p>
+                                        </a>
+                                    </li>
+                                @endcan
+                                    @can('view-any', App\Models\Booking::class)
+                                        <li class="nav-item">
+                                            <a href="{{ route('bookings.index') }}" class="nav-link">
+                                                <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                                <p>Bookings</p>
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    @can('view-any', App\Models\Hall::class)
+                                        <li class="nav-item">
+                                            <a href="{{ route('halls.index') }}" class="nav-link">
+                                                <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                                <p>Halls</p>
+                                            </a>
+                                        </li>
+                                    @endcan
+                                <li class="nav-item">
+                                    <a href="{{ route('reset_admin_password') }}" class="nav-link">
+                                        <i class="nav-icon icon ion-md-radio-button-off"></i>
+                                        <p>Account Settings</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     @endif
-
-
+{{--old admin dashboard sidebar--}}
 
 
                         @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) ||
