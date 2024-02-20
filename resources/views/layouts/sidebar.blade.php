@@ -244,12 +244,14 @@
                                                 <p>View/Update Profile</p>
                                             </a>
                                         </li>
+                                    @can('view-any', App\Models\FamilyDetails::class)
                                         <li class="nav-item">
                                             <a href="#" class="nav-link">
                                                 <i class="nav-icon icon ion-md-radio-button-off"></i>
                                                 <p>Add/Edit Family members</p>
                                             </a>
                                         </li>
+                                    @endcan
                                 </ul>
                             </li>
                         @endif
@@ -320,6 +322,7 @@
                @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) ||
                Auth::user()->can('view-any', Spatie\Permission\Models\Permission::class))
                    <li class="nav-item">
+                       @can('view-any', App\Models\Booking::class)
                        <a href="#" class="nav-link">
                            <i class="nav-icon icon ion-md-apps"></i>
                            <p>
@@ -327,19 +330,24 @@
                                <i class="nav-icon right icon ion-md-arrow-round-back"></i>
                            </p>
                        </a>
+                       @endcan
                        <ul class="nav nav-treeview">
+                           @can('view-any', App\Models\Booking::class)
                            <li class="nav-item">
                                <a href="#" class="nav-link">
                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
                                    <p>Create Booking Hall Details</p>
                                </a>
                            </li>
+                           @endcan
+                           @can('view-any', App\Models\Booking::class)
                            <li class="nav-item">
                                <a href="#" class="nav-link">
                                    <i class="nav-icon icon ion-md-radio-button-off"></i>
                                    <p style="font-size: small;">View/Modify Booking Hall Details</p>
                                </a>
                            </li>
+                           @endcan
                        </ul>
                    </li>
                @endif
@@ -424,18 +432,26 @@
                                  <p>View/Modify Newsletter</p>
                              </a>
                          </li>
+
+                         @can('view-any', App\Models\Subscriber::class)
                          <li class="nav-item">
                              <a href="#" class="nav-link">
                                  <i class="nav-icon icon ion-md-radio-button-off"></i>
                                  <p>Subscriber list</p>
                              </a>
                          </li>
+                         @endcan
+
+                         @can('view-any', App\Models\Frequency::class)
+                             @can('view-any', App\Models\SubscriberType::class)
                          <li class="nav-item">
                              <a href="#" class="nav-link">
                                  <i class="nav-icon icon ion-md-radio-button-off"></i>
                                  <p>Subscriber type/Frequency</p>
                              </a>
                          </li>
+                             @endcan
+                         @endcan
                      </ul>
                  </li>
              @endif
