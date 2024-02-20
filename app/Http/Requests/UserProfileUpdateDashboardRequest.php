@@ -24,7 +24,7 @@ class UserProfileUpdateDashboardRequest extends FormRequest
             'rashi' => ['nullable', 'max:255', 'string'],
             'natchatram' => ['nullable', 'max:255', 'string'],
             'given_name' => ['required', 'max:255','min:3','string'],
-            'middle_name' => ['required', 'max:255','min:3','string'],
+            'middle_name' => ['nullable', 'max:255','min:3','string'],
             'family_name' => ['required', 'max:255','min:3','string'],
             'address' => ['required', 'max:255', 'string','min:3'],
             'dob' => ['required', 'date'],

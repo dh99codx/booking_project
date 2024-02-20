@@ -104,7 +104,6 @@
                                             :value="$user->middle_name"
                                             maxlength="255"
                                             placeholder="Middle Name"
-                                            required
                                         ></x-inputs.text>
                                     </x-inputs.group>
 

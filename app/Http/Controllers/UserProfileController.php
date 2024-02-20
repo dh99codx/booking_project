@@ -202,7 +202,7 @@ class UserProfileController extends Controller
 
         $request->validate([
             'given_name'=>'required|max:255|min:3|string',
-            'middle_name'=>'required|max:255|min:3|string',
+            'middle_name'=>'nullable|max:255|min:3|string',
             'family_name'=>'required|max:255|min:3|string',
             'address'=>'required|max:255|min:3|string',
             'dob'=>'required|date',
