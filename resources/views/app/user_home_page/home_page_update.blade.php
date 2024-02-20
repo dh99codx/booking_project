@@ -162,6 +162,16 @@
 
 
                                     <x-inputs.group class="col-sm-12">
+                                        <x-inputs.password
+                                            name="confirm_password"
+                                            label="password"
+                                            maxlength="255"
+                                            placeholder="Confirm Password"
+                                        ></x-inputs.password>
+                                    </x-inputs.group>
+
+
+                                    <x-inputs.group class="col-sm-12">
                                         <x-inputs.date
                                             name="dob"
                                             label="DOB"

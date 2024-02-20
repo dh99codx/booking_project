@@ -164,16 +164,23 @@ class UserProfileController extends Controller
 
         if ($request->password)
         {
-            $form_data= array(
-                'given_name'=>$request->given_name,
-                'middle_name'=>$request->middle_name,
-                'family_name'=>$request->family_name,
-                'address'=>$request->address,
-                'dob'=>$request->dob,
-                'mobile_number'=>$request->mobile_number,
-                'email'=>$request->email,
-                'password' =>  Hash::make($request->password),
-            );
+            if ($request->password == $request->confirm_password)
+            {
+                $form_data= array(
+                    'given_name'=>$request->given_name,
+                    'middle_name'=>$request->middle_name,
+                    'family_name'=>$request->family_name,
+                    'address'=>$request->address,
+                    'dob'=>$request->dob,
+                    'mobile_number'=>$request->mobile_number,
+                    'email'=>$request->email,
+                    'password' =>  Hash::make($request->password),
+                );
+            }else{
+                return redirect()
+                    ->back()
+                    ->withSuccess('Password Does not match');
+            }
         }else {
             $form_data= array(
                 'given_name'=>$request->given_name,
@@ -198,6 +205,9 @@ class UserProfileController extends Controller
 
     public function update_profile_store(Request $request,$id)
     {
+
+       // dd($request);
+
         $usr = User::find($id);
 
         $request->validate([
@@ -210,14 +220,40 @@ class UserProfileController extends Controller
             'contact_number_landline'=>['nullable', new PhoneNumberRule],
         ]);
 
-        $form_data=array(
-            'mobile_number'=>$usr->mobile_number,
-            'given_name'=>$request->given_name,
-            'middle_name'=>$request->middle_name,
-            'family_name'=>$request->family_name,
-            'address'=>$request->address,
-            'dob'=>$request->dob,
-        );
+        if ($request->password){
+
+            if ($request->password == $request->confirm_password)
+            {
+
+
+                $form_data=array(
+                    'mobile_number'=>$usr->mobile_number,
+                    'given_name'=>$request->given_name,
+                    'middle_name'=>$request->middle_name,
+                    'family_name'=>$request->family_name,
+                    'address'=>$request->address,
+                    'dob'=>$request->dob,
+                    'password' =>  Hash::make($request->password),
+                );
+
+
+            }else{
+                return redirect()
+                    ->back()
+                    ->withSuccess('Password Does not match');
+            }
+
+        }else{
+            $form_data=array(
+                'mobile_number'=>$usr->mobile_number,
+                'given_name'=>$request->given_name,
+                'middle_name'=>$request->middle_name,
+                'family_name'=>$request->family_name,
+                'address'=>$request->address,
+                'dob'=>$request->dob,
+            );
+        }
+
 
         User::whereId($id)->update($form_data);
 
