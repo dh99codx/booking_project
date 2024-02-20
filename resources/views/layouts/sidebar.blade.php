@@ -231,20 +231,20 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                            <a href="{{route('users.create')}}" class="nav-link">
                                                 <i class="nav-icon icon ion-md-radio-button-off"></i>
                                                 <p>Create Devotee Profile</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                            <a href="{{ route('users.index') }}" class="nav-link">
                                                 <i class="nav-icon icon ion-md-radio-button-off"></i>
                                                 <p>View/Update Profile</p>
                                             </a>
                                         </li>
                                     @can('view-any', App\Models\FamilyDetails::class)
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                            <a href="{{ route('all-family-details.index') }}" class="nav-link">
                                                 <i class="nav-icon icon ion-md-radio-button-off"></i>
                                                 <p>Add/Edit Family members</p>
                                             </a>
@@ -267,13 +267,13 @@
                        </a>
                        <ul class="nav nav-treeview">
                                <li class="nav-item">
-                                   <a href="#" class="nav-link">
+                                   <a href="{{route('bookings.create')}}" class="nav-link">
                                        <i class="nav-icon icon ion-md-radio-button-off"></i>
                                        <p>Make a Booking</p>
                                    </a>
                                </li>
                                <li class="nav-item">
-                                   <a href="#" class="nav-link">
+                                   <a href="{{route('bookings.index')}}" class="nav-link">
                                        <i class="nav-icon icon ion-md-radio-button-off"></i>
                                        <p>View/Edit Booking</p>
                                    </a>
