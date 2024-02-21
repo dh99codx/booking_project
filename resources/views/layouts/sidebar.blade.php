@@ -433,7 +433,7 @@
 
                          @can('view-any', App\Models\Subscriber::class)
                          <li class="nav-item">
-                             <a href="#" class="nav-link">
+                             <a href="{{ route('subscribers.index') }}" class="nav-link">
                                  <i class="nav-icon icon ion-md-radio-button-off"></i>
                                  <p>Subscriber list</p>
                              </a>
@@ -443,7 +443,7 @@
                          @can('view-any', App\Models\Frequency::class)
                              @can('view-any', App\Models\SubscriberType::class)
                          <li class="nav-item">
-                             <a href="#" class="nav-link">
+                             <a href="{{ route('subscriber-types.index') }}" class="nav-link">
                                  <i class="nav-icon icon ion-md-radio-button-off"></i>
                                  <p>Subscriber type/Frequency</p>
                              </a>
