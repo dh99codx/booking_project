@@ -27,7 +27,17 @@ class BookingController extends Controller
             ->paginate(5)
             ->withQueryString();
 
-        return view('app.bookings.index', compact('bookings', 'search'));
+
+        $this->authorize('view-any', Hall::class);
+
+        $search = $request->get('search', '');
+
+        $halls = Hall::search($search)
+            ->latest()
+            ->paginate(5)
+            ->withQueryString();
+
+        return view('app.bookings.index', compact('bookings', 'search','halls'));
     }
 
     /**
